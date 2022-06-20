@@ -75,18 +75,40 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="Resources\Calculator.lnk" />
-    <None Include="Resources\Config.ini" />
+    <None Include="Resources\Calculator.lnk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Config.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\desktop.ini" />
-    <None Include="Resources\Excel 2016.lnk" />
-    <None Include="Resources\Fax Recipient.lnk" />
-    <None Include="Resources\Registry\ImportTest.reg" />
-    <None Include="Resources\Registry\InvalidKind.reg" />
-    <None Include="Resources\Registry\Kinds.reg" />
-    <None Include="Resources\Registry\NoKey.reg" />
-    <None Include="Resources\Registry\Search.reg" />
-    <None Include="Resources\Registry\TruncatedValue.reg" />
-    <None Include="Resources\Registry\ValueParts.reg" />
+    <None Include="Resources\Excel 2016.lnk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Fax Recipient.lnk">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Registry\ImportTest.reg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Registry\InvalidKind.reg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Registry\Kinds.reg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Registry\NoKey.reg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Registry\Search.reg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Registry\TruncatedValue.reg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\Registry\ValueParts.reg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Win11Tunned\Win11Tunned.csproj">
