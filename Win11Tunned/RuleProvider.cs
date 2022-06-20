@@ -18,11 +18,11 @@ public sealed class RuleProvider
 	/// <summary>
 	/// 是否载入只有管理员才能设置的优化项，对这些项目的优化需要管理员权限。
 	/// </summary>
-	public bool AdminMode { get; }
+	public PrivilegeLevel Privilege { get; }
 
-	public RuleProvider(bool adminMode)
+	public RuleProvider(PrivilegeLevel privilege)
 	{
-		AdminMode = adminMode;
+		Privilege = privilege;
 	}
 
 	internal void Initialize()
@@ -41,7 +41,7 @@ public sealed class RuleProvider
 			),
 		};
 
-		if (AdminMode)
+		if (Privilege >= PrivilegeLevel.Admin)
 		{
 			others.Add(new ExplorerFolderRule());
 			others.Add(new LLDPSecurityRule());

@@ -21,8 +21,8 @@ static class Program
 		Application.SetCompatibleTextRenderingDefault(false);
 		Application.Idle += CaptureSyncContext;
 
-		var elevated = Utils.CheckIsAdministrator();
-		var provider = new RuleProvider(elevated);
+		var privilege = Utils.CurrentUserPrivileg();
+		var provider = new RuleProvider(privilege);
 		provider.Initialize();
 
 		Application.Run(new MainWindow(provider));
