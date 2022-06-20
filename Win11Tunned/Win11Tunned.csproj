@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D34F73AF-1810-45CE-9D3A-F465635E1EB5}</ProjectGuid>
+    <LangVersion>preview</LangVersion>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Win11Tunned</RootNamespace>
+    <AssemblyName>Win11Tunned</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AspectInjector.Broker, Version=2.7.2.0, Culture=neutral, PublicKeyToken=a29e12442a3d3609, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspectInjector.2.7.2\lib\netstandard2.0\AspectInjector.Broker.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutWindow.Designer.cs">
+      <DependentUpon>AboutWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GroupPolicy.cs" />
+    <Compile Include="GroupPolicyObject.cs" />
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Optimizable.cs" />
+    <Compile Include="OptimizableSet.cs" />
+    <Compile Include="OptimizeAction.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="RegFile\RegFileReader.cs" />
+    <Compile Include="RegFile\RegFileTokenizer.cs" />
+    <Compile Include="RegFile\RegTokenType.cs" />
+    <Compile Include="RegHelper.cs" />
+    <Compile Include="RuleFileReader.cs" />
+    <Compile Include="RuleProvider.cs" />
+    <Compile Include="Rules\AppEventsRule.cs" />
+    <Compile Include="Rules\ContextMenuRule.cs" />
+    <Compile Include="Rules\ExplorerFolderRule.cs" />
+    <Compile Include="Rules\FileAttributeRule.cs" />
+    <Compile Include="Rules\GroupPolicyRule.cs" />
+    <Compile Include="Rules\LLDPSecurityRule.cs" />
+    <Compile Include="Rules\PowerShellPolicyRule.cs" />
+    <Compile Include="Rules\RegFileRule.cs" />
+    <Compile Include="Rules\Rule.cs" />
+    <Compile Include="Rules\RuleList.cs" />
+    <Compile Include="Rules\SendToRuleSet.cs" />
+    <Compile Include="Rules\ServiceRule.cs" />
+    <Compile Include="Rules\ServiceState.cs" />
+    <Compile Include="Rules\StartupMenuRule.cs" />
+    <Compile Include="Rules\TaskSchedulerSet.cs" />
+    <Compile Include="Rules\WMILoggerRule.cs" />
+    <Compile Include="SimpleIniFile.cs" />
+    <Compile Include="STAExecutor.cs" />
+    <Compile Include="TaskSchedulerManager.cs" />
+    <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="AboutWindow.resx">
+      <DependentUpon>AboutWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Resources\Registry\DisableAccessibility.reg" />
+    <EmbeddedResource Include="Resources\Registry\DisableAutoPlay.reg" />
+    <EmbeddedResource Include="Resources\Registry\DisableCrashDump.reg" />
+    <EmbeddedResource Include="Resources\Registry\DisablePerfCounter.reg" />
+    <EmbeddedResource Include="Resources\Registry\DisableSchannelLog.reg" />
+    <EmbeddedResource Include="Resources\Registry\DisableSSL.reg" />
+    <EmbeddedResource Include="Resources\Registry\DisableTLS1_0.reg" />
+    <EmbeddedResource Include="Resources\Registry\ExplorerOptions.reg" />
+    <EmbeddedResource Include="Resources\Registry\IESecurity.reg" />
+    <EmbeddedResource Include="Resources\Registry\OpenWithNotepad.reg" />
+    <EmbeddedResource Include="Resources\Registry\Taskbar.reg" />
+    <EmbeddedResource Include="Resources\Registry\VisualEffects.reg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ContextMenuRules.txt" />
+    <None Include="Resources\GroupPolicyRules.txt" />
+    <None Include="Resources\RegistryRules.txt" />
+    <None Include="Resources\SendToRules.txt" />
+    <None Include="Resources\ServiceRules.txt" />
+    <None Include="Resources\StartupRules.txt" />
+    <None Include="Resources\TaskSchdulerRules.txt" />
+    <None Include="Resources\UserRegistryRules.txt" />
+    <None Include="Resources\WMILoggerRules.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AspectInjector.2.7.2\analyzers\dotnet\cs\AspectInjector.Analyzer.dll" />
+    <Analyzer Include="..\packages\AspectInjector.2.7.2\analyzers\dotnet\cs\AspectInjector.Broker.dll" />
+    <Analyzer Include="..\packages\AspectInjector.2.7.2\analyzers\dotnet\cs\AspectInjector.Rules.dll" />
+    <Analyzer Include="..\packages\AspectInjector.2.7.2\analyzers\dotnet\cs\FluentIL.Common.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Shell32">
+      <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="TaskScheduler">
+      <Guid>{E34CB9F1-C7F7-424C-BE29-027DCC09363A}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AspectInjector.2.7.2\build\netstandard2.0\AspectInjector.targets" Condition="Exists('..\packages\AspectInjector.2.7.2\build\netstandard2.0\AspectInjector.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\AspectInjector.2.7.2\build\netstandard2.0\AspectInjector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AspectInjector.2.7.2\build\netstandard2.0\AspectInjector.targets'))" />
+  </Target>
+</Project>

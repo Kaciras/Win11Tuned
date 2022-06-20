@@ -1,0 +1,60 @@
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext
+DisableAddonLoadTimePerformanceNotifications
+1
+关闭 IE 加载项性能通知
+防止出现打开IE浏览器状态栏提示关闭加载项来提高浏览器运行速度的提示。
+
+HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Suggested Sites
+Enabled
+0
+IE 打开建议的网站
+建议你妈逼，老子看啥要你指点？
+
+HKLM\SOFTWARE\Policies\Microsoft\WindowsStore
+AutoDownload
+2
+关闭应用商店的自动更新
+看到自动更新就烦,WIn8 的鸡肋商店我也从来不用。
+
+HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main
+DisableFirstRunCustomize
+1
+禁用首次运行向导
+全是没卵用的配置，浪费启动时间。
+
+HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
+NoDriveTypeAutoRun
+255
+关闭自动播放
+纯属垃圾功能还有安全风险，不是残疾人都该禁掉。
+
+HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat
+DisablePCA
+1
+关闭程序兼容性助手
+屁用没有的玩意，兼容性怎样还用你来分析？
+
+HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat
+DisablePropPage
+1
+关闭程序兼容性属性页
+屁用没有的玩意，遇到不兼容的情况从来没在这个配置页里解决过。
+
+HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat
+DisableEngine
+1
+关闭应用程序兼容性引擎
+为提升兼容性，微软给一些曾经流行的老软件做了适配，在每次启动应用时都会检查，关闭后提升性能，但老软件可能无法运行。
+
+HKLM\SOFTWARE\Policies\Microsoft\Windows Defender
+DisableAntiSpyware
+1
+关闭 Windows Defender
+我自己是不用杀毒软件的，如果要用还是别关。
+
+# 这个是用户配置里的，注意不要带 GUID 部分，因为底层 API 会处理。
+HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments
+SaveZoneInformation
+1
+附件不保留区域信息
+禁止提醒下载的文件来自其他计算机有风险，这东西还会造成 Office 提醒内存不足的错误。

@@ -1,0 +1,11 @@
+增加 ReadyBoot 日志文件大小
+增加日志文件上限到40MB，解决事件日志里 Circular Kernel Context Logger 停止的问题
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\WMI\Autologger\ReadyBoot
+null
+40
+
+启用 AirSpaceChannel 日志文件循环选项
+解决日志文件溢满导致 EventLog-AirSpaceChannel 已停止的问题
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\WMI\Autologger\EventLog-AirSpaceChannel
+true
+null

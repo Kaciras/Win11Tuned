@@ -1,0 +1,89 @@
+BFE
+Windows 安全平台的核心服务，防火墙和杀毒软件都需要，如果不用它们倒是可以关了
+Disabled
+
+DPS
+屁用没有的诊断功能，出了问题不 Google 谁看这玩意
+Disabled
+
+DiagTrack
+给诊断服务提供数据的，如果不用诊断功能可以关了，据某些用户说会占用较多资源
+Disabled
+
+hidserv
+不用特殊输入设备的不需要，该服务还容易被攻击者利用
+Disabled
+
+HomeGroupProvider
+家庭组的服务，这功能我没见人用过，也可能因为我还不是家长吧
+Disabled
+
+ShellHWDetection
+这年头谁还玩光盘自动播放，该服务还容易被攻击者利用
+Disabled
+
+LanmanServer
+服务器文件共享才需要，家用机可以关掉
+Disabled
+
+LanmanWorkstation
+用 SMB 协议做文件共享的服务，办公室可能需要，不用的话可以关掉
+Disabled
+
+lmhosts
+办公室远程控制打印机、文件才需要
+Disabled
+
+WSearch
+系统自带的搜索功能，并不是每个人都需要，还耗磁盘
+Disabled
+
+PcaSvc
+啥卵用都没有的兼容性助手
+Disabled
+
+IKEEXT
+某些协议的VPN需要这个服务，不用的话可以关掉
+Disabled
+
+WPDBusEnum
+反正我是没用过什么可移动大容量存储设备
+Disabled
+
+TrkWks
+没几个人会把NTFS文件链接到远程计算机
+Disabled
+
+PolicyAgent
+关掉后防火墙不能使用 IPSec 策略，个人机一般用不着
+Disabled
+
+SSDPSRV
+Upnp 设备个人机不常用
+Disabled
+
+iphlpsvc
+我从没用过它说的这些高级功能
+Disabled
+
+NcaSvc
+不知道是什么玩意，依赖 IP Helper，禁了也没发现有什么问题。
+Disabled
+
+WinHttpAutoProxySvc
+该服务使应用程序支持WPAD协议的应用，因为大多数的情况下不会用到.建议关闭
+Disabled
+
+SCardSvr
+智能卡这东西一般用户用不到，你要没有就禁掉
+Disabled
+
+stisvc
+不知道有啥用，禁止了照样能开摄像头
+Disabled
+
+# 以下是非 Windows 服务
+
+igfxCUIService1.0.0.0
+Intel 显卡的控制面板服务，如果不需要再改设置就可以关了
+Disabled

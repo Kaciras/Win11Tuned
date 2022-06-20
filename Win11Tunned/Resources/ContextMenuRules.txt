@@ -1,0 +1,41 @@
+shellex\ContextMenuHandlers\Compatibility
+执行文件 - 兼容性疑难解答
+出了问题不去谷歌，看这解答有个卵用。
+exefile
+
+shellex\ContextMenuHandlers\Library Location
+文件夹 - 包含到库中
+我不用这个系统自带的各种库文件夹，如果要用请勿删除。
+Folder
+
+shellex\ContextMenuHandlers\{90AA3A4E-1CBA-4233-B8BB-535773D48449}
+所有文件 - 固定到任务栏
+直接往任务栏上拖即可
+*
+
+shell\AnyCode
+文件夹及其背景 - Open with Visual Studio
+没啥用纯看着碍眼。
+Directory
+Directory\background
+
+shell\edit
+各种纯文本类文件 - 编辑
+跟"记事本打开"的功能重复了，删之。
+cmdfile
+batfile
+xmlfile
+regfile
+SystemFileAssociations\text
+
+Shell\setdesktopwallpaper
+各种媒体文件 - 设为桌面背景
+一般在播放器里都有这功能，就不放在菜单上占位置了。
+:SEARCH
+SystemFileAssociations
+
+ShellEx\ContextMenuHandlers\ShellImagePreview
+各种媒体文件 - 预览
+想看图用默认的打开即可，这个完全没用啊。
+:SEARCH
+SystemFileAssociations
