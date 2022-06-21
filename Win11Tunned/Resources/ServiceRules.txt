@@ -1,6 +1,7 @@
-BFE
-Windows 安全平台的核心服务，防火墙和杀毒软件都需要，如果不用它们倒是可以关了
-Disabled
+# 多个服务依赖它，等实现了依赖检测后再说
+#BFE
+#Windows 安全平台的核心服务，防火墙和杀毒软件都需要，如果不用它们倒是可以关了
+#Disabled
 
 DPS
 屁用没有的诊断功能，出了问题不 Google 谁看这玩意
@@ -30,6 +31,11 @@ IKEEXT
 某些协议的 VPN 需要这个服务，不用的话可以关掉
 Disabled
 
+# 默认手动
+SecurityHealthService
+如果你关闭了安全中心监视的某项，他会不停地提示你，很烦人建议关了
+Disabled
+
 TrkWks
 个人用户很少会把 NTFS 文件链接到远程计算机
 Disabled
@@ -50,6 +56,61 @@ NcaSvc
 不知道是什么玩意，依赖 IP Helper，禁了也没发现有什么问题。
 Disabled
 
-WinHttpAutoProxySvc
-该服务使应用程序支持 WPAD 协议的应用，因为大多数的情况下不会用到.建议关闭
+# 禁用后【网络和 Internet/代理】显示异常
+#WinHttpAutoProxySvc
+#该服务使应用程序支持 WPAD 协议的应用，因为大多数的情况下不会用到.建议关闭
+#Disabled
+
+# https://blog.csdn.net/hyongilfmmm/article/details/116115664
+
+CDPUserSvc
+通过微软账户同步历史和一些配置，禁用后【活动历史记录】和【Windows备份】无法使用。
+Disabled
+
+OneSyncSvc
+通过微软账户同步邮件、联系人等，不需要同步的可以禁用。
+Disabled
+
+cbdhsvc
+系统自带的剪贴板同步功能，禁用后【系统/剪贴板】点击无响应，Win+V 功能无法使用，普通的复制粘贴无影响。
+Disabled
+
+# ================ HP 服务 ================
+
+HpTouchpointAnalyticsService
+惠普电脑的垃圾服务
+Disabled
+
+HPAppHelperCap
+惠普电脑的垃圾服务
+Disabled
+
+HPDiagsCap
+惠普电脑的垃圾服务
+Disabled
+
+HotKeyServiceUWP
+惠普电脑的垃圾服务
+Disabled
+
+LanWlanWwanSwitchingServiceUWP
+惠普电脑的垃圾服务
+Disabled
+
+HPNetworkCap
+惠普电脑的垃圾服务
+Disabled
+
+HPSysInfoCap
+惠普电脑的垃圾服务
+Disabled
+
+HP TechPulse Core
+惠普电脑的垃圾服务
+Disabled
+
+# ============== AMD 硬件相关 ==============
+
+AMD Crash Defender Service
+看名字好像能防系统崩溃，但实际上它只是上传日志，对你的系统没有任何价值
 Disabled
