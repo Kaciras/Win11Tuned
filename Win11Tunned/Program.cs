@@ -21,6 +21,9 @@ static class Program
 		Application.SetCompatibleTextRenderingDefault(false);
 		Application.Idle += CaptureSyncContext;
 
+		TokenManipulator.AddPrivilege("SeTakeOwnershipPrivilege");
+		TokenManipulator.AddPrivilege("SeRestorePrivilege");
+
 		var privilege = Utils.CurrentUserPrivileg();
 		var provider = new RuleProvider(privilege);
 		provider.Initialize();

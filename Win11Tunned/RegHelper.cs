@@ -130,7 +130,7 @@ public static class RegHelper
 		var key = baseKey.OpenSubKey(
 			name,
 			RegistryKeyPermissionCheck.ReadWriteSubTree,
-			RegistryRights.ChangePermissions);
+			RegistryRights.TakeOwnership);
 
 		if (key == null)
 		{
@@ -146,9 +146,10 @@ public static class RegHelper
 	public readonly struct TemporaryElevateSession : IDisposable
 	{
 		readonly RegistryKey key;
-
 		readonly RegistryAccessRule rule;
-		readonly RegistryAccessRule old;
+
+		readonly IdentityReference oldOwner;
+		readonly RegistryAccessRule oldRule;
 
 		internal TemporaryElevateSession(RegistryKey key, RegistryAccessRule rule)
 		{
@@ -156,9 +157,13 @@ public static class RegHelper
 			this.rule = rule;
 
 			var security = key.GetAccessControl();
-
 			var identity = rule.IdentityReference;
-			old = security.GetAccessRules(true, false, identity.GetType())
+
+			oldOwner = security.GetOwner(typeof(SecurityIdentifier));
+			security.SetOwner(identity);
+			key.SetAccessControl(security);
+
+			oldRule = security.GetAccessRules(true, false, identity.GetType())
 				.Cast<RegistryAccessRule>()
 				.FirstOrDefault(r => r.IdentityReference.Equals(identity));
 
@@ -175,14 +180,16 @@ public static class RegHelper
 			if (current != null)
 			{
 				var accessControl = current.GetAccessControl();
-				if (old != null)
+				if (oldRule != null)
 				{
-					accessControl.SetAccessRule(old);
+					accessControl.SetAccessRule(oldRule);
 				}
 				else
 				{
 					accessControl.RemoveAccessRule(rule);
 				}
+
+				accessControl.SetOwner(oldOwner);
 				current.SetAccessControl(accessControl);
 			}
 		}
