@@ -133,16 +133,10 @@
   <data name="ServiceRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ServiceRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
-  <data name="StartupRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\StartupRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="TaskSchdulerRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TaskSchdulerRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="UserRegistryRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UserRegistryRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="WMILoggerRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\WMILoggerRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
 </root>

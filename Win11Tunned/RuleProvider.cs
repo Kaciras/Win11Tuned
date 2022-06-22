@@ -28,7 +28,6 @@ public sealed class RuleProvider
 	internal void Initialize()
 	{
 		LoadRuleFile("系统设置（用户）", Resources.UserRegistryRules, ReadRegistry);
-		LoadRuleFile("开始菜单（用户）", Resources.StartupRules, ReadStartupMenu);
 		RuleSets.Add(new SendToRuleSet());
 
 		var others = new List<Rule> {
@@ -44,7 +43,6 @@ public sealed class RuleProvider
 		if (Privilege >= PrivilegeLevel.Admin)
 		{
 			others.Add(new ExplorerFolderRule());
-			others.Add(new LLDPSecurityRule());
 			others.Add(new PowerShellPolicyRule());
 			others.Add(new RegFileRule(
 				"把用记事本打开添加到右键菜单",
@@ -54,11 +52,9 @@ public sealed class RuleProvider
 
 			RuleSets.Add(new TaskSchedulerSet());
 
-			LoadRuleFile("性能数据收集器", Resources.WMILoggerRules, ReadWmiLogger);
 			LoadRuleFile("组策略", Resources.GroupPolicyRules, ReadGroupPolicy);
 			LoadRuleFile("右键菜单清理", Resources.ContextMenuRules, ReadContextMenu);
 			LoadRuleFile("服务", Resources.ServiceRules, ReadService);
-			LoadRuleFile("开始菜单", Resources.StartupRules, ReadStartupMenu);
 			LoadRuleFile("系统设置", Resources.RegistryRules, ReadRegistry);
 		}
 
@@ -84,11 +80,6 @@ public sealed class RuleProvider
 		var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(name);
 		using var reader = new StreamReader(stream);
 		return reader.ReadToEnd();
-	}
-
-	static Rule ReadStartupMenu(RuleFileReader reader)
-	{
-		return new StartupMenuRule(true, reader.Read(), reader.Read());
 	}
 
 	static Rule ReadService(RuleFileReader reader)
@@ -127,20 +118,5 @@ public sealed class RuleProvider
 	static Rule ReadGroupPolicy(RuleFileReader reader)
 	{
 		return new GroupPolicyRule(reader.Read(), reader.Read(), reader.Read(), reader.Read(), reader.Read());
-	}
-
-	static Rule ReadWmiLogger(RuleFileReader reader)
-	{
-		var name = reader.Read();
-		var description = reader.Read();
-		var key = reader.Read();
-
-		var cy = reader.Read();
-		bool? cycle = cy == "null" ? null : bool.Parse(cy);
-
-		var fs = reader.Read();
-		int? fileSize = fs == "null" ? null : int.Parse(fs);
-
-		return new WMILoggerRule(name, description, key, cycle, fileSize);
 	}
 }

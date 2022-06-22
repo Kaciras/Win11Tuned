@@ -3,8 +3,5 @@
 Compressed (zipped) Folder.ZFSendToTarget
 有专门压缩软件来做了。
 
-Mail Recipient.MAPIMail
-邮件这么正式的东西还是不用这么快捷的方法。
-
 文档.mydocs
 就是个直接复制到用户的文档目录，可惜我不用它。

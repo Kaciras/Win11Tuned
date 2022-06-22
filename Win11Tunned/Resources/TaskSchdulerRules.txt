@@ -4,6 +4,9 @@ Microsoft\Windows\Application Experience
 Microsoft\Windows\Autochk
 客户体验改善计划相关的任务，没同意的可以删了
 
+Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector
+客户体验改善计划相关的任务，没同意的可以删了
+
 Microsoft\Windows\Customer Experience Improvement Program
 全是客户体验改善计划，不参加的直接删光光
 
@@ -15,6 +18,9 @@ Microsoft\Windows\DiskCleanup\SilentCleanup
 什么傻逼任务，磁盘空间不足还用你来提示？？？
 :DISABLE
 
+Microsoft\Windows\Windows Error Reporting\QueueReporting
+定期向 Microsoft 发送错误报告，不想发的可以删了
+
 Microsoft\Windows\SkyDrive
 SkyDrive 目录里两个同步任务是万恶之源，老在日志里报错，不用就删掉
 
@@ -25,13 +31,10 @@ Microsoft\Windows\UPnP\UPnPHostConfig
 Microsoft\Office\Office 15 Subscription Heartbeat
 如果你没有订阅 Office 就可以删除此任务
 
-Microsoft\Windows\Mobile Broadband Accounts\MNO Metadata Parser
-没用的垃圾，听说还会收集数据，直接禁用
-:DISABLE
-
-Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector
-客户体验改善计划相关的任务，没同意的可以删了
-
 Microsoft\Windows\Defrag\ScheduledDefrag
 整理磁盘碎片的任务，想手动运行的可以禁用它。该任务也可以在碎片整理和优化驱动器工具里修改。
+:DISABLE
+
+HP\Consent Manager Launcher
+如果禁用了 HP Analytics Service 服务则应该把它也禁了
 :DISABLE

@@ -81,12 +81,12 @@
     <Compile Include="RegHelper.cs" />
     <Compile Include="RuleFileReader.cs" />
     <Compile Include="RuleProvider.cs" />
+    <Compile Include="Rules\AggregatedRule.cs" />
     <Compile Include="Rules\AppEventsRule.cs" />
     <Compile Include="Rules\ContextMenuRule.cs" />
     <Compile Include="Rules\ExplorerFolderRule.cs" />
     <Compile Include="Rules\FileAttributeRule.cs" />
     <Compile Include="Rules\GroupPolicyRule.cs" />
-    <Compile Include="Rules\LLDPSecurityRule.cs" />
     <Compile Include="Rules\PowerShellPolicyRule.cs" />
     <Compile Include="Rules\RegFileRule.cs" />
     <Compile Include="Rules\Rule.cs" />
@@ -96,10 +96,10 @@
     <Compile Include="Rules\ServiceState.cs" />
     <Compile Include="Rules\StartupMenuRule.cs" />
     <Compile Include="Rules\TaskSchedulerSet.cs" />
-    <Compile Include="Rules\WMILoggerRule.cs" />
     <Compile Include="SimpleIniFile.cs" />
     <Compile Include="STAExecutor.cs" />
     <Compile Include="TaskSchedulerManager.cs" />
+    <Compile Include="TokenManipulator.cs" />
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="AboutWindow.resx">
       <DependentUpon>AboutWindow.cs</DependentUpon>
@@ -125,10 +125,6 @@
     <EmbeddedResource Include="Resources\Registry\DisableAccessibility.reg" />
     <EmbeddedResource Include="Resources\Registry\DisableAutoPlay.reg" />
     <EmbeddedResource Include="Resources\Registry\DisableCrashDump.reg" />
-    <EmbeddedResource Include="Resources\Registry\DisablePerfCounter.reg" />
-    <EmbeddedResource Include="Resources\Registry\DisableSchannelLog.reg" />
-    <EmbeddedResource Include="Resources\Registry\DisableSSL.reg" />
-    <EmbeddedResource Include="Resources\Registry\DisableTLS1_0.reg" />
     <EmbeddedResource Include="Resources\Registry\ExplorerOptions.reg" />
     <EmbeddedResource Include="Resources\Registry\IESecurity.reg" />
     <EmbeddedResource Include="Resources\Registry\OpenWithNotepad.reg" />
@@ -142,12 +138,12 @@
     <None Include="Resources\ContextMenuRules.txt" />
     <None Include="Resources\GroupPolicyRules.txt" />
     <None Include="Resources\RegistryRules.txt" />
+    <EmbeddedResource Include="Resources\Registry\DisableStartupSound.reg" />
+    <EmbeddedResource Include="Resources\Registry\DisablePerfDiagLogger.reg" />
     <None Include="Resources\SendToRules.txt" />
     <None Include="Resources\ServiceRules.txt" />
-    <None Include="Resources\StartupRules.txt" />
     <None Include="Resources\TaskSchdulerRules.txt" />
     <None Include="Resources\UserRegistryRules.txt" />
-    <None Include="Resources\WMILoggerRules.txt" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\AspectInjector.2.7.2\analyzers\dotnet\cs\AspectInjector.Analyzer.dll" />
