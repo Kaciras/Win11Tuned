@@ -24,8 +24,8 @@ static class Program
 		TokenManipulator.AddPrivilege("SeTakeOwnershipPrivilege");
 		TokenManipulator.AddPrivilege("SeRestorePrivilege");
 
-		var privilege = Utils.CurrentUserPrivileg();
-		var provider = new RuleProvider(privilege);
+		var isAdmin = Utils.CheckIsAdministrator();
+		var provider = new RuleProvider(isAdmin);
 		provider.Initialize();
 
 		Application.Run(new MainWindow(provider));

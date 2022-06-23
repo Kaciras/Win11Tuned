@@ -9,43 +9,6 @@ using Shell32;
 
 namespace Win11Tunned;
 
-/// <summary>
-/// Indicates how much power the current account has. Usage example:
-/// 
-/// <code>
-/// var privilege = Utils.CurrentUserPrivileg();
-/// var another = PrivilegeLevel.Admin;
-/// 
-/// // current user is standard account.
-/// if (privilege == PrivilegeLevel.Standard) {}
-/// 
-/// // check whatever current user has more privileges than another.
-/// if (privilege > another) {}
-/// 
-/// // current user is an administrator.
-/// if (privilege >= PrivilegeLevel.Admin) {}
-/// </code>
-/// </summary>
-public enum PrivilegeLevel
-{
-	/// <summary>
-	/// Standard user cannot modify system wide config.
-	/// </summary>
-	Standard = 0x00,
-
-	/// <summary>
-	/// Administrator created by user or first time setup.
-	/// </summary>
-	Admin = 0x01,
-
-	/// <summary>
-	/// Built-in administrator has more power than administrators.
-	/// <br/>
-	/// This account is disabled by default, you can enable it in MMC. 
-	/// </summary>
-	BuiltInAdmin = 0x11,
-}
-
 internal static class Utils
 {
 	/// <summary>
@@ -60,20 +23,11 @@ internal static class Utils
 	/// 获取当前运行程序的用户，并检测其是否具有管理员权限。
 	/// </summary>
 	/// <seealso cref="https://stackoverflow.com/a/5953294/7065321"/>
-	public static PrivilegeLevel CurrentUserPrivileg()
+	public static bool CheckIsAdministrator()
 	{
 		using var identity = WindowsIdentity.GetCurrent();
-
 		var principal = new WindowsPrincipal(identity);
-		if (!principal.IsInRole(WindowsBuiltInRole.Administrator))
-		{
-			return PrivilegeLevel.Standard;
-		}
-
-		var domain = identity.User.AccountDomainSid.Value;
-		var id = identity.User.Value.Substring(domain.Length + 1);
-
-		return id == "500" ? PrivilegeLevel.BuiltInAdmin : PrivilegeLevel.Admin;
+		return principal.IsInRole(WindowsBuiltInRole.Administrator);
 	}
 
 	/// <summary>

@@ -18,11 +18,11 @@ public sealed class RuleProvider
 	/// <summary>
 	/// 是否载入只有管理员才能设置的优化项，对这些项目的优化需要管理员权限。
 	/// </summary>
-	public PrivilegeLevel Privilege { get; }
+	public bool AdminMode { get; }
 
-	public RuleProvider(PrivilegeLevel privilege)
+	public RuleProvider(bool adminMode)
 	{
-		Privilege = privilege;
+		AdminMode = adminMode;
 	}
 
 	internal void Initialize()
@@ -40,7 +40,7 @@ public sealed class RuleProvider
 			),
 		};
 
-		if (Privilege >= PrivilegeLevel.Admin)
+		if (AdminMode)
 		{
 			var appx = new AppxRuleSet();
 			RuleSets.Add(appx);

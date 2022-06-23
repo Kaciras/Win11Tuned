@@ -17,14 +17,9 @@ sealed partial class MainWindow : Form
 		InitializeComponent();
 		CheckForIllegalCrossThreadCalls = false;
 
-		if (provider.Privilege == PrivilegeLevel.BuiltInAdmin)
+		if (provider.AdminMode)
 		{
 			roleLabel.ForeColor = Color.DeepPink;
-			roleLabel.Text = "内置管理员";
-		}
-		else if (provider.Privilege == PrivilegeLevel.Admin)
-		{
-			roleLabel.ForeColor = Color.Blue;
 			roleLabel.Text = "管理员";
 		}
 		else
