@@ -41,8 +41,8 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AspectInjector.Broker, Version=2.7.2.0, Culture=neutral, PublicKeyToken=a29e12442a3d3609, processorArchitecture=MSIL">
-      <HintPath>..\packages\AspectInjector.2.7.2\lib\netstandard2.0\AspectInjector.Broker.dll</HintPath>
+    <Reference Include="AspectInjector.Broker, Version=2.7.3.0, Culture=neutral, PublicKeyToken=a29e12442a3d3609, processorArchitecture=MSIL">
+      <HintPath>..\packages\AspectInjector.2.7.3\lib\netstandard2.0\AspectInjector.Broker.dll</HintPath>
     </Reference>
     <Reference Include="System.Management.Automation" />
     <Reference Include="System" />
@@ -87,7 +87,6 @@
     <Compile Include="RegHelper.cs" />
     <Compile Include="RuleFileReader.cs" />
     <Compile Include="RuleProvider.cs" />
-    <Compile Include="Rules\AggregatedRule.cs" />
     <Compile Include="Rules\AppEventsRule.cs" />
     <Compile Include="Rules\AppxRuleSet.cs" />
     <Compile Include="Rules\ContextMenuRule.cs" />
@@ -153,12 +152,6 @@
     <None Include="Resources\UserRegistryRules.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Analyzer Include="..\packages\AspectInjector.2.7.2\analyzers\dotnet\cs\AspectInjector.Analyzer.dll" />
-    <Analyzer Include="..\packages\AspectInjector.2.7.2\analyzers\dotnet\cs\AspectInjector.Broker.dll" />
-    <Analyzer Include="..\packages\AspectInjector.2.7.2\analyzers\dotnet\cs\AspectInjector.Rules.dll" />
-    <Analyzer Include="..\packages\AspectInjector.2.7.2\analyzers\dotnet\cs\FluentIL.Common.dll" />
-  </ItemGroup>
-  <ItemGroup>
     <COMReference Include="Shell32">
       <Guid>{50A7E9B0-70EF-11D1-B75A-00A0C90564FE}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -178,12 +171,18 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\AspectInjector.2.7.3\analyzers\dotnet\cs\AspectInjector.Analyzer.dll" />
+    <Analyzer Include="..\packages\AspectInjector.2.7.3\analyzers\dotnet\cs\AspectInjector.Broker.dll" />
+    <Analyzer Include="..\packages\AspectInjector.2.7.3\analyzers\dotnet\cs\AspectInjector.Rules.dll" />
+    <Analyzer Include="..\packages\AspectInjector.2.7.3\analyzers\dotnet\cs\FluentIL.Common.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\packages\AspectInjector.2.7.2\build\netstandard2.0\AspectInjector.targets" Condition="Exists('..\packages\AspectInjector.2.7.2\build\netstandard2.0\AspectInjector.targets')" />
+  <Import Project="..\packages\AspectInjector.2.7.3\build\netstandard2.0\AspectInjector.targets" Condition="Exists('..\packages\AspectInjector.2.7.3\build\netstandard2.0\AspectInjector.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\AspectInjector.2.7.2\build\netstandard2.0\AspectInjector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AspectInjector.2.7.2\build\netstandard2.0\AspectInjector.targets'))" />
+    <Error Condition="!Exists('..\packages\AspectInjector.2.7.3\build\netstandard2.0\AspectInjector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AspectInjector.2.7.3\build\netstandard2.0\AspectInjector.targets'))" />
   </Target>
 </Project>
