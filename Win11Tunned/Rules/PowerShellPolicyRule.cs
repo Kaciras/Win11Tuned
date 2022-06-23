@@ -1,4 +1,7 @@
-﻿namespace Win11Tunned.Rules;
+﻿using System.Management.Automation;
+using Microsoft.PowerShell;
+
+namespace Win11Tunned.Rules;
 
 /// <summary>
 /// 实现上因为没找到 System.Management.Automation.dll 的引用，所以采用了命令行的方式，灵活性会差点。
@@ -11,14 +14,20 @@ public sealed class PowerShellPolicyRule : Rule
 
 	public string Description => "默认不让执行脚本太严了，该策略并不能提高系统的安全性，只是用来防止无意的操作，故改为与 Windows Server 一致的宽松策略。";
 
-	public bool NeedOptimize()
+ 	public bool NeedOptimize()
 	{
-		var proc = Utils.Execute("powershell", "Get-ExecutionPolicy");
-		return proc.StandardOutput.ReadToEnd().TrimEnd() == "Restricted";
+		var result = PowerShell.Create()
+			.AddCommand("Get-ExecutionPolicy")
+			.Invoke<ExecutionPolicy>();
+
+		return result[0] == ExecutionPolicy.Restricted;
 	}
 
 	public void Optimize()
 	{
-		Utils.Execute("powershell", "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine");
+		PowerShell.Create()
+			.AddCommand("Set-ExecutionPolicy")
+			.AddParameter("ExecutionPolicy", "RemoteSigned")
+			.AddParameter("Scope", "LocalMachine").Invoke();
 	}
 }
