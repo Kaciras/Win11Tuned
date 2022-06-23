@@ -1,3 +1,7 @@
+不播放 Windows 启动声音
+看个人喜好，我是比较喜欢安静一点的
+DisableStartupSound
+
 禁止系统失败后写入调试信息
 不做系统相关开发的话这些调试信息鸟用没有，如果禁用了虚拟内存还会在事件日志里报错。
 DisableCrashDump
