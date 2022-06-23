@@ -44,11 +44,17 @@
     <Reference Include="AspectInjector.Broker, Version=2.7.2.0, Culture=neutral, PublicKeyToken=a29e12442a3d3609, processorArchitecture=MSIL">
       <HintPath>..\packages\AspectInjector.2.7.2\lib\netstandard2.0\AspectInjector.Broker.dll</HintPath>
     </Reference>
+    <Reference Include="System.Management.Automation" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Windows">
+      <HintPath>..\..\..\..\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AboutWindow.cs">
@@ -83,6 +89,7 @@
     <Compile Include="RuleProvider.cs" />
     <Compile Include="Rules\AggregatedRule.cs" />
     <Compile Include="Rules\AppEventsRule.cs" />
+    <Compile Include="Rules\AppxRuleSet.cs" />
     <Compile Include="Rules\ContextMenuRule.cs" />
     <Compile Include="Rules\ExplorerFolderRule.cs" />
     <Compile Include="Rules\FileAttributeRule.cs" />

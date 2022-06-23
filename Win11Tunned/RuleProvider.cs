@@ -42,6 +42,37 @@ public sealed class RuleProvider
 
 		if (Privilege >= PrivilegeLevel.Admin)
 		{
+			var appx = new AppxRuleSet();
+			RuleSets.Add(appx);
+
+			appx.Add("Microsoft.BingNews");
+			appx.Add("Microsoft.GetHelp");
+			appx.Add("Microsoft.Getstarted");
+			appx.Add("Microsoft.Messaging");
+			appx.Add("Microsoft.Microsoft3DViewer*");
+			appx.Add("Microsoft.MicrosoftOfficeHub");
+			appx.Add("Microsoft.MicrosoftSolitaireCollection");
+			appx.Add("Microsoft.NetworkSpeedTest");
+			appx.Add("Microsoft.Office.Sway");
+			appx.Add("Microsoft.OneConnect");
+			appx.Add("Microsoft.People");
+			appx.Add("Microsoft.Print3D");
+			appx.Add("Microsoft.SkypeApp");
+			appx.Add("Microsoft.WindowsAlarms");
+			appx.Add("Microsoft.WindowsCamera");
+			appx.Add("microsoft.windowscommunicationsapps");
+			appx.Add("Microsoft.WindowsFeedbackHub");
+			appx.Add("Microsoft.WindowsMaps");
+			appx.Add("Microsoft.WindowsSoundRecorder");
+			appx.Add("Microsoft.Xbox.TCUI");
+			appx.Add("Microsoft.XboxApp");
+			appx.Add("Microsoft.XboxGameOverlay");
+			appx.Add("Microsoft.XboxIdentityProvider");
+			appx.Add("Microsoft.XboxSpeechToTextOverlay");
+			appx.Add("Microsoft.ZuneMusic");
+			appx.Add("Microsoft.ZuneVideo");
+			appx.Add("Microsoft.BingWeather");
+
 			others.Add(new ExplorerFolderRule());
 			others.Add(new PowerShellPolicyRule());
 			others.Add(new RegFileRule(
