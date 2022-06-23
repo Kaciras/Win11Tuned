@@ -11,12 +11,6 @@ DisablePCA
 屁用没有的玩意，兼容性怎样还用你来分析？
 
 HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat
-DisablePropPage
-1
-关闭程序兼容性属性页
-屁用没有的玩意，遇到不兼容的情况从来没在这个配置页里解决过。
-
-HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat
 DisableEngine
 1
 关闭应用程序兼容性引擎
