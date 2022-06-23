@@ -124,7 +124,7 @@ public static class RegHelper
 	/// <param name="key">键</param>
 	/// <returns>一个可销毁对象，在销毁时还原键的权限</returns>
 	/// <see cref="https://stackoverflow.com/a/6491052"/>
-	public static TemporaryElevateSession Elevate(RegistryKey baseKey, string name)
+	public static RegistryElevateSession Elevate(RegistryKey baseKey, string name)
 	{
 		// 这几个权限枚举得设对，否则要么打不开要么无法改权限。
 		var key = baseKey.OpenSubKey(
@@ -140,10 +140,10 @@ public static class RegHelper
 		var user = WindowsIdentity.GetCurrent().User;
 		var rule = new RegistryAccessRule(user, RegistryRights.FullControl, AccessControlType.Allow);
 
-		return new TemporaryElevateSession(key, rule);
+		return new RegistryElevateSession(key, rule);
 	}
 
-	public readonly struct TemporaryElevateSession : IDisposable
+	public readonly struct RegistryElevateSession : IDisposable
 	{
 		readonly RegistryKey key;
 		readonly RegistryAccessRule rule;
@@ -151,7 +151,7 @@ public static class RegHelper
 		readonly IdentityReference oldOwner;
 		readonly RegistryAccessRule oldRule;
 
-		internal TemporaryElevateSession(RegistryKey key, RegistryAccessRule rule)
+		internal RegistryElevateSession(RegistryKey key, RegistryAccessRule rule)
 		{
 			this.key = key;
 			this.rule = rule;

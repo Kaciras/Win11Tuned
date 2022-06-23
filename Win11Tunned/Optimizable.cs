@@ -1,4 +1,6 @@
-﻿namespace Win11Tunned;
+﻿using System.Threading.Tasks;
+
+namespace Win11Tunned;
 
 public interface Optimizable
 {

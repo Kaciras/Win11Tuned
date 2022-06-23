@@ -14,7 +14,7 @@ public sealed class PowerShellPolicyRule : Rule
 
 	public string Description => "默认不让执行脚本太严了，该策略并不能提高系统的安全性，只是用来防止无意的操作，故改为与 Windows Server 一致的宽松策略。";
 
- 	public bool NeedOptimize()
+	public bool NeedOptimize()
 	{
 		var result = PowerShell.Create()
 			.AddCommand("Get-ExecutionPolicy")

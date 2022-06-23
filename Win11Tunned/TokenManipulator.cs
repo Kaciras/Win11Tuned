@@ -65,9 +65,9 @@ static class TokenManipulator
 	}
 
 	static void Check(bool @return)
-    {
+	{
 		if (!@return)
-        {
+		{
 			var code = Marshal.GetLastWin32Error();
 			throw new SystemException($"Win32 API 调用失败，{code}");
 		}
