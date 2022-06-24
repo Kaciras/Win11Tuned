@@ -117,32 +117,26 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AdminName" xml:space="preserve">
-    <value>Admin</value>
+  <data name="closeButton.Text" xml:space="preserve">
+    <value>关闭</value>
   </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ContextMenuRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ContextMenuRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>304, 15</value>
   </data>
-  <data name="GroupPolicyRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GroupPolicyRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="label1.Text" xml:space="preserve">
+    <value>本程序完全免费，并使用 GPL-3.0 协议开源</value>
   </data>
-  <data name="RegistryRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RegistryRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="nameLabel.Text" xml:space="preserve">
+    <value>Kaciras 的 Win11 优化工具</value>
   </data>
-  <data name="SendToRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SendToRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="versionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 15</value>
   </data>
-  <data name="ServiceRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ServiceRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  <data name="versionLabel.Text" xml:space="preserve">
+    <value>版本 {0}，更新于 {1}</value>
   </data>
-  <data name="TaskSchdulerRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TaskSchdulerRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="UserRegistryRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\UserRegistryRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="UserTooltip" xml:space="preserve">
-    <value>Some optimizations require administrator privileges</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>关于</value>
   </data>
 </root>

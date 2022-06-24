@@ -9,8 +9,8 @@ sealed partial class AboutWindow : Form
 	{
 		InitializeComponent();
 
-		var version = typeof(AboutWindow).Assembly.GetName().Version;
-		versionLabel.Text = $"版本 {version.ToString(3)}，更新于 2022-4-20";
+		var version = typeof(AboutWindow).Assembly.GetName().Version.ToString(3);
+		versionLabel.Text = string.Format(versionLabel.Text, version, "2022-4-20");
 	}
 
 	private void CloseButton_Click(object sender, EventArgs e)

@@ -61,6 +61,15 @@ namespace Win11Tunned.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Admin.
+        /// </summary>
+        internal static string AdminName {
+            get {
+                return ResourceManager.GetString("AdminName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to shellex\ContextMenuHandlers\Compatibility
         ///执行文件 - 兼容性疑难解答
         ///出了问题不去谷歌，看这解答有个卵用。
@@ -102,31 +111,32 @@ namespace Win11Tunned.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Ext
-        ///DisableAddonLoadTimePerformanceNotifications
+        ///   Looks up a localized string similar to HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
+        ///NoDriveTypeAutoRun
+        ///255
+        ///关闭自动播放
+        ///纯属垃圾功能还有安全风险，不是残疾人都该禁掉。
+        ///
+        ///HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat
+        ///DisablePCA
         ///1
-        ///关闭 IE 加载项性能通知
-        ///防止出现打开IE浏览器状态栏提示关闭加载项来提高浏览器运行速度的提示。
+        ///关闭程序兼容性助手
+        ///屁用没有的玩意，兼容性怎样还用你来分析？
         ///
-        ///HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Suggested Sites
-        ///Enabled
-        ///0
-        ///IE 打开建议的网站
-        ///建议你妈逼，老子看啥要你指点？
-        ///
-        ///HKLM\SOFTWARE\Policies\Microsoft\WindowsStore
-        ///AutoDownload
-        ///2
-        ///关闭应用商店的自动更新
-        ///看到自动更新就烦,WIn8 的鸡肋商店我也从来不用。
-        ///
-        ///HKLM\SOFTWARE\Policies\Microsoft\Internet Explorer\Main
-        ///DisableFirstRunCustomize
+        ///HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat
+        ///DisableEngine
         ///1
-        ///禁用首次运行向导
-        ///全是没卵用的配置，浪费启动时间。
+        ///关闭应用程序兼容性引擎
+        ///为提升兼容性，微软给一些曾经流行的老软件做了适配，在每次启动应用时都会检查，关闭后提升性能，但老软件可能无法运行。
         ///
-        ///HKLM\SOFTWARE\Microsoft\Windows\Curren [rest of string was truncated]&quot;;.
+        ///HKLM\SOFTWARE\Policies\Microsoft\Windows Defender
+        ///DisableAntiSpyware
+        ///1
+        ///关闭 Windows Defender
+        ///我自己是不用杀毒软件的，如果要用还是别关。
+        ///
+        ///# 这个是用户配置里的，注意不要带 GUID 部分，因为底层 API 会处理。
+        ///HKCU [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string GroupPolicyRules {
             get {
@@ -135,7 +145,11 @@ namespace Win11Tunned.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 禁止系统失败后写入调试信息
+        ///   Looks up a localized string similar to 不播放 Windows 启动声音
+        ///看个人喜好，我是比较喜欢安静一点的
+        ///DisableStartupSound
+        ///
+        ///禁止系统失败后写入调试信息
         ///不做系统相关开发的话这些调试信息鸟用没有，如果禁用了虚拟内存还会在事件日志里报错。
         ///DisableCrashDump
         ///
@@ -155,9 +169,6 @@ namespace Win11Tunned.Properties {
         ///
         ///Compressed (zipped) Folder.ZFSendToTarget
         ///有专门压缩软件来做了。
-        ///
-        ///Mail Recipient.MAPIMail
-        ///邮件这么正式的东西还是不用这么快捷的方法。
         ///
         ///文档.mydocs
         ///就是个直接复制到用户的文档目录，可惜我不用它。
@@ -224,6 +235,9 @@ namespace Win11Tunned.Properties {
         ///Microsoft\Windows\Autochk
         ///客户体验改善计划相关的任务，没同意的可以删了
         ///
+        ///Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector
+        ///客户体验改善计划相关的任务，没同意的可以删了
+        ///
         ///Microsoft\Windows\Customer Experience Improvement Program
         ///全是客户体验改善计划，不参加的直接删光光
         ///
@@ -235,14 +249,7 @@ namespace Win11Tunned.Properties {
         ///什么傻逼任务，磁盘空间不足还用你来提示？？？
         ///:DISABLE
         ///
-        ///Microsoft\Windows\SkyDrive
-        ///SkyDrive 目录里两个同步任务是万恶之源，老在日志里报错，不用就删掉
-        ///
-        ///Microsoft\Windows\UPnP\UPnPHostConfig
-        ///用不用 UPnp 服务不是你说了算，还敢在后台偷偷改
-        ///:DISABLE
-        ///
-        ///Microsoft\Offi [rest of string was truncated]&quot;;.
+        ///Microsoft\Windows\Windows Error Reporting\QueueRepor [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TaskSchdulerRules {
             get {
@@ -279,6 +286,15 @@ namespace Win11Tunned.Properties {
         internal static string UserRegistryRules {
             get {
                 return ResourceManager.GetString("UserRegistryRules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Some optimizations require administrator privileges.
+        /// </summary>
+        internal static string UserTooltip {
+            get {
+                return ResourceManager.GetString("UserTooltip", resourceCulture);
             }
         }
     }

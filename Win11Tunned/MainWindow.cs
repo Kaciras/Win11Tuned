@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Win11Tunned.Properties;
 
 namespace Win11Tunned;
 
@@ -20,13 +21,13 @@ sealed partial class MainWindow : Form
 		if (provider.AdminMode)
 		{
 			roleLabel.ForeColor = Color.DeepPink;
-			roleLabel.Text = "管理员";
+			roleLabel.Text = Resources.AdminName;
 		}
 		else
 		{
 			var tooltip = new ToolTip();
 			tooltip.AutomaticDelay = 500;
-			tooltip.SetToolTip(roleLabel, "以管理员运行才能扫描系统优化项");
+			tooltip.SetToolTip(roleLabel, Resources.UserTooltip);
 		}
 	}
 
@@ -83,11 +84,11 @@ sealed partial class MainWindow : Form
 		new AboutWindow().ShowDialog(this);
 	}
 
-	void SelectAllButton_Click(object sender, EventArgs e) => ChangeAllChecked(true);
+	void SelectAllButton_Click(object sender, EventArgs e) => ChangeAllChecked(_ => true);
 
-	void ClearAllButton_Click(object sender, EventArgs e) => ChangeAllChecked(false);
+	void ReverseButton_Click(object sender, EventArgs e) => ChangeAllChecked(v => !v);
 
-	void ChangeAllChecked(bool value)
+	void ChangeAllChecked(Func<bool, bool> getValue)
 	{
 		var queue = new Queue<TreeNode>();
 		treeView.Nodes.Cast<TreeNode>().ForEach(queue.Enqueue);
@@ -97,7 +98,7 @@ sealed partial class MainWindow : Form
 		{
 			var node = queue.Dequeue();
 			node.Nodes.Cast<TreeNode>().ForEach(queue.Enqueue);
-			node.Checked = value;
+			node.Checked = getValue(node.Checked);
 		}
 		treeView.EndUpdate();
 		UpdateButtonsEnabled();
@@ -107,7 +108,7 @@ sealed partial class MainWindow : Form
 	{
 		collapseButton.Enabled = false;
 		scanButton.Enabled = false;
-		btnClearAll.Enabled = false;
+		btnReverse.Enabled = false;
 		btnOptimize.Enabled = false;
 		btnSelectAll.Enabled = false;
 
@@ -132,7 +133,7 @@ sealed partial class MainWindow : Form
 	{
 		var hasNode = treeView.Nodes.Count > 0;
 		btnSelectAll.Enabled = hasNode;
-		btnClearAll.Enabled = hasNode;
+		btnReverse.Enabled = hasNode;
 		collapseButton.Enabled = hasNode;
 
 		btnOptimize.Enabled = GetCheckedNodes().Count() > 0;
