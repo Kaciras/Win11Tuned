@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Win11Tunned.Test;
+namespace Win11Tuned.Test;
 
 [TestClass]
 public sealed class SimpleIniFileTest

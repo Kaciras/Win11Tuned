@@ -9,7 +9,7 @@
     <ProjectGuid>{FBF52605-0176-43FD-9590-E10D5BE709E9}</ProjectGuid>
     <LangVersion>preview</LangVersion>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Win11Tunned.Benchmark</RootNamespace>
+    <RootNamespace>Win11Tuned.Benchmark</RootNamespace>
     <AssemblyName>Benchmark</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -308,9 +308,9 @@
     <None Include="Resources\RegFile.reg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Win11Tunned\Win11Tunned.csproj">
+    <ProjectReference Include="..\Win11Tuned\Win11Tuned.csproj">
       <Project>{d34f73af-1810-45ce-9d3a-f465635e1eb5}</Project>
-      <Name>Win11Tunned</Name>
+      <Name>Win11Tuned</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

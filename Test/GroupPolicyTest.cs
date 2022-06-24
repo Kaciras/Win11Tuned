@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Win11Tunned.Test;
+namespace Win11Tuned.Test;
 
 [TestClass]
 public sealed class GroupPolicyTest

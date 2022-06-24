@@ -3,7 +3,7 @@ using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using static System.Environment;
 
-namespace Win11Tunned.Test;
+namespace Win11Tuned.Test;
 
 [TestClass]
 public sealed class UtilsTest

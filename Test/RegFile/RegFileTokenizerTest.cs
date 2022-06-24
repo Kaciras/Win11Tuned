@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Win11Tunned.RegFile;
-using Win11Tunned.Test.Properties;
+using Win11Tuned.RegFile;
+using Win11Tuned.Test.Properties;
 
-namespace Win11Tunned.Test.RegFile;
+namespace Win11Tuned.Test.RegFile;
 
 [TestClass]
 public sealed class RegFileTokenizerTest

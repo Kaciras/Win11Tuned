@@ -1,8 +1,8 @@
 ﻿using System.ServiceProcess;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Win11Tunned.Rules;
+using Win11Tuned.Rules;
 
-namespace Win11Tunned.Test.Rules;
+namespace Win11Tuned.Test.Rules;
 
 [TestClass]
 public sealed class ServiceRuleTest
@@ -10,23 +10,23 @@ public sealed class ServiceRuleTest
 	[TestInitialize]
 	public void Init()
 	{
-		new WinSvcApi("Win11TunnedTest", @"C:\foobar.exe").Install();
+		new WinSvcApi("Win11TunedTest", @"C:\foobar.exe").Install();
 	}
 
 	[TestCleanup]
 	public void Cleanup()
 	{
-		WinSvcApi.Uninstall("Win11TunnedTest");
+		WinSvcApi.Uninstall("Win11TunedTest");
 	}
 
 	[TestMethod]
 	public void Optimize()
 	{
-		var rule = new ServiceRule("Win11TunnedTest", "descr", ServiceState.Disabled);
+		var rule = new ServiceRule("Win11TunedTest", "descr", ServiceState.Disabled);
 		Assert.IsTrue(rule.NeedOptimize());
 
 		rule.Optimize();
-		using var controller = new ServiceController("Win11TunnedTest");
+		using var controller = new ServiceController("Win11TunedTest");
 		Assert.AreEqual(controller.StartType, ServiceStartMode.Disabled);
 	}
 }

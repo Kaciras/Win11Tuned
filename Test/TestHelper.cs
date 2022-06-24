@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace Win11Tunned.Test;
+namespace Win11Tuned.Test;
 
 static class TestHelper
 {

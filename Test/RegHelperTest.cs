@@ -4,9 +4,9 @@ using System.Security;
 using System.Security.AccessControl;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Win32;
-using Win11Tunned.Test.Properties;
+using Win11Tuned.Test.Properties;
 
-namespace Win11Tunned.Test;
+namespace Win11Tuned.Test;
 
 [TestClass]
 public sealed class RegHelperTest

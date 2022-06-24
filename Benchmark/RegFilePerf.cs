@@ -1,8 +1,8 @@
 ﻿using BenchmarkDotNet.Attributes;
-using Win11Tunned.Benchmark.Properties;
-using Win11Tunned.RegFile;
+using Win11Tuned.Benchmark.Properties;
+using Win11Tuned.RegFile;
 
-namespace Win11Tunned.Benchmark;
+namespace Win11Tuned.Benchmark;
 
 public class RegFilePerf
 {

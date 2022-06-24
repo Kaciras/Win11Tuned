@@ -1,9 +1,9 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Microsoft.Win32;
-using Win11Tunned.Rules;
-using Win11Tunned.Test.Properties;
+using Win11Tuned.Rules;
+using Win11Tuned.Test.Properties;
 
-namespace Win11Tunned.Test.Rules;
+namespace Win11Tuned.Test.Rules;
 
 [TestClass]
 public sealed class RegFileRuleTest

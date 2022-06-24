@@ -1,8 +1,8 @@
 ﻿using System.IO;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Win11Tunned.Rules;
+using Win11Tuned.Rules;
 
-namespace Win11Tunned.Test.Rules;
+namespace Win11Tuned.Test.Rules;
 
 [TestClass]
 public sealed class FileAttributeRuleTest

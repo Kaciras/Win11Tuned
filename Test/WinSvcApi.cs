@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 
-namespace Win11Tunned.Test;
+namespace Win11Tuned.Test;
 
 /// <summary>
 /// 直接添加注册表可以创建服务，但是并不能立即被 ServiceController 获取，重启后则可以，推测可需要刷新一下。
