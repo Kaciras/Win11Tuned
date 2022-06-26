@@ -27,7 +27,7 @@ public sealed class AppEventsRule : Rule
 		var name = (string)schemes.GetValue("");
 		try
 		{
-			name = Utils.ExtractStringFromDLL(name);
+			name = Utils.ExtractStringResource(name);
 		}
 		catch (FormatException)
 		{

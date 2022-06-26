@@ -113,17 +113,21 @@ internal static class Utils
 	}
 
 	/// <summary>
-	/// 解析类似 "@shell32.dll,-1#immutable1" 这样的字符串，并读取其引用的DLL中的字符串资源。
+	/// 解析类似 "@shell32.dll,-1#immutable1" 这样的字符串，并读取其引用的字符串资源。
 	/// </summary>
 	/// <param name="string">字符串引用</param>
 	/// <returns>字符串资源</returns>
 	/// <exception cref="FormatException">如果参数不是合法的资源引用</exception>
-	public static string ExtractStringFromDLL(string @string)
+	public static string ExtractStringResource(string @string)
 	{
 		var splited = @string.Split(',');
 		if (splited.Length != 2)
 		{
 			throw new FormatException("参数格式错误");
+		}
+		if (splited[0].EndsWith(".inf"))
+		{
+			return @string.Split(';')[1];
 		}
 		var file = splited[0].TrimStart('@');
 		var index = Math.Abs(int.Parse(splited[1]));

@@ -69,7 +69,7 @@ public class SendToRuleSet : OptimizableSet
 		}
 		try
 		{
-			return Utils.ExtractStringFromDLL(localized);
+			return Utils.ExtractStringResource(localized);
 		}
 		catch (SystemException)
 		{

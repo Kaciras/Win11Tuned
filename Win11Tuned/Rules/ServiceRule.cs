@@ -51,7 +51,7 @@ public class ServiceRule : Rule
 			Name = (string)config.GetValue("DisplayName", Key);
 			if (Name.StartsWith("@"))
 			{
-				Name = Utils.ExtractStringFromDLL(Name);
+				Name = Utils.ExtractStringResource(Name);
 			}
 		}
 
