@@ -10,6 +10,7 @@ Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector
 Microsoft\Windows\Customer Experience Improvement Program
 全是客户体验改善计划，不参加的直接删光光
 
+# TODO
 Microsoft\Windows\Application Experience\StartupAppTask
 启动项应该自己注意，而不是靠它来扫描
 :DISABLE
@@ -29,7 +30,8 @@ Microsoft\Windows\UPnP\UPnPHostConfig
 :DISABLE
 
 Microsoft\Office\Office 15 Subscription Heartbeat
-如果你没有订阅 Office 就可以删除此任务
+如果你没有订阅 Office 就可以禁用此任务
+:DISABLE
 
 Microsoft\Windows\Defrag\ScheduledDefrag
 整理磁盘碎片的任务，想手动运行的可以禁用它。该任务也可以在碎片整理和优化驱动器工具里修改。
@@ -37,4 +39,12 @@ Microsoft\Windows\Defrag\ScheduledDefrag
 
 HP\Consent Manager Launcher
 如果禁用了 HP Analytics Service 服务则应该把它也禁了
+:DISABLE
+
+MicrosoftEdgeUpdateTaskMachineCore
+Edge 浏览器自动更新任务，禁止后不影响手动更新。
+:DISABLE
+
+MicrosoftEdgeUpdateTaskMachineUA
+Edge 浏览器自动更新任务，禁止后不影响手动更新。
 :DISABLE
