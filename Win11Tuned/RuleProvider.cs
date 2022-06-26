@@ -30,6 +30,15 @@ public sealed class RuleProvider
 		LoadRuleFile("系统设置（用户）", Resources.UserRegistryRules, ReadRegistry);
 		RuleSets.Add(new SendToRuleSet());
 
+		RuleSets.Add(new RuleList("显示桌面图标", new Rule[] {
+			// {018D5C66-4533-4307-9B53-224DE2ED1FE6} - OneDrive
+			new DesktopIconRule("{20D04FE0-3AEA-1069-A2D8-08002B30309D}"),
+			new DesktopIconRule("{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}"),
+			new DesktopIconRule("{59031a47-3f72-44a7-89c5-5595fe6b30ee}"),
+			new DesktopIconRule("{645FF040-5081-101B-9F08-00AA002F954E}"),
+			new DesktopIconRule("{F02C1A0D-BE21-4350-88B0-7367FC96EF3C}"),
+		}));
+
 		var others = new List<Rule> {
 			new AppEventsRule(".None"),
 			new FileAttributeRule(
@@ -68,6 +77,7 @@ public sealed class RuleProvider
 		appx.Add("Microsoft.ZuneMusic");
 		appx.Add("Microsoft.ZuneVideo");
 		appx.Add("Microsoft.BingWeather");
+		appx.Add("MicrosoftWindows.Client.WebExperience");
 		RuleSets.Add(appx);
 
 		if (AdminMode)
