@@ -49,14 +49,21 @@ public sealed class UtilsTest
 		Assert.ThrowsException<InvalidOperationException>(() => Utils.GetShortcutTarget("Resources/config.ini"));
 	}
 
-	[DataRow("INVALID_VALUE")]
+	[DataRow("@INVALID_VALUE")]
 	[DataRow("shell32.dll,INVALID")]
 	[DataRow("")]
 	[ExpectedException(typeof(FormatException))]
 	[DataTestMethod]
 	public void ExtractStringWithInvalidText(string value)
 	{
-		Utils.ExtractStringFromDLL(value);
+		Utils.ExtractStringResource(value);
+	}
+
+	[TestMethod]
+	public void ExtractStringFromInf()
+	{
+		var value = "@oem20.inf,%hpanalyticscomp%;HP Analytics service";
+		Assert.AreEqual("HP Analytics service", Utils.ExtractStringResource(value));
 	}
 
 	[Ignore("总是出现莫名其妙的错误 6")]

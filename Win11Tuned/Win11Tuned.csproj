@@ -43,6 +43,7 @@
   <ItemGroup>
     <Reference Include="AspectInjector.Broker, Version=2.7.3.0, Culture=neutral, PublicKeyToken=a29e12442a3d3609, processorArchitecture=MSIL">
       <HintPath>..\packages\AspectInjector.2.7.3\lib\netstandard2.0\AspectInjector.Broker.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Management.Automation" />
     <Reference Include="System" />
@@ -53,6 +54,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="Windows">
       <HintPath>C:\Program Files (x86)\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd</HintPath>
+      <Private>False</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -167,6 +169,7 @@
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>False</Private>
     </COMReference>
     <COMReference Include="TaskScheduler">
       <Guid>{E34CB9F1-C7F7-424C-BE29-027DCC09363A}</Guid>
@@ -176,6 +179,7 @@
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
+      <Private>False</Private>
     </COMReference>
   </ItemGroup>
   <ItemGroup>

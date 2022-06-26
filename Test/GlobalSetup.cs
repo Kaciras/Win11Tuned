@@ -14,6 +14,7 @@ public sealed class GlobalSetup
 	[AssemblyInitialize]
 	public static void Setup(TestContext _)
 	{
+		TokenManipulator.AddPrivilege("SeTakeOwnershipPrivilege");
 		STAExecutor.SetSyncContext(new WindowsFormsSynchronizationContext());
 	}
 }
