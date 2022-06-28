@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Microsoft.Win32;
 using Win11Tuned.Properties;
 using Win11Tuned.Rules;
 
@@ -50,19 +51,26 @@ public sealed class RuleProvider
 		};
 
 		var appx = new AppxRuleSet();
+		appx.Add("Microsoft.549981C3F5F10"); // Cortana
 		appx.Add("Microsoft.BingNews");
+		appx.Add("Microsoft.BingWeather");
+		appx.Add("Microsoft.GamingApp");
 		appx.Add("Microsoft.GetHelp");
 		appx.Add("Microsoft.Getstarted");
 		appx.Add("Microsoft.Messaging");
 		appx.Add("Microsoft.Microsoft3DViewer*");
 		appx.Add("Microsoft.MicrosoftOfficeHub");
+		appx.Add("Microsoft.MicrosoftStickyNotes");
 		appx.Add("Microsoft.MicrosoftSolitaireCollection");
 		appx.Add("Microsoft.NetworkSpeedTest");
 		appx.Add("Microsoft.Office.Sway");
 		appx.Add("Microsoft.OneConnect");
 		appx.Add("Microsoft.People");
+		appx.Add("Microsoft.PowerAutomateDesktop"); // Require login
 		appx.Add("Microsoft.Print3D");
+		appx.Add("Microsoft.ScreenSketch");
 		appx.Add("Microsoft.SkypeApp");
+		appx.Add("Microsoft.Todos");
 		appx.Add("Microsoft.WindowsAlarms");
 		appx.Add("Microsoft.WindowsCamera");
 		appx.Add("microsoft.windowscommunicationsapps");
@@ -72,12 +80,15 @@ public sealed class RuleProvider
 		appx.Add("Microsoft.Xbox.TCUI");
 		appx.Add("Microsoft.XboxApp");
 		appx.Add("Microsoft.XboxGameOverlay");
+		appx.Add("Microsoft.XboxGamingOverlay");
 		appx.Add("Microsoft.XboxIdentityProvider");
 		appx.Add("Microsoft.XboxSpeechToTextOverlay");
+		appx.Add("Microsoft.YourPhone"); // Huawei phones only
 		appx.Add("Microsoft.ZuneMusic");
 		appx.Add("Microsoft.ZuneVideo");
-		appx.Add("Microsoft.BingWeather");
 		appx.Add("MicrosoftWindows.Client.WebExperience");
+
+		appx.Add("AD2F1837.HPSystemInformation");
 		RuleSets.Add(appx);
 
 		if (AdminMode)
