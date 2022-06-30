@@ -45,6 +45,7 @@
       <HintPath>..\packages\AspectInjector.2.7.3\lib\netstandard2.0\AspectInjector.Broker.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System.Management.Automation" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -91,6 +92,7 @@
     <Compile Include="Rules\AppEventsRule.cs" />
     <Compile Include="Rules\AppxRuleSet.cs" />
     <Compile Include="Rules\ContextMenuRule.cs" />
+    <Compile Include="Rules\DesktopIconRule.cs" />
     <Compile Include="Rules\ExplorerFolderRule.cs" />
     <Compile Include="Rules\FileAttributeRule.cs" />
     <Compile Include="Rules\GroupPolicyRule.cs" />
@@ -102,6 +104,7 @@
     <Compile Include="Rules\ServiceRule.cs" />
     <Compile Include="Rules\ServiceState.cs" />
     <Compile Include="Rules\StartupMenuRule.cs" />
+    <Compile Include="Rules\StartupRule.cs" />
     <Compile Include="Rules\TaskSchedulerSet.cs" />
     <Compile Include="SimpleIniFile.cs" />
     <Compile Include="STAExecutor.cs" />

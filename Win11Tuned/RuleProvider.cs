@@ -91,6 +91,12 @@ public sealed class RuleProvider
 		appx.Add("AD2F1837.HPSystemInformation");
 		RuleSets.Add(appx);
 
+		var startup = new StartupRuleSet();
+		startup.Add("MicrosoftEdgeAutoLaunch_7C0DCF8AB28AD837EF53E00945A5FD51");
+		RuleSets.Add(startup);
+
+		others.Add(new UninstallRegistry(Registry.CurrentUser, "OneDriveSetup.exe"));
+
 		if (AdminMode)
 		{
 			others.Add(new PowerShellPolicyRule());
