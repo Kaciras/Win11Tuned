@@ -95,7 +95,9 @@ public sealed class RuleProvider
 		startup.Add("MicrosoftEdgeAutoLaunch_7C0DCF8AB28AD837EF53E00945A5FD51");
 		RuleSets.Add(startup);
 
-		others.Add(new UninstallRegistry(Registry.CurrentUser, "OneDriveSetup.exe"));
+		var userSoftware = new SoftwareRuleSet(Registry.CurrentUser);
+		userSoftware.Add("OneDriveSetup.exe");
+		RuleSets.Add(userSoftware);
 
 		if (AdminMode)
 		{

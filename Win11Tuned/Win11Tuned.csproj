@@ -103,8 +103,9 @@
     <Compile Include="Rules\SendToRuleSet.cs" />
     <Compile Include="Rules\ServiceRule.cs" />
     <Compile Include="Rules\ServiceState.cs" />
+    <Compile Include="Rules\SoftwareRuleSet.cs" />
     <Compile Include="Rules\StartupMenuRule.cs" />
-    <Compile Include="Rules\StartupRule.cs" />
+    <Compile Include="Rules\StartupRuleSet.cs" />
     <Compile Include="Rules\TaskSchedulerSet.cs" />
     <Compile Include="SimpleIniFile.cs" />
     <Compile Include="STAExecutor.cs" />

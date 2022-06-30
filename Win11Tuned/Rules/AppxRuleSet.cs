@@ -10,13 +10,15 @@ namespace Win11Tuned.Rules;
 
 public sealed class AppxRuleSet : OptimizableSet
 {
-	public string Name => "卸载预装 UWP 应用";
+	public string Name => "卸载应用（UWP）";
 
-	private readonly HashSet<string> uninstall = new();
+	private readonly HashSet<string> appx = new();
+
+	private readonly List<string> user = new();
 
 	public void Add(string name)
 	{
-		uninstall.Add(name);
+		appx.Add(name);
 	}
 
 	public IEnumerable<Optimizable> Scan()
@@ -24,7 +26,7 @@ public sealed class AppxRuleSet : OptimizableSet
 		var packageManager = new PackageManager();
 		return packageManager
 			.FindPackagesForUser("")
-			.Where(package => uninstall.Contains(package.Id.Name))
+			.Where(package => appx.Contains(package.Id.Name))
 			.Select(package => new UninstallAppx(package));
 	}
 }
