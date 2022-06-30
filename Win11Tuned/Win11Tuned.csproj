@@ -159,6 +159,7 @@
     <EmbeddedResource Include="Resources\Registry\DisableStartupSound.reg" />
     <EmbeddedResource Include="Resources\Registry\DisablePerfDiagLogger.reg" />
     <EmbeddedResource Include="Resources\Registry\EnableLongPath.reg" />
+    <EmbeddedResource Include="Resources\Registry\DisableFirewall.reg" />
     <None Include="Resources\SendToRules.txt" />
     <None Include="Resources\ServiceRules.txt" />
     <None Include="Resources\TaskSchdulerRules.txt" />
