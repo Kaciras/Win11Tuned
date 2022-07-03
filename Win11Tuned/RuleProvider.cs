@@ -48,6 +48,12 @@ public sealed class RuleProvider
 				"取消 AppData 的隐藏属性",
 				"很多程序把配置和数据都存在这个目录，经常需要直接访问它，故取消隐藏"
 			),
+			new FileAttributeRule(
+				Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData),
+				FileAttributes.Directory | FileAttributes.NotContentIndexed,
+				"取消 ProgramData 的隐藏属性",
+				"很多程序把配置和数据都存在这个目录，经常需要直接访问它，故取消隐藏"
+			),
 		};
 
 		var appx = new AppxRuleSet();
