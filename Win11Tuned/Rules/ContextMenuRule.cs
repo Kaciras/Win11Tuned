@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Microsoft.Win32;
+using RegistryEx;
 
 namespace Win11Tuned.Rules;
 

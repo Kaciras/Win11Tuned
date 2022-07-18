@@ -1,5 +1,6 @@
 ﻿using System.Security;
 using Microsoft.Win32;
+using RegistryEx;
 
 namespace Win11Tuned.Rules;
 
@@ -79,7 +80,7 @@ public class ServiceRule : Rule
 		}
 		catch (SecurityException)
 		{
-			using var _ = RegHelper.Elevate(Registry.LocalMachine, subPath);
+			using var _ = RegistryHelper.Elevate(Registry.LocalMachine, subPath);
 			ChaangeServiceStartupRegistry();
 		}
 	}

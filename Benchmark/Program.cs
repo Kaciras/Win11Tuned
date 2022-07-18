@@ -2,5 +2,5 @@
 using BenchmarkDotNet.Running;
 using Win11Tuned.Benchmark;
 
-BenchmarkRunner.Run<RegFilePerf>();
+//BenchmarkRunner.Run<RegFilePerf>();
 Console.ReadKey();

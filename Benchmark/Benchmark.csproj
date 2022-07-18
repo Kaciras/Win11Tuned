@@ -300,7 +300,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RegFilePerf.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

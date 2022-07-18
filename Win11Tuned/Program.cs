@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Globalization;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Windows.Forms;
+using RegistryEx;
 
 [assembly: InternalsVisibleTo("Test")]
 [assembly: InternalsVisibleTo("Benchmark")]
@@ -22,8 +22,7 @@ static class Program
 		Application.SetCompatibleTextRenderingDefault(false);
 		Application.Idle += CaptureSyncContext;
 
-		TokenManipulator.AddPrivilege("SeTakeOwnershipPrivilege");
-		TokenManipulator.AddPrivilege("SeRestorePrivilege");
+		RegistryHelper.AddTokenPrivileges();
 
 		var isAdmin = Utils.CheckIsAdministrator();
 		var provider = new RuleProvider(isAdmin);

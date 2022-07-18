@@ -117,26 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ImportTest" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\registry\importtest.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
-  <data name="InvalidKind" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\registry\invalidkind.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
-  <data name="Kinds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\registry\kinds.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
-  <data name="NoKey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\registry\nokey.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
-  <data name="Search" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\registry\search.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
-  <data name="TruncatedValue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\registry\truncatedvalue.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
-  <data name="ValueParts" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\registry\valueparts.reg;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-16</value>
-  </data>
 </root>

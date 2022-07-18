@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using Microsoft.Win32;
+using RegistryEx;
 using Win11Tuned.Properties;
 using Win11Tuned.Rules;
 
@@ -167,7 +168,7 @@ public sealed class RuleProvider
 			var folder = reader.Read();
 			var root = Path.Combine("HKEY_CLASSES_ROOT", folder);
 
-			folders = RegHelper.Search(root, item)
+			folders = Search(root, item)
 				.Select(name => Path.Combine(folder, name))
 				.ToList();
 		}
@@ -178,6 +179,22 @@ public sealed class RuleProvider
 		}
 
 		return new ContextMenuRule(item, folders, name, description);
+	}
+
+	/// <summary>
+	/// 在指定的目录中搜索含有某个路径的项，只搜一层。
+	/// <br/>
+	/// 因为 rootKey 会销毁，必须在离开作用域前遍历完，所以返回IList。
+	/// </summary>
+	/// <param name="root">在此目录中搜索</param>
+	/// <param name="key">要搜索的键路径</param>
+	/// <returns>子项名字列表</returns>
+	public static List<string> Search(string root, string key)
+	{
+		using var rootKey = RegistryHelper.OpenKey(root);
+		return rootKey.GetSubKeyNames()
+			.Where(name => rootKey.ContainsSubKey(Path.Combine(name, key)))
+			.ToList();
 	}
 
 	static Rule ReadGroupPolicy(RuleFileReader reader)

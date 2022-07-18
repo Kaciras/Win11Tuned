@@ -61,12 +61,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RegFile\RegFileReaderTest.cs" />
-    <Compile Include="RegFile\RegFileTokenizerTest.cs" />
-    <Compile Include="RegHelperTest.cs" />
     <Compile Include="RuleFileReaderTest.cs" />
     <Compile Include="Rules\FileAttributeRuleTest.cs" />
-    <Compile Include="Rules\RegFileRuleTest.cs" />
     <Compile Include="Rules\ServiceRuleTest.cs" />
     <Compile Include="SimpleIniFileTest.cs" />
     <Compile Include="STAExecutorTest.cs" />
@@ -88,27 +84,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\Fax Recipient.lnk">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Registry\ImportTest.reg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Registry\InvalidKind.reg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Registry\Kinds.reg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Registry\NoKey.reg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Registry\Search.reg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Registry\TruncatedValue.reg">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="Resources\Registry\ValueParts.reg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

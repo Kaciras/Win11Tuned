@@ -46,11 +46,26 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Win32.Registry, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.5.0.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="RegistryEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RegistryEx.1.0.0-preview.2\lib\net48\RegistryEx.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpYaml, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1ced8108e942bc02, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpYaml.1.9.2\lib\netstandard2.0\SharpYaml.dll</HintPath>
+    </Reference>
     <Reference Include="System.Management.Automation" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security.AccessControl, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.5.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Windows">
@@ -83,10 +98,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RegFile\RegFileReader.cs" />
-    <Compile Include="RegFile\RegFileTokenizer.cs" />
-    <Compile Include="RegFile\RegTokenType.cs" />
-    <Compile Include="RegHelper.cs" />
     <Compile Include="RuleFileReader.cs" />
     <Compile Include="RuleProvider.cs" />
     <Compile Include="Rules\AppEventsRule.cs" />
@@ -110,7 +121,6 @@
     <Compile Include="SimpleIniFile.cs" />
     <Compile Include="STAExecutor.cs" />
     <Compile Include="TaskSchedulerManager.cs" />
-    <Compile Include="TokenManipulator.cs" />
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="AboutWindow.resx">
       <DependentUpon>AboutWindow.cs</DependentUpon>
@@ -154,12 +164,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ContextMenuRules.txt" />
+    <None Include="Resources\Description\en.yml" />
+    <None Include="Resources\Description\zh.yml" />
     <None Include="Resources\GroupPolicyRules.txt" />
     <None Include="Resources\RegistryRules.txt" />
     <EmbeddedResource Include="Resources\Registry\DisableStartupSound.reg" />
     <EmbeddedResource Include="Resources\Registry\DisablePerfDiagLogger.reg" />
     <EmbeddedResource Include="Resources\Registry\EnableLongPath.reg" />
-    <EmbeddedResource Include="Resources\Registry\DisableFirewall.reg" />
     <None Include="Resources\SendToRules.txt" />
     <None Include="Resources\ServiceRules.txt" />
     <None Include="Resources\TaskSchdulerRules.txt" />

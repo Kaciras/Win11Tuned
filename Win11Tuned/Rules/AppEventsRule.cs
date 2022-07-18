@@ -1,4 +1,5 @@
 ﻿using System;
+using RegistryEx;
 
 namespace Win11Tuned.Rules;
 
@@ -23,7 +24,7 @@ public sealed class AppEventsRule : Rule
 	{
 		this.target = target;
 
-		using var schemes = RegHelper.OpenKey(@$"{ROOT}\Names\{target}");
+		using var schemes = RegistryHelper.OpenKey(@$"{ROOT}\Names\{target}");
 		var name = (string)schemes.GetValue("");
 		try
 		{
@@ -43,13 +44,13 @@ public sealed class AppEventsRule : Rule
 	/// </summary>
 	public bool NeedOptimize()
 	{
-		using var schemes = RegHelper.OpenKey(ROOT);
+		using var schemes = RegistryHelper.OpenKey(ROOT);
 		return !schemes.GetValue("").Equals(target);
 	}
 
 	public void Optimize()
 	{
-		using var schemes = RegHelper.OpenKey(ROOT, true);
+		using var schemes = RegistryHelper.OpenKey(ROOT, true);
 
 		schemes.SetValue("", target);
 

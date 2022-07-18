@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Microsoft.Win32;
+using RegistryEx;
 
 namespace Win11Tuned.Rules;
 

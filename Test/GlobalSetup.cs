@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.Win32;
 
 namespace Win11Tuned.Test;
 
@@ -14,7 +15,6 @@ public sealed class GlobalSetup
 	[AssemblyInitialize]
 	public static void Setup(TestContext _)
 	{
-		TokenManipulator.AddPrivilege("SeTakeOwnershipPrivilege");
 		STAExecutor.SetSyncContext(new WindowsFormsSynchronizationContext());
 	}
 }
