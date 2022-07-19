@@ -13,7 +13,3 @@ DisablePerfDiagLogger
 开启长路径支持
 传统的 Windows 路径最多 255 个字符，从 Windows10 开始能够取消这个限制，建议开启。
 EnableLongPath
-
-关闭防火墙
-让防火墙不再烦人，本规则通过注册表禁用，不会产生安全中心的警告。
-DisableFirewall

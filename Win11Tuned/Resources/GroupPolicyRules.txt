@@ -22,6 +22,18 @@ DisableAntiSpyware
 关闭 Windows Defender
 我自己是不用杀毒软件的，如果要用还是别关。
 
+HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile
+EnableFirewall
+0
+关闭防火墙（标准）
+关闭防火墙对网络的过滤，并不会禁用防火墙服务。本规则通过注册表禁用，不会产生安全中心的警告。
+
+HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile
+EnableFirewall
+0
+关闭防火墙（域）
+关闭防火墙对网络的过滤，并不会禁用防火墙服务。本规则通过注册表禁用，不会产生安全中心的警告。
+
 # 这个是用户配置里的，注意不要带 GUID 部分，因为底层 API 会处理。
 HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments
 SaveZoneInformation
