@@ -1,4 +1,4 @@
-# 多个服务依赖它，等实现了依赖检测后再说
+# 多个服务依赖它，等实现了依赖检测后再说 TODO
 #BFE
 #Windows 安全平台的核心服务，防火墙和杀毒软件都需要，如果不用它们倒是可以关了
 #Disabled
@@ -8,11 +8,11 @@ DPS
 Disabled
 
 DiagTrack
-给诊断服务提供数据的，如果不用诊断功能可以关了，据某些用户说会占用较多资源
+收集用户信息的，如果不想分享给微软就可以关了，据某些用户说会占用较多资源
 Disabled
 
 hidserv
-如果你没有 HID 设备就可以禁用，该服务还容易被攻击者利用
+如果你没有 HID 设备就可以禁用，该服务还容易被攻击者利用。
 Disabled
 
 ShellHWDetection
@@ -31,7 +31,7 @@ IKEEXT
 某些协议的 VPN 需要这个服务，不用的话可以关掉
 Disabled
 
-# 默认手动
+# 默认手动 TODO
 SecurityHealthService
 如果你关闭了安全中心监视的某项，他会不停地提示你，很烦人建议关了
 Disabled

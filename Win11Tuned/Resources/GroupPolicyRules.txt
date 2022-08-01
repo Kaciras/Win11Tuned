@@ -4,6 +4,30 @@ NoDriveTypeAutoRun
 关闭自动播放
 纯属垃圾功能还有安全风险，不是残疾人都该禁掉。
 
+HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection
+AllowTelemetry
+0
+禁止发送诊断数据
+不向 Microsoft 发送诊断数据，该策略的说明上写着教育版和企业版才能禁止。
+
+HKLM\SOFTWARE\Policies\Microsoft\Windows\System
+UploadUserActivities
+0
+禁止上传用户活动数据
+禁止把浏览历史、搜索记录、什么时候打开了 UWP 应用这些东西上传到 Microsoft。
+
+HKCU\Software\Policies\Microsoft\Windows\Explorer
+DisableSearchBoxSuggestions
+1
+禁止开始菜单的搜索框使用网络建议
+弱智功能，要搜索网页直接开浏览器，这地方只应该搜索本地程序。
+
+HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU
+NoAutoUpdate
+1
+关闭 Windows 自动更新
+使用组策略可彻底关闭 Windows 自动更新，想更新的话仍然可以手动检查。
+
 HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat
 DisablePCA
 1
@@ -19,7 +43,19 @@ DisableEngine
 HKLM\SOFTWARE\Policies\Microsoft\Windows Defender
 DisableAntiSpyware
 1
-关闭 Windows Defender
+禁用 Windows Defender
+我自己是不用杀毒软件的，如果要用还是别关。
+
+HKLM\SOFTWARE\Policies\Microsoft\Windows Defender
+ServiceKeepAlive
+0
+关闭 Windows Defender 服务
+我自己是不用杀毒软件的，如果要用还是别关。
+
+HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection
+DisableRealtimeMonitoring
+1
+关闭 Windows Defender 实时保护
 我自己是不用杀毒软件的，如果要用还是别关。
 
 HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile

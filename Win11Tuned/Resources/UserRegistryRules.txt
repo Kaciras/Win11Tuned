@@ -21,3 +21,11 @@ IESecurity
 简化视觉效果
 除了“显示缩略图而不是显示图标”和“拖动时显示窗口内容”外全部关闭，避免各种效果浪费时间和性能。
 VisualEffects
+
+关闭 Windows 新增内容和建议
+取消勾选设置和选项 / 系统 / 通知 最下面的两个框。
+DisableSuggestNotification
+
+移除广告 ID
+不允许使用我的广告 ID 来展示个性化广告。
+RemoveAdvertisingInfo
