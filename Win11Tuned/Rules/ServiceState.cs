@@ -3,6 +3,11 @@
 public enum ServiceState
 {
 	/// <summary>
+	/// 最先启动，多见于驱动。
+	/// </summary>
+	Boot = 1,
+
+	/// <summary>
 	/// 启动类型：自动
 	/// </summary>
 	Automatic = 2,

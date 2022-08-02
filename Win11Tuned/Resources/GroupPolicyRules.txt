@@ -20,7 +20,7 @@ HKCU\Software\Policies\Microsoft\Windows\Explorer
 DisableSearchBoxSuggestions
 1
 禁止开始菜单的搜索框使用网络建议
-弱智功能，要搜索网页直接开浏览器，这地方只应该搜索本地程序。
+弱智功能，要搜索网页直接开浏览器，这地方只应该搜索本地程序。禁用该项后内容建议也将关闭，但重启后才生效。
 
 HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU
 NoAutoUpdate
