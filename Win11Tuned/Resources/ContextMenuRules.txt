@@ -1,3 +1,5 @@
+# 没有移除“用 Windows Defender 扫描”，因为禁用 Windows Defender 之后该项自然会移除。
+
 shellex\ContextMenuHandlers\Compatibility
 执行文件 - 兼容性疑难解答
 出了问题不去谷歌，看这解答有个卵用。
@@ -7,6 +9,25 @@ shellex\ContextMenuHandlers\Library Location
 文件夹 - 包含到库中
 我不用这个系统自带的各种库文件夹，如果要用请勿删除。
 Folder
+
+# 属性页 PropertySheetHandlers 里也有，但不是右键菜单就不管它。
+shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}
+还原以前的版本
+不用文件版本功能的可以移除，不影响属性页。
+AllFilesystemObjects
+CLSID\{450D8FBA-AD25-11D0-98A8-0800361B1103}
+Directory
+Drive
+WOW6432Node\CLSID\{450D8FBA-AD25-11D0-98A8-0800361B1103}
+
+shellex\ContextMenuHandlers\Sharing
+授予访问权限
+共享相关的快捷设置，不是经常使用共享的话就删了吧。
+*
+Directory
+Directory\background
+Drive
+LibraryFolder
 
 shellex\ContextMenuHandlers\{90AA3A4E-1CBA-4233-B8BB-535773D48449}
 所有文件 - 固定到任务栏

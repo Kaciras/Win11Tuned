@@ -76,3 +76,15 @@ SaveZoneInformation
 1
 附件不保留区域信息
 禁止提醒下载的文件来自其他计算机有风险，这东西还会造成 Office 提醒内存不足的错误。
+
+HKLM\SOFTWARE\Policies\Microsoft\Windows\System
+EnableSmartScreen
+0
+关闭 SmartScreen 筛选器
+SmartScreen 是什么自己搜，没啥用的东西关了吧。
+
+HKLM\SOFTWARE\Policies\Microsoft\MicrosoftEdge\PhishingFilter
+EnabledV9
+0
+关闭 Edge 浏览器的 SmartScreen
+SmartScreen 是什么自己搜，没啥用的东西关了吧。
