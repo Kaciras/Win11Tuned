@@ -115,7 +115,11 @@ public sealed class RuleProvider
 				"很常用的功能，不解释",
 				GetEmbeddedRegFile("OpenWithNotepad")
 			));
-
+			others.Add(new RegFileRule(
+				"把注销 DLL/OCX 组件 添加到右键菜单",
+				"方便地注销各种 Shell 扩展",
+				GetEmbeddedRegFile("UnregisterDLL")
+			));
 			RuleSets.Add(new TaskSchedulerSet());
 
 			LoadRuleFile("组策略", Resources.GroupPolicyRules, ReadGroupPolicy);
