@@ -36,5 +36,5 @@ public class RegFileRule : Rule
 		return !document.IsSuitable;
 	}
 
-	public void Optimize() => document.Import();
+	public void Optimize() => document.Execute();
 }
