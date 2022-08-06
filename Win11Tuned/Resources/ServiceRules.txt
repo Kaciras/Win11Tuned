@@ -61,6 +61,15 @@ Disabled
 #该服务使应用程序支持 WPAD 协议的应用，因为大多数的情况下不会用到.建议关闭
 #Disabled
 
+# Manual by default
+TabletInputService
+如果不使用墨迹功能就禁了吧。
+Disabled
+
+edgeupdate
+Edge 浏览器的更新服务，不想自动更新的话可以设为手动。
+Manual
+
 # https://blog.csdn.net/hyongilfmmm/article/details/116115664
 
 CDPUserSvc
