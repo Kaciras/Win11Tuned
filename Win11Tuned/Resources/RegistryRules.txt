@@ -17,3 +17,11 @@ EnableLongPath
 启用开发人员模式
 启用设置 / 隐私和安全性 / 开发者选项 / 从任意源安装应用。
 InstallWithoutLicense
+
+禁止 NTFS 文件系统记录文件的访问时间
+默认情况下，访问 NTFS 文件系统中的文件时会记录时间，这造成了额外的 IO，关闭以提高性能，但某些备份和文件同步软件需要这个功能。
+DisableLastAccessUpdate
+
+禁用 NTFS 8.3 短文件名
+早期 Windows 有文件名长度限制，就搞了个 C:\xxx`1 表示以 xxx 开头的第一个文件这样的别名，禁用后提高性能；现代的系统已不需要这种功能，但老程序可能还用它。
+Disable8dot3NameCreation

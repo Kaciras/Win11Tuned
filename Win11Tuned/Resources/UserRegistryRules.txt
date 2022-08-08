@@ -29,3 +29,7 @@ DisableSuggestNotification
 移除广告 ID
 不允许使用我的广告 ID 来展示个性化广告。
 RemoveAdvertisingInfo
+
+关闭 UserAssist 日志
+资源管理器会记录在其中打开的执行文件的次数和时间，这可能泄露隐私，建议关闭。
+NoUserAssistLog
