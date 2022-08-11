@@ -48,6 +48,10 @@ SSDPSRV
 Upnp 设备个人机不常用
 Disabled
 
+StorSvc
+用于 设置/系统/存储 中功能的服务，如果不需要用它来自动清理硬盘的话可以改成手动，默认是延迟自启。
+Manual
+
 iphlpsvc
 我从没用过它说的这些高级功能
 Disabled
