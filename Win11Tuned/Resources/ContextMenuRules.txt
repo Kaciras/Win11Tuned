@@ -60,3 +60,8 @@ ShellEx\ContextMenuHandlers\ShellImagePreview
 想看图用默认的打开即可，这个完全没用啊。
 :SEARCH
 SystemFileAssociations
+
+shellex\ContextMenuHandlers\ACE
+Directory\Background
+文件夹背景 - AMD 相关的菜单项
+通常有 AMD Readon Sofrware 和 AMD Link 两项，完全没必要从右键菜单访问嘛。

@@ -93,6 +93,7 @@ public sealed class RuleProvider
 		appx.Add("Microsoft.YourPhone"); // Huawei phones only
 		appx.Add("Microsoft.ZuneMusic");
 		appx.Add("Microsoft.ZuneVideo");
+		appx.Add("Microsoft.MicrosoftOfficeHub");
 		appx.Add("MicrosoftWindows.Client.WebExperience");
 
 		appx.Add("AD2F1837.HPSystemInformation");
@@ -102,9 +103,13 @@ public sealed class RuleProvider
 		startup.Add("MicrosoftEdgeAutoLaunch_7C0DCF8AB28AD837EF53E00945A5FD51");
 		RuleSets.Add(startup);
 
-		var userSoftware = new SoftwareRuleSet(Registry.CurrentUser);
+		var userSoftware = new SoftwareRuleSet(false);
 		userSoftware.Add("OneDriveSetup.exe");
 		RuleSets.Add(userSoftware);
+
+		var systemSoftware = new SoftwareRuleSet(true);
+		systemSoftware.Add("{6A2A8076-135F-4F55-BB02-DED67C8C6934}"); // Microsoft Update Health Tools
+		RuleSets.Add(systemSoftware);
 
 		if (AdminMode)
 		{
@@ -120,6 +125,22 @@ public sealed class RuleProvider
 				"方便地注销各种 Shell 扩展",
 				GetEmbeddedRegFile("UnregisterDLL")
 			));
+
+			others.Add(new FileAttributeRule(
+				Environment.GetFolderPath(Environment.SpecialFolder.CommonDesktopDirectory),
+				FileAttributes.Directory | FileAttributes.ReadOnly,
+				"取消公共桌面的隐藏属性",
+				"常用的目录，不知为何微软要隐藏它"
+			));
+
+			var cdd = Environment.GetFolderPath(Environment.SpecialFolder.CommonDesktopDirectory);
+			others.Add(new FileAttributeRule(
+				Path.Combine(Path.GetDirectoryName(cdd), "Libraries"),
+				FileAttributes.Directory | FileAttributes.ReadOnly,
+				"取消公共库的隐藏属性",
+				"常用的目录，不知为何微软要隐藏它"
+			));
+
 			RuleSets.Add(new TaskSchedulerSet());
 
 			LoadRuleFile("组策略", Resources.GroupPolicyRules, ReadGroupPolicy);

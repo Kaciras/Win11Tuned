@@ -10,6 +10,9 @@ Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector
 Microsoft\Windows\Customer Experience Improvement Program
 全是客户体验改善计划，不参加的直接删光光
 
+\Microsoft\Windows\Feedback\Siuf
+Windows 反馈的任务，会收集用户信息，建议删了
+
 # TODO
 Microsoft\Windows\Application Experience\StartupAppTask
 启动项应该自己注意，而不是靠它来扫描
