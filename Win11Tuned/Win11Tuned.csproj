@@ -177,6 +177,7 @@
     <EmbeddedResource Include="Resources\Registry\NoUserAssistLog.reg" />
     <EmbeddedResource Include="Resources\Registry\DisableLastAccessUpdate.reg" />
     <EmbeddedResource Include="Resources\Registry\Disable8dot3NameCreation.reg" />
+    <EmbeddedResource Include="Resources\Registry\DontOfferMRT.reg" />
     <None Include="Resources\SendToRules.txt" />
     <None Include="Resources\ServiceRules.txt" />
     <None Include="Resources\TaskSchdulerRules.txt" />

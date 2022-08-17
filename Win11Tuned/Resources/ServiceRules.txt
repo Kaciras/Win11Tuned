@@ -3,6 +3,10 @@
 #Windows 安全平台的核心服务，防火墙和杀毒软件都需要，如果不用它们倒是可以关了
 #Disabled
 
+BDESVC
+不使用 BitLocker 加密的话可以禁了，禁用后 设置/BitLocker 不可用，默认手动但必定会被启动。
+Disabled
+
 DPS
 屁用没有的诊断功能，出了问题不 Google 谁看这玩意
 Disabled
@@ -39,6 +43,10 @@ Disabled
 TrkWks
 个人用户很少会把 NTFS 文件链接到远程计算机
 Disabled
+
+StiSvc
+若不适用扫描仪、相机等采集设备，以及依赖 WIA 的程序，则连接电脑的话可以禁止该服务自启。
+Manual
 
 PolicyAgent
 关掉后防火墙不能使用 IPSec 策略（比如禁 ping），个人机一般用不着
@@ -83,6 +91,10 @@ Disabled
 
 cbdhsvc
 系统自带的剪贴板同步功能，禁用后【系统/剪贴板】点击无响应，Win+V 功能无法使用，普通的复制粘贴无影响。
+Disabled
+
+PimIndexMaintenanceSvc
+联系人数据服务，不想在电脑上管理联系人的话可以禁了，默认手动但必定会被启动。
 Disabled
 
 # =============== 驱动型服务 ================
