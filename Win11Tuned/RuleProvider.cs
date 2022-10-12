@@ -58,6 +58,9 @@ public sealed class RuleProvider
 		};
 
 		var appx = new AppxRuleSet();
+		//appx.Add("Microsoft.WindowsCamera");
+		//appx.Add("microsoft.windowscommunicationsapps"); // Mail and Calender
+		//appx.Add("Microsoft.WindowsSoundRecorder");
 		appx.Add("Microsoft.549981C3F5F10"); // Cortana
 		appx.Add("Microsoft.BingNews");
 		appx.Add("Microsoft.BingWeather");
@@ -79,11 +82,8 @@ public sealed class RuleProvider
 		appx.Add("Microsoft.SkypeApp");
 		appx.Add("Microsoft.Todos");
 		appx.Add("Microsoft.WindowsAlarms");
-		appx.Add("Microsoft.WindowsCamera");
-		appx.Add("microsoft.windowscommunicationsapps");
 		appx.Add("Microsoft.WindowsFeedbackHub");
 		appx.Add("Microsoft.WindowsMaps");
-		appx.Add("Microsoft.WindowsSoundRecorder");
 		appx.Add("Microsoft.Xbox.TCUI");
 		appx.Add("Microsoft.XboxApp");
 		appx.Add("Microsoft.XboxGameOverlay");
@@ -96,6 +96,7 @@ public sealed class RuleProvider
 		appx.Add("Microsoft.MicrosoftOfficeHub");
 		appx.Add("MicrosoftWindows.Client.WebExperience");
 
+		appx.Add("Clipchamp.Clipchamp");
 		appx.Add("AD2F1837.HPSystemInformation");
 		RuleSets.Add(appx);
 
