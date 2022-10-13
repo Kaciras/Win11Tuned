@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Text.RegularExpressions;
 using Microsoft.VisualBasic.FileIO;
 using Microsoft.Win32;
 
@@ -8,51 +10,79 @@ namespace Win11Tuned.Rules;
 
 public sealed class StartupRuleSet : OptimizableSet
 {
+	const string RUN32 = @"Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Run";
 	const string RUN = @"Software\Microsoft\Windows\CurrentVersion\Run";
 
-	public string Name => "启动项删除";
+	public string Name { get; }
 
-	readonly List<string> user = new();
+	readonly List<string> patterns = new();
+	readonly RegistryKey basekey;
 
-	public void Add(string name)
+	public StartupRuleSet(bool isSystem)
 	{
-		user.Add(name);
+		if (isSystem)
+		{
+			Name = "删除启动项（系统）";
+			basekey = Registry.LocalMachine;
+		}
+		else
+		{
+			Name = "删除启动项（用户）";
+			basekey = Registry.CurrentUser;
+		}
+	}
+
+	public void Add(string regex)
+	{
+		patterns.Add(regex);
 	}
 
 	public IEnumerable<Optimizable> Scan()
 	{
-		using var run = Registry.CurrentUser.OpenSubKey(RUN);
-		foreach (var name in user)
+		var regex = new Regex("(?:" + string.Join("|", patterns) + ")");
+		return Scan(regex, RUN).Concat(Scan(regex, RUN32));
+	}
+
+	public IEnumerable<Optimizable> Scan(Regex regex, string @namespace)
+	{
+		using var run = basekey.OpenSubKey(@namespace);
+		if (run == null)
 		{
-			var command = run.GetValue(name);
-			if (command == null)
+			yield break;
+		}
+		foreach (var name in run.GetValueNames())
+		{
+			if (regex.IsMatch(name))
 			{
-				continue;
-			}
+				var command = (string)run.GetValue(name);
+				var descr = GetDisplayName(command);
 
-			var reader = new StringReader((string)command);
-			var parser = new TextFieldParser(reader)
-			{
-				Delimiters = new string[] { " " },
-				HasFieldsEnclosedInQuotes = true
-			};
-			var descr = parser.ReadFields()[0];
-
-			try
-			{
-				descr = FileVersionInfo.GetVersionInfo(descr).FileDescription;
+				var Optimize = () =>
+				{
+					using var run = basekey.OpenSubKey(@namespace, true);
+					run.DeleteValue(name);
+				};
+				yield return new OptimizeAction(descr, "不用的启动项删了吧", Optimize);
 			}
-			catch (FileNotFoundException)
-			{
-				// Ignore, just use filename from the command.
-			}
+		}
+	}
 
-			var Optimize = () =>
-			{
-				using var run = Registry.CurrentUser.OpenSubKey(RUN, true);
-				run.DeleteValue(name);
-			};
-			yield return new OptimizeAction(descr, "", Optimize);
+	string GetDisplayName(string command)
+	{
+		using var parser = new TextFieldParser(new StringReader(command))
+		{
+			Delimiters = new string[] { " " },
+			HasFieldsEnclosedInQuotes = true
+		};
+
+		var first = parser.ReadFields()[0];
+		try
+		{
+			return FileVersionInfo.GetVersionInfo(first).FileDescription;
+		}
+		catch (FileNotFoundException)
+		{
+			return first; // Not a file, just display the first part.
 		}
 	}
 }

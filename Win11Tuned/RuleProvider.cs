@@ -100,8 +100,13 @@ public sealed class RuleProvider
 		appx.Add("AD2F1837.HPSystemInformation");
 		RuleSets.Add(appx);
 
-		var startup = new StartupRuleSet();
-		startup.Add("MicrosoftEdgeAutoLaunch_7C0DCF8AB28AD837EF53E00945A5FD51");
+		var startupUser = new StartupRuleSet(false);
+		startupUser.Add("^MicrosoftEdgeAutoLaunch");
+		RuleSets.Add(startupUser);
+
+		var startup = new StartupRuleSet(true);
+		startup.Add("^RtkAudUService$");
+		startup.Add("^SecurityHealth$");
 		RuleSets.Add(startup);
 
 		var userSoftware = new SoftwareRuleSet(false);
