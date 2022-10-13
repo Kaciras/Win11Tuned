@@ -54,6 +54,10 @@ public class ServiceRule : Rule
 			{
 				Name = Utils.ExtractStringResource(Name);
 			}
+			if (Name.Length == 0)
+			{
+				Name = Key; // Can't get display name of NPSMSvc.
+			}
 		}
 
 		var state = (ServiceState)config.GetValue("Start");

@@ -75,14 +75,20 @@ Disabled
 
 # TabletInputService 禁用墨迹服务会导致输入法无法启动，表现为无限访问 OOBE\LaunchUserOOBE 键。
 
+
+
 edgeupdate
 Edge 浏览器的更新服务，不想自动更新的话可以设为手动。
 Manual
 
 # https://blog.csdn.net/hyongilfmmm/article/details/116115664
 
-CDPUserSvc
+CDPSvc
 通过微软账户同步历史和一些配置，禁用后【活动历史记录】和【Windows备份】无法使用。
+Disabled
+
+CDPUserSvc
+跟上面连接设备平台服务配套的，要禁就一起。
 Disabled
 
 OneSyncSvc
@@ -91,6 +97,19 @@ Disabled
 
 cbdhsvc
 系统自带的剪贴板同步功能，禁用后【系统/剪贴板】点击无响应，Win+V 功能无法使用，普通的复制粘贴无影响。
+Disabled
+
+webthreatdefsvc
+你来教老子上网？
+Disabled
+
+webthreatdefusersvc
+跟上面 Web 威胁防御服务配套的，要禁就一起。
+Disabled
+
+# https://www.elevenforum.com/t/what-is-npsmsvc_xxxx-4-digit-number-in-services.3691/
+NPSMSvc
+全名 Now Playing Session Manager，就是操作中心和锁屏界面上的播放控件，禁后就看不到了。
 Disabled
 
 PimIndexMaintenanceSvc
@@ -118,7 +137,7 @@ HPDiagsCap
 Disabled
 
 HotKeyServiceUWP
-惠普电脑的垃圾服务
+响应惠普笔记本上的编程键（三个菱形的），禁用后按了没反应。
 Disabled
 
 LanWlanWwanSwitchingServiceUWP
@@ -142,3 +161,17 @@ Disabled
 AMD Crash Defender Service
 看名字好像能防系统崩溃，但实际上它只是上传日志，对你没有任何价值
 Disabled
+
+# ============== 高清音频相关 ==============
+
+FMAPOService
+螃蟹声卡附带的服务，据说能优化声音和语音，但我完全没感觉到。
+Manual
+
+RtkAudioUniversalService
+螃蟹声卡附带的服务，支持各种声音处理功能，禁用后 HP Audio Control 无法运行。
+Manual
+
+SECOMNService
+部分品牌的电脑会带这个服务，据说跟高清音频有关，但我完全没感觉。
+Manual
