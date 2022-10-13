@@ -16,6 +16,12 @@ UploadUserActivities
 禁止上传用户活动数据
 禁止把浏览历史、搜索记录、什么时候打开了 UWP 应用这些东西上传到 Microsoft。
 
+HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization
+NoLockScreen
+1
+关闭锁屏界面
+即使关了也可以锁定用户，此时显示登录界面，我不知道这个锁屏有什么用。
+
 HKCU\Software\Policies\Microsoft\Windows\Explorer
 DisableSearchBoxSuggestions
 1
