@@ -31,41 +31,6 @@ internal static class Utils
 	}
 
 	/// <summary>
-	/// 执行命令并等待完成，检查退出码，已经设置来重定向了输入和禁止显示窗口。
-	/// <br/>
-	/// 如果命令以非零值退出，则会抛出异常，异常信息使用 stderr 或 stdout，请保证命令的输出不要太长。
-	/// </summary>
-	/// <param name="file">文件名</param>
-	/// <param name="args">参数</param>
-	/// <returns>进程对象</returns>
-	/// <exception cref="SystemException">如果命令执行失败</exception>
-	public static Process Execute(string file, string args = "")
-	{
-		var startInfo = new ProcessStartInfo(file)
-		{
-			Arguments = args,
-			UseShellExecute = false,
-			RedirectStandardOutput = true,
-			RedirectStandardError = true,
-			CreateNoWindow = true,
-		};
-		var process = Process.Start(startInfo);
-
-		process.WaitForExit();
-		if (process.ExitCode == 0)
-		{
-			return process;
-		}
-
-		var message = process.StandardError.ReadToEnd();
-		if (string.IsNullOrEmpty(message))
-		{
-			message = process.StandardOutput.ReadToEnd();
-		}
-		throw new SystemException($"命令执行失败 - {process.ExitCode}：{message}");
-	}
-
-	/// <summary>
 	/// 获取快捷方式所指向文件的路径。
 	/// </summary>
 	/// <seealso cref="https://stackoverflow.com/a/9414495/7065321"/>
@@ -101,15 +66,6 @@ internal static class Utils
 				return null; // 新装的系统有个无效的 Fax Recipient 会出异常
 			}
 		});
-	}
-
-	/// <summary>
-	/// 创建临时文件，搭配 using 语句使用，在销毁时删除。
-	/// </summary>
-	public static TempFileSession CreateTempFile()
-	{
-		var file = Path.GetTempFileName();
-		return new TempFileSession(file);
 	}
 
 	/// <summary>

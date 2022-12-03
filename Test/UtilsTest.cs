@@ -8,13 +8,6 @@ namespace Win11Tuned.Test;
 [TestClass]
 public sealed class UtilsTest
 {
-	// 本来应该用个可控的程序来测试的，但我懒得搞于是就用系统自带的 sc.exe 了。
-	[TestMethod]
-	public void ExecuteFailed()
-	{
-		Assert.ThrowsException<SystemException>(() => Utils.Execute("sc", "create x x"));
-	}
-
 	[DataRow("Resources/Calculator.lnk", @"\system32\calc.exe")]
 	[DataRow("Resources/Excel 2016.lnk", @"\Installer\{90160000-0011-0000-1000-0000000FF1CE}\xlicons.exe")]
 	[DataTestMethod]
@@ -72,17 +65,5 @@ public sealed class UtilsTest
 	{
 		var text = Utils.ExtractStringFromDLL(@"shell32.dll", 51330);
 		Assert.AreEqual("解决所选项的同步错误", text);
-	}
-
-	[TestMethod]
-	public void CreateTempFile()
-	{
-		Utils.TempFileSession file;
-
-		using (file = Utils.CreateTempFile())
-		{
-			Assert.IsTrue(File.Exists(file.Path));
-		}
-		Assert.IsFalse(File.Exists(file.Path));
 	}
 }
