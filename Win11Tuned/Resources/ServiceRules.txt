@@ -75,7 +75,9 @@ Disabled
 
 # TabletInputService 禁用墨迹服务会导致输入法无法启动，表现为无限访问 OOBE\LaunchUserOOBE 键。
 
-
+WbioSrvc
+提供指纹，人脸等识别技术来登录系统，如果你不用这些不安全的玩意可以改成手动。
+Manual
 
 edgeupdate
 Edge 浏览器的更新服务，不想自动更新的话可以设为手动。
@@ -153,6 +155,10 @@ HPSysInfoCap
 Disabled
 
 HP TechPulse Core
+惠普电脑的垃圾服务
+Disabled
+
+hpsvcsscan
 惠普电脑的垃圾服务
 Disabled
 
