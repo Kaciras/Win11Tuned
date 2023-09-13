@@ -64,7 +64,7 @@ public sealed class AppEventsRule : Rule
 				if (key == null) continue;
 
 				using var current = app.OpenSubKey(@$"{item}\.Current", true);
-				current.SetValue(string.Empty, key.GetValue(""));
+				current.SetValue("", key.GetValue(""));
 			}
 		}
 	}

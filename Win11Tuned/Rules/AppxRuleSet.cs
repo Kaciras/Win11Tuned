@@ -10,30 +10,71 @@ namespace Win11Tuned.Rules;
 
 public sealed class AppxRuleSet : OptimizableSet
 {
-	public string Name => "卸载应用（UWP）";
+	public string Name => "UWP 应用";
 
-	private readonly HashSet<string> appx = new();
+	private readonly HashSet<string> uninstall = new();
 
-	private readonly List<string> user = new();
+	private readonly List<string> install = new();
 
-	public void Add(string name)
+	public void Uninstall(string name)
 	{
-		appx.Add(name);
+		uninstall.Add(name);
+	}
+
+	public void Install(string name)
+	{
+		install.Add(name);
 	}
 
 	public IEnumerable<Optimizable> Scan()
 	{
+		// TODO: DeprovisionPackageForAllUsersAsync 彻底删除 
 		var packageManager = new PackageManager();
+
+		
+
 		return packageManager
 			.FindPackagesForUser("")
-			.Where(package => appx.Contains(package.Id.Name))
+			.Where(package => uninstall.Contains(package.Id.Name))
 			.Select(package => new UninstallAppx(package));
+	}
+}
+
+public sealed class InstallAppx : Optimizable
+{
+	public string Name { get; }
+
+	public string Description { get; }
+
+	private readonly Package package;
+
+	public InstallAppx(Package package, string descroption = "安装这个 App")
+	{
+		this.package = package;
+		Name = "安装 - " + package.DisplayName;
+		Description = descroption;
+	}
+
+	public void Optimize()
+	{
+		var packageManager = new PackageManager();
+		var task = packageManager.RemovePackageAsync(package.Id.FullName);
+
+		var @event = new ManualResetEvent(false);
+		task.Completed = (_, _) => @event.Set();
+		@event.WaitOne();
+
+		if (task.Status == AsyncStatus.Error)
+		{
+			var reason = task.GetResults().ErrorText;
+			throw new Exception($"卸载 ${package.DisplayName} 失败：{reason}");
+		}
 	}
 }
 
 public sealed class UninstallAppx : Optimizable
 {
-	public string Name { get; private set; }
+	public string Name { get; }
 
 	public string Description { get; }
 

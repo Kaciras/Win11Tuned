@@ -26,7 +26,7 @@ public class RegFileRule : Rule
 	{
 		document = new RegDocument();
 		document.Load(content);
-
+		
 		Name = name;
 		Description = description;
 	}

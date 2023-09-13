@@ -13,14 +13,15 @@ public sealed class SoftwareRuleSet : OptimizableSet
 
 	static readonly Regex EXE = new(@"\.exe(?: |$)");
 
-	public string Name => $"卸载应用（用户）";
+	public string Name { get; }
 
 	readonly List<string> keys = new();
 	readonly RegistryKey @namespace;
 
-	public SoftwareRuleSet(RegistryKey @namespace)
+	public SoftwareRuleSet(bool system)
 	{
-		this.@namespace = @namespace;
+		@namespace = system ? Registry.LocalMachine : Registry.CurrentUser;
+		Name = system ? "卸载应用（系统）" : $"卸载应用（用户）";
 	}
 
 	public void Add(string key) => keys.Add(key);
@@ -44,6 +45,6 @@ public sealed class SoftwareRuleSet : OptimizableSet
 		using var key = @namespace.OpenSubKey(UNINSTALL + keyName);
 		var cmd = key.GetValue("QuietUninstallString") ?? key.GetValue("UninstallString");
 		var splited = EXE.Split((string)cmd, 2);
-		Process.Start(splited[0] + ".exe", splited[1]).WaitForExit();
+		Process.Start(splited[0] + ".exe", "/quiet " + splited[1]).WaitForExit();
 	}
 }

@@ -94,7 +94,7 @@ CDPUserSvc
 Disabled
 
 OneSyncSvc
-通过微软账户同步邮件、联系人等，不需要同步的可以禁用。
+通过微软账户同步邮件、联系人等。禁用后应用商店里某些微软出品的 App 会无法使用。
 Disabled
 
 cbdhsvc
@@ -117,6 +117,14 @@ Disabled
 PimIndexMaintenanceSvc
 联系人数据服务，不想在电脑上管理联系人的话可以禁了，默认手动但必定会被启动。
 Disabled
+
+XblAuthManager
+不使用 XBox 的可以禁用。
+Disabled
+
+MapsBroker
+下载地图的服务？不知道地图指的是什么，我也从不再 PC 上使用地图软件。
+Manual
 
 # =============== 驱动型服务 ================
 

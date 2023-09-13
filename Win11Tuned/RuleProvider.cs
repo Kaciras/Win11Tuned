@@ -61,43 +61,43 @@ public sealed class RuleProvider
 		//appx.Add("Microsoft.WindowsCamera");
 		//appx.Add("microsoft.windowscommunicationsapps"); // Mail and Calender
 		//appx.Add("Microsoft.WindowsSoundRecorder");
-		appx.Add("Microsoft.549981C3F5F10"); // Cortana
-		appx.Add("Microsoft.BingNews");
-		appx.Add("Microsoft.BingWeather");
-		appx.Add("Microsoft.GamingApp");
-		appx.Add("Microsoft.GetHelp");
-		appx.Add("Microsoft.Getstarted");
-		appx.Add("Microsoft.Messaging");
-		appx.Add("Microsoft.Microsoft3DViewer*");
-		appx.Add("Microsoft.MicrosoftOfficeHub");
-		appx.Add("Microsoft.MicrosoftStickyNotes");
-		appx.Add("Microsoft.MicrosoftSolitaireCollection");
-		appx.Add("Microsoft.NetworkSpeedTest");
-		appx.Add("Microsoft.Office.Sway");
-		appx.Add("Microsoft.OneConnect");
-		appx.Add("Microsoft.People");
-		appx.Add("Microsoft.PowerAutomateDesktop"); // Require login
-		appx.Add("Microsoft.Print3D");
-		appx.Add("Microsoft.ScreenSketch");
-		appx.Add("Microsoft.SkypeApp");
-		appx.Add("Microsoft.Todos");
-		appx.Add("Microsoft.WindowsAlarms");
-		appx.Add("Microsoft.WindowsFeedbackHub");
-		appx.Add("Microsoft.WindowsMaps");
-		appx.Add("Microsoft.Xbox.TCUI");
-		appx.Add("Microsoft.XboxApp");
-		appx.Add("Microsoft.XboxGameOverlay");
-		appx.Add("Microsoft.XboxGamingOverlay");
-		appx.Add("Microsoft.XboxIdentityProvider");
-		appx.Add("Microsoft.XboxSpeechToTextOverlay");
-		appx.Add("Microsoft.YourPhone"); // Huawei phones only
-		appx.Add("Microsoft.ZuneMusic");
-		appx.Add("Microsoft.ZuneVideo");
-		appx.Add("Microsoft.MicrosoftOfficeHub");
-		appx.Add("MicrosoftWindows.Client.WebExperience");
+		appx.Uninstall("Microsoft.549981C3F5F10"); // Cortana
+		appx.Uninstall("Microsoft.BingNews");
+		appx.Uninstall("Microsoft.BingWeather");
+		appx.Uninstall("Microsoft.GamingApp");
+		appx.Uninstall("Microsoft.GetHelp");
+		appx.Uninstall("Microsoft.Getstarted");
+		appx.Uninstall("Microsoft.Messaging");
+		appx.Uninstall("Microsoft.Microsoft3DViewer*");
+		appx.Uninstall("Microsoft.MicrosoftOfficeHub");
+		appx.Uninstall("Microsoft.MicrosoftStickyNotes");
+		appx.Uninstall("Microsoft.MicrosoftSolitaireCollection");
+		appx.Uninstall("Microsoft.NetworkSpeedTest");
+		appx.Uninstall("Microsoft.Office.Sway");
+		appx.Uninstall("Microsoft.OneConnect");
+		appx.Uninstall("Microsoft.People");
+		appx.Uninstall("Microsoft.PowerAutomateDesktop"); // Require login
+		appx.Uninstall("Microsoft.Print3D");
+		appx.Uninstall("Microsoft.ScreenSketch");
+		appx.Uninstall("Microsoft.SkypeApp");
+		appx.Uninstall("Microsoft.Todos");
+		appx.Uninstall("Microsoft.WindowsAlarms");
+		appx.Uninstall("Microsoft.WindowsFeedbackHub");
+		appx.Uninstall("Microsoft.WindowsMaps");
+		appx.Uninstall("Microsoft.Xbox.TCUI");
+		appx.Uninstall("Microsoft.XboxApp");
+		appx.Uninstall("Microsoft.XboxGameOverlay");
+		appx.Uninstall("Microsoft.XboxGamingOverlay");
+		appx.Uninstall("Microsoft.XboxIdentityProvider");
+		appx.Uninstall("Microsoft.XboxSpeechToTextOverlay");
+		appx.Uninstall("Microsoft.YourPhone"); // Huawei phones only
+		appx.Uninstall("Microsoft.ZuneMusic");
+		appx.Uninstall("Microsoft.ZuneVideo");
+		appx.Uninstall("Microsoft.MicrosoftOfficeHub");
+		appx.Uninstall("MicrosoftWindows.Client.WebExperience");
 
-		appx.Add("Clipchamp.Clipchamp");
-		appx.Add("AD2F1837.HPSystemInformation");
+		appx.Uninstall("Clipchamp.Clipchamp");
+		appx.Uninstall("AD2F1837.HPSystemInformation");
 		RuleSets.Add(appx);
 
 		var startupUser = new StartupRuleSet(false);
@@ -113,12 +113,13 @@ public sealed class RuleProvider
 		userSoftware.Add("OneDriveSetup.exe");
 		RuleSets.Add(userSoftware);
 
-		var systemSoftware = new SoftwareRuleSet(true);
-		systemSoftware.Add("{6A2A8076-135F-4F55-BB02-DED67C8C6934}"); // Microsoft Update Health Tools
-		RuleSets.Add(systemSoftware);
-
 		if (AdminMode)
 		{
+			var systemSoftware = new SoftwareRuleSet(true);
+			// 这个 ID 还会变，上一版是 6A2A8076-135F-4F55-BB02-DED67C8C6934
+			systemSoftware.Add("{AF47B488-9780-4AB5-A97E-762E28013CA6}"); // Microsoft Update Health Tools
+			RuleSets.Add(systemSoftware);
+
 			others.Add(new PowerShellPolicyRule());
 			others.Add(new ExplorerFolderRule());
 			others.Add(new RegFileRule(
