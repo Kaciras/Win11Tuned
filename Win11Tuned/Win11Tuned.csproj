@@ -117,6 +117,7 @@
     <Compile Include="Rules\StartupMenuRule.cs" />
     <Compile Include="Rules\StartupRuleSet.cs" />
     <Compile Include="Rules\TaskSchedulerSet.cs" />
+    <Compile Include="Rules\TextConfigRuleSet.cs" />
     <Compile Include="SimpleIniFile.cs" />
     <Compile Include="STAExecutor.cs" />
     <Compile Include="TaskSchedulerManager.cs" />
