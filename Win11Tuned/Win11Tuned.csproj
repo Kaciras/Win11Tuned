@@ -154,7 +154,6 @@
     <EmbeddedResource Include="Resources\Registry\DisableAutoPlay.reg" />
     <EmbeddedResource Include="Resources\Registry\DisableCrashDump.reg" />
     <EmbeddedResource Include="Resources\Registry\ExplorerOptions.reg" />
-    <EmbeddedResource Include="Resources\Registry\IESecurity.reg" />
     <EmbeddedResource Include="Resources\Registry\OpenWithNotepad.reg" />
     <EmbeddedResource Include="Resources\Registry\Taskbar.reg" />
     <EmbeddedResource Include="Resources\Registry\VisualEffects.reg" />
