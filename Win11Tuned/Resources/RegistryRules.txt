@@ -1,3 +1,7 @@
+修复 DeviceMetadataServiceURL
+将微软的驱动数据库从短链替换为解析后的地址，解决事件查看器里的 DeviceSetupManager 131 报错。
+FixDeviceSetupManager
+
 不播放 Windows 启动声音
 看个人喜好，我是比较喜欢安静一点的
 DisableStartupSound
