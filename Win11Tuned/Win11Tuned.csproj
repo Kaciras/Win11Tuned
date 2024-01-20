@@ -81,12 +81,14 @@
     </Compile>
     <Compile Include="GroupPolicy.cs" />
     <Compile Include="GroupPolicyObject.cs" />
+    <Compile Include="HostsFile.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainWindow.designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="MultiValueDictionary.cs" />
     <Compile Include="Optimizable.cs" />
     <Compile Include="OptimizableSet.cs" />
     <Compile Include="OptimizeAction.cs" />
@@ -117,7 +119,7 @@
     <Compile Include="Rules\StartupMenuRule.cs" />
     <Compile Include="Rules\StartupRuleSet.cs" />
     <Compile Include="Rules\TaskSchedulerSet.cs" />
-    <Compile Include="Rules\TextConfigRuleSet.cs" />
+    <Compile Include="Rules\HostsRuleSet.cs" />
     <Compile Include="SimpleIniFile.cs" />
     <Compile Include="STAExecutor.cs" />
     <Compile Include="TaskSchedulerManager.cs" />
@@ -179,6 +181,7 @@
     <EmbeddedResource Include="Resources\Registry\Disable8dot3NameCreation.reg" />
     <EmbeddedResource Include="Resources\Registry\DontOfferMRT.reg" />
     <EmbeddedResource Include="Resources\Registry\FixDeviceSetupManager.reg" />
+    <EmbeddedResource Include="Resources\Registry\ClassicContextMenu.reg" />
     <None Include="Resources\SendToRules.txt" />
     <None Include="Resources\ServiceRules.txt" />
     <None Include="Resources\TaskSchdulerRules.txt" />
@@ -211,6 +214,9 @@
     <Analyzer Include="..\packages\AspectInjector.2.8.2\analyzers\dotnet\cs\AspectInjector.Broker.dll" />
     <Analyzer Include="..\packages\AspectInjector.2.8.2\analyzers\dotnet\cs\AspectInjector.Rules.dll" />
     <Analyzer Include="..\packages\AspectInjector.2.8.2\analyzers\dotnet\cs\FluentIL.Common.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\hosts\BlockPotPlayerAD.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\AspectInjector.2.8.2\build\netstandard2.0\AspectInjector.targets" Condition="Exists('..\packages\AspectInjector.2.8.2\build\netstandard2.0\AspectInjector.targets')" />
