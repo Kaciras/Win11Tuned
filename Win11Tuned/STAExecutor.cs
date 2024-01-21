@@ -37,11 +37,13 @@ public static class STAExecutor
 	/// </summary>
 	public static void SetSyncContext(SynchronizationContext context)
 	{
-		STAExecutor.context = context;
-
 		var apartment = ApartmentState.Unknown;
 		context.Send(_ => apartment = Thread.CurrentThread.GetApartmentState(), null);
-		if (apartment != ApartmentState.STA)
+		if (apartment == ApartmentState.STA)
+		{
+			STAExecutor.context = context;
+		} 
+		else
 		{
 			throw new ArgumentException("同步上下文必须使用 STA 线程", nameof(context));
 		}
