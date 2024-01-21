@@ -148,6 +148,11 @@ public sealed class RuleProvider
 				"常用的目录，不知为何微软要隐藏它"
 			));
 
+			var hostsSet = new HostsRuleSet();
+			RuleSets.Add(hostsSet);
+			hostsSet.LoadList("Win11Tuned.Resources.hosts.BlockPotPlayerAD.txt");
+			hostsSet.LoadList("Win11Tuned.Resources.hosts.CommonAlias.txt");
+
 			RuleSets.Add(new TaskSchedulerSet());
 
 			LoadRuleFile("组策略", Resources.GroupPolicyRules, ReadGroupPolicy);

@@ -59,5 +59,37 @@ namespace Win11Tuned.Test.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ::1 v6.localhost 
+        ///
+        ///
+        ///# Whole line comment
+        ///
+        ///0.0.0.0 ad.daum.net # Comments
+        ///
+        ///127.0.0.1	v4.localhost
+        ///.
+        /// </summary>
+        internal static string hosts_Add {
+            get {
+                return ResourceManager.GetString("hosts_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ::1 v6.localhost 
+        ///
+        ///
+        ///# Whole line comment
+        ///
+        ///0.0.0.0 ad.daum.net # Comments
+        ///.
+        /// </summary>
+        internal static string hosts_RemoveAll {
+            get {
+                return ResourceManager.GetString("hosts_RemoveAll", resourceCulture);
+            }
+        }
     }
 }

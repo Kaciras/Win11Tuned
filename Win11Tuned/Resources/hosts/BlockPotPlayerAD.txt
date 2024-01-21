@@ -1,0 +1,8 @@
+﻿# 屏蔽 PotPlayer 的广告
+# 通过将 PotPlayer 的广告域名添加到 hosts 文件，可以避免它弹出广告。
+
+0.0.0.0 ad.daum.net
+0.0.0.0 alea.adam.ad.daum.net
+0.0.0.0 wat.ad.daum.net
+0.0.0.0 display.ad.daum.net
+0.0.0.0 analytics.ad.daum.net

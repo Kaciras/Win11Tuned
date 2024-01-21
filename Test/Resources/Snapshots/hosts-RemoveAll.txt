@@ -1,0 +1,4 @@
+﻿::1 v6.localhost 
+
+# Whole line comment
+
