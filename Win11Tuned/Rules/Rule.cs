@@ -10,6 +10,4 @@ public interface Rule : Optimizable
 	/// </summary>
 	/// <returns>如果需要优化则为 true</returns>
 	bool NeedOptimize();
-
-	// 以前这方法叫 Check，弄不清到底是检查需要优化还是不需要，所以改个更清晰的名字。
 }

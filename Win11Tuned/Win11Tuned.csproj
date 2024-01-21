@@ -51,9 +51,6 @@
     <Reference Include="RegistryEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RegistryEx.1.0.0-preview.3\lib\net48\RegistryEx.dll</HintPath>
     </Reference>
-    <Reference Include="SharpYaml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=1ced8108e942bc02, processorArchitecture=MSIL">
-      <HintPath>..\packages\SharpYaml.2.1.0\lib\netstandard2.0\SharpYaml.dll</HintPath>
-    </Reference>
     <Reference Include="System.Management.Automation" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -165,8 +162,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ContextMenuRules.txt" />
-    <None Include="Resources\Description\en.yml" />
-    <None Include="Resources\Description\zh.yml" />
     <None Include="Resources\GroupPolicyRules.txt" />
     <None Include="Resources\RegistryRules.txt" />
     <EmbeddedResource Include="Resources\Registry\DisableStartupSound.reg" />

@@ -15,16 +15,9 @@ namespace Win11Tuned;
 /// <item>按行读取，上层怎么解析随意</item>
 /// </list>
 /// </summary>
-public sealed class RuleFileReader
+public sealed class RuleFileReader(string content) : IEnumerator<RuleFileReader>
 {
-	readonly string content;
-
 	int i = 0;
-
-	public RuleFileReader(string content)
-	{
-		this.content = content;
-	}
 
 	/// <summary>
 	/// 反正都读取的是预定义的资源，限制死换行符可以避免一些的麻烦。
@@ -106,7 +99,7 @@ public sealed class RuleFileReader
 	}
 
 	/// <summary>
-	/// RuleFileReader 支持枚举模式，迭代每一个项目。
+	/// RuleFileReader 支持枚举模式，迭代每一个项目，这样就能利用 LINQ 函数。
 	/// <br/>
 	/// 注意与规范不同的是 MoveNext() 前必须读完当前项目，否则无法前进到新项目。
 	/// </summary>
@@ -115,39 +108,25 @@ public sealed class RuleFileReader
 		return new JustEnumerable(content);
 	}
 
-	class JustEnumerable : IEnumerable<RuleFileReader>
-	{
-		readonly string content;
+	#region 实现 IEnumerator...
 
-		public JustEnumerable(string content)
-		{
-			this.content = content;
-		}
+	public RuleFileReader Current => this;
+	object IEnumerator.Current => Current;
+	public void Dispose() { }
+	public void Reset() => Current.i = 0;
+
+	#endregion
+
+	// 还可以分为两层：每一项和每一行，这样的话暴露的方法就更少，不过我懒得搞叻。
+	class JustEnumerable(string content) : IEnumerable<RuleFileReader>
+	{
+		readonly string content = content;
 
 		public IEnumerator<RuleFileReader> GetEnumerator()
 		{
-			return new Enumerator(new RuleFileReader(content));
+			return new RuleFileReader(content);
 		}
 
 		IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
-	}
-
-	// 这里其实可以分为两层：每一项和项目内的每一行，这样的话暴露的方法就更少，不过我懒得搞叻。
-	struct Enumerator : IEnumerator<RuleFileReader>
-	{
-		public RuleFileReader Current { get; }
-
-		object IEnumerator.Current => Current;
-
-		public Enumerator(RuleFileReader current)
-		{
-			Current = current;
-		}
-
-		public void Dispose() { }
-
-		public bool MoveNext() => Current.MoveNext();
-
-		public void Reset() => Current.i = 0;
 	}
 }

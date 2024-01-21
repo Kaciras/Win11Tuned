@@ -5,11 +5,16 @@ using System.Linq;
 
 namespace Win11Tuned;
 
-// 简单的解析和保存 hosts 文件格式的类，尽量保持了原本的注释和空行。
+/// <summary>
+/// 简单的解析和保存 hosts 文件格式的类，尽量保持了原本的注释和空行。
+/// </summary>
 public sealed class HostsFile
 {
+	// 主机名 -> (IP，行号)
 	readonly MultiValueDictionary<string, (string, int)> entries = new();
-	readonly List<string?> lines = [];
+
+	// 以为记录了索引，所以不能移动元素，删除的设为 null。
+	readonly List<string> lines = [];
 
 	public HostsFile() {}
 
@@ -25,7 +30,7 @@ public sealed class HostsFile
 		while (line != null)
 		{
 			var parts = SplitLine(line);
-			for (int i = 1; i < parts.Length; i++)
+			for (var i = 1; i < parts.Length; i++)
 			{
 				var tuple = (parts[0], lines.Count);
 				entries.Add(parts[i], tuple);
@@ -35,6 +40,9 @@ public sealed class HostsFile
 		}
 	}
 
+	/// <summary>
+	/// 分割注释之前的部分，第一个是 IP，后面的是主机名。
+	/// </summary>
 	static string[] SplitLine(string line)
 	{
 		var e = line.IndexOf('#');
@@ -47,25 +55,23 @@ public sealed class HostsFile
 
 	public bool ContainsExactly(string host, string ip)
 	{
-		if (!entries.ContainsKey(host))
+		if (!entries.TryGetList(host, out var ips))
 		{
 			return false;
 		}
-		var ips = entries[host];
 		return ips.Count == 1 && ips[0].Item1 == ip;
 	}
 
 	public void RemoveAll(string host)
 	{
-		if (!entries.ContainsKey(host))
+		if (!entries.TryGetList(host, out var ips))
 		{
 			return;
 		}
-		var ips = entries[host];
 		entries.Remove(host);
-
 		foreach (var (_, i) in ips)
 		{
+			// 会把注释里的也给删除，但应该不是什么大问题。
 			var x = lines[i].Replace(host, "");
 			lines[i] = SplitLine(x).Length == 1 ? null : x;
 		}

@@ -31,5 +31,5 @@ InstallWithoutLicense
 DisableLastAccessUpdate
 
 禁用 NTFS 8.3 短文件名
-早期 Windows 有文件名长度限制，就搞了个 C:\xxx`1 表示以 xxx 开头的第一个文件这样的别名，禁用后提高性能；现代的系统已不需要这种功能，但老程序可能还用它。
+早期 Windows 有文件名长度限制，就搞了个 C:\xxx`1 表示以 xxx 开头的第一个文件，禁用后提高性能；现代的系统已不需要该功能，但老程序可能还用它。
 Disable8dot3NameCreation

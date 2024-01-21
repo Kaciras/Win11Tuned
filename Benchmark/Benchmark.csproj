@@ -55,8 +55,8 @@
     <Reference Include="Gee.External.Capstone, Version=2.3.0.0, Culture=neutral, PublicKeyToken=b117d7a2dc33ffa6, processorArchitecture=MSIL">
       <HintPath>..\packages\Gee.External.Capstone.2.3.0\lib\netstandard2.0\Gee.External.Capstone.dll</HintPath>
     </Reference>
-    <Reference Include="Iced, Version=1.20.0.0, Culture=neutral, PublicKeyToken=5baba79f4264913b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Iced.1.20.0\lib\net45\Iced.dll</HintPath>
+    <Reference Include="Iced, Version=1.21.0.0, Culture=neutral, PublicKeyToken=5baba79f4264913b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Iced.1.21.0\lib\net45\Iced.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>

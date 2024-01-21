@@ -4,7 +4,7 @@ namespace Win11Tuned;
 
 public sealed class MultiValueDictionary<TKey, TValue> 
 {
-	private Dictionary<TKey, List<TValue>> dict = new();
+	readonly Dictionary<TKey, List<TValue>> dict = new();
 
 	public IEnumerable<TKey> Keys => dict.Keys;
 
@@ -12,13 +12,14 @@ public sealed class MultiValueDictionary<TKey, TValue>
 
 	public void Add(TKey key, TValue val)
 	{
-		if (dict.ContainsKey(key))
+		if (dict.TryGetValue(key, out var list))
 		{
-			dict[key].Add(val);
+			list.Add(val);
 		}
 		else
 		{
-			dict.Add(key, new List<TValue>() { val });
+			list = [val];
+			dict.Add(key, list);
 		}
 	}
 
@@ -27,43 +28,34 @@ public sealed class MultiValueDictionary<TKey, TValue>
 		dict.Clear();
 	}
 
-	public bool ContainsKey(TKey key)
+	public bool TryGetList(TKey key, out List<TValue> value)
 	{
-		return dict.ContainsKey(key);
+		return dict.TryGetValue(key, out value);
 	}
 
 	public void Remove(TKey key)
 	{
-		if (dict.ContainsKey(key))
-		{
-			dict.Remove(key);
-		}
+		dict.Remove(key);
 	}
 
-	public void Remove(TKey key, TValue val)
+	public void Remove(TKey key, TValue value)
 	{
-		if (dict.TryGetValue(key, out List<TValue> collection) && collection.Remove(val))
+		if (dict.TryGetValue(key, out var list))
 		{
-			if (collection.Count == 0)
+			list.Remove(value);
+			if (list.Count == 0)
+			{
 				dict.Remove(key);
+			}
 		}
 	}
 
 	public bool Contains(TKey key, TValue val)
 	{
-		return (dict.TryGetValue(key, out List<TValue> collection) && collection.Contains(val));
+		return dict.TryGetValue(key, out var list) && list.Contains(val);
 	}
 
-	public List<TValue> this[TKey key]
-	{
-		get
-		{
-			if (dict.TryGetValue(key, out List<TValue> collection))
-				return collection;
-
-			throw new KeyNotFoundException();
-		}
-	}
+	public List<TValue> this[TKey key] => dict[key];
 
 	public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator()
 	{

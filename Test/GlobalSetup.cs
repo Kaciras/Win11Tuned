@@ -1,6 +1,5 @@
 ﻿using System.Windows.Forms;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.Win32;
 
 namespace Win11Tuned.Test;
 
