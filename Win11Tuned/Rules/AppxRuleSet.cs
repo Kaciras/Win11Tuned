@@ -31,7 +31,7 @@ public sealed class AppxRuleSet : OptimizableSet
 		// TODO: DeprovisionPackageForAllUsersAsync 彻底删除 
 		var packageManager = new PackageManager();
 
-		
+
 
 		return packageManager
 			.FindPackagesForUser("")

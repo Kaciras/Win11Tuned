@@ -6,7 +6,7 @@ public sealed class DesktopIconRule : Rule
 {
 	const string KEY = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel";
 
-	public string Name {get; private set;}
+	public string Name { get; private set; }
 
 	public string Description => "在桌面上显示这个图标";
 

@@ -12,7 +12,7 @@ namespace Win11Tuned;
 public static class GroupPolicy
 {
 	[ExecuteOnSTAThread]
-	public static void SetPolicySetting(string key, 
+	public static void SetPolicySetting(string key,
 		string item, object value, RegistryValueKind kind)
 	{
 		var gpo = new ComputerGroupPolicyObject();

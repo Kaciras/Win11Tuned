@@ -1,9 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Linq;
-using System.Text;
-using Microsoft.Win32;
-using RegistryEx;
+﻿using RegistryEx;
 
 namespace Win11Tuned.Rules;
 
@@ -26,7 +21,7 @@ public class RegFileRule : Rule
 	{
 		document = new RegDocument();
 		document.Load(content);
-		
+
 		Name = name;
 		Description = description;
 	}

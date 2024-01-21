@@ -42,7 +42,7 @@ public static class STAExecutor
 		if (apartment == ApartmentState.STA)
 		{
 			STAExecutor.context = context;
-		} 
+		}
 		else
 		{
 			throw new ArgumentException("同步上下文必须使用 STA 线程", nameof(context));

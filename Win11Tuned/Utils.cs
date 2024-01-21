@@ -38,33 +38,31 @@ internal static class Utils
 	/// <exception cref="InvalidOperationException">文件不是快捷方式</exception>
 	/// <exception cref="UnauthorizedAccessException">无权限，或者是特殊的链接，比如开始菜单里的桌面</exception>
 	/// <exception cref="FileNotFoundException">如果所给的快捷方式不存在</exception>
+	[ExecuteOnSTAThread]
 	public static string GetShortcutTarget(string filename)
 	{
-		return STAExecutor.Run(() =>
+		var pathOnly = Path.GetDirectoryName(filename);
+		var filenameOnly = Path.GetFileName(filename);
+		var shell = new Shell();
+
+		var folderItem = shell.NameSpace(Path.GetFullPath(pathOnly))
+			?.ParseName(filenameOnly)
+			?? throw new FileNotFoundException("File not exists", filename);
+
+		// 如果不是链接 GetLink 会抛 NotImplementedException
+		if (!folderItem.IsLink)
 		{
-			var pathOnly = Path.GetDirectoryName(filename);
-			var filenameOnly = Path.GetFileName(filename);
-			var shell = new Shell();
+			throw new InvalidOperationException("File is not a link");
+		}
 
-			var folderItem = shell.NameSpace(Path.GetFullPath(pathOnly))
-				?.ParseName(filenameOnly)
-				?? throw new FileNotFoundException("File not exists", filename);
-
-			// 如果不是链接 GetLink 会抛 NotImplementedException
-			if (!folderItem.IsLink)
-			{
-				throw new InvalidOperationException("File is not a link");
-			}
-
-			try
-			{
-				return ((ShellLinkObject)folderItem.GetLink).Path;
-			}
-			catch (COMException)
-			{
-				return null; // 新装的系统有个无效的 Fax Recipient 会出异常
-			}
-		});
+		try
+		{
+			return ((ShellLinkObject)folderItem.GetLink).Path;
+		}
+		catch (COMException)
+		{
+			return null; // 新装的系统有个无效的 Fax Recipient 会出异常
+		}
 	}
 
 	/// <summary>

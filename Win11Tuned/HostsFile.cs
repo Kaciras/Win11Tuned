@@ -16,7 +16,7 @@ public sealed class HostsFile
 	// 以为记录了索引，所以不能移动元素，删除的设为 null。
 	readonly List<string> lines = [];
 
-	public HostsFile() {}
+	public HostsFile() { }
 
 	public HostsFile(string path)
 	{
