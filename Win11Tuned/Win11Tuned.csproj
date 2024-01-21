@@ -85,7 +85,7 @@
     <Compile Include="MainWindow.designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="MultiValueDictionary.cs" />
+    <Compile Include="MultiDictionary.cs" />
     <Compile Include="Optimizable.cs" />
     <Compile Include="OptimizableSet.cs" />
     <Compile Include="OptimizeAction.cs" />

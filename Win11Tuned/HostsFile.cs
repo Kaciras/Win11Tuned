@@ -11,7 +11,7 @@ namespace Win11Tuned;
 public sealed class HostsFile
 {
 	// 主机名 -> (IP，行号)
-	readonly MultiValueDictionary<string, (string, int)> entries = new();
+	readonly MultiDictionary<string, (string, int)> entries = new();
 
 	// 以为记录了索引，所以不能移动元素，删除的设为 null。
 	readonly List<string> lines = [];
@@ -55,7 +55,7 @@ public sealed class HostsFile
 
 	public bool ContainsExactly(string host, string ip)
 	{
-		if (!entries.TryGetList(host, out var ips))
+		if (!entries.TryGetValue(host, out var ips))
 		{
 			return false;
 		}
@@ -64,7 +64,7 @@ public sealed class HostsFile
 
 	public void RemoveAll(string host)
 	{
-		if (!entries.TryGetList(host, out var ips))
+		if (!entries.TryGetValue(host, out var ips))
 		{
 			return;
 		}
@@ -90,9 +90,12 @@ public sealed class HostsFile
 
 	public IEnumerable<(string, string)> Entries()
 	{
-		foreach (var kv in entries)
+		foreach (var pair in entries)
 		{
-			yield return (kv.Key, kv.Value.Item1);
+			foreach (var (ip, _) in pair.Value)
+			{
+				yield return (pair.Key, ip);
+			}
 		}
 	}
 
