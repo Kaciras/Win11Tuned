@@ -5,4 +5,4 @@
 127.0.0.1 foobar  # Comments
 127.0.0.2 foobar
 
-127.0.0.1	v4.localhost
+127.0.0.1           v4.localhost

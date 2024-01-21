@@ -10,6 +10,8 @@ namespace Win11Tuned;
 /// </summary>
 public sealed class HostsFile
 {
+	const int MIN_HOSTS_START_COLUMN = 20;
+
 	// 主机名 -> (IP，行号)
 	readonly MultiDictionary<string, (string, int)> entries = new();
 
@@ -82,10 +84,18 @@ public sealed class HostsFile
 		lines.Add(string.Empty);
 	}
 
+	/// <summary>
+	/// 添加一条记录，未检查重复，新记录位于单独的一行，IP 和 host 间以空格分隔。
+	/// <br/>
+	/// 该方法会调整空格数量（最多 20 个）以求对齐，但这还取决于你的字体是否等宽。
+	/// </summary>
 	public void Add(string host, string ip)
 	{
 		entries.Add(host, (ip, lines.Count));
-		lines.Add($"{ip}\t{host}");
+
+		var n = MIN_HOSTS_START_COLUMN - ip.Length;
+		n = Math.Max(1, n);
+		lines.Add(ip + new string(' ', n) + host);
 	}
 
 	public IEnumerable<(string, string)> Entries()
