@@ -150,6 +150,9 @@
   <data name="&gt;&gt;closeButton.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <metadata name="linkLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
   <data name="linkLabel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -160,7 +163,7 @@
     <value>4, 6, 4, 6</value>
   </data>
   <data name="linkLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>311, 15</value>
+    <value>303, 15</value>
   </data>
   <data name="linkLabel.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -180,6 +183,9 @@
   <data name="&gt;&gt;linkLabel.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <metadata name="label1.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -210,11 +216,14 @@
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <metadata name="nameLabel.GenerateMember" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>False</value>
+  </metadata>
   <data name="nameLabel.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Left, Right</value>
   </data>
   <data name="nameLabel.Font" type="System.Drawing.Font, System.Drawing">
-    <value>SimSun, 10pt</value>
+    <value>SimSun, 10pt, style=Bold</value>
   </data>
   <data name="nameLabel.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 15</value>
@@ -229,7 +238,7 @@
     <value>3</value>
   </data>
   <data name="nameLabel.Text" xml:space="preserve">
-    <value>Kaciras' Win11 optimization tool</value>
+    <value>Kaciras' Windows11 optimization tool</value>
   </data>
   <data name="nameLabel.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
@@ -256,13 +265,13 @@
     <value>4, 6, 4, 6</value>
   </data>
   <data name="versionLabel.Size" type="System.Drawing.Size, System.Drawing">
-    <value>223, 15</value>
+    <value>231, 15</value>
   </data>
   <data name="versionLabel.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
   <data name="versionLabel.Text" xml:space="preserve">
-    <value>Version {0}, updated at {1}</value>
+    <value>Version {0}, updated at {1}.</value>
   </data>
   <data name="&gt;&gt;versionLabel.Name" xml:space="preserve">
     <value>versionLabel</value>

@@ -29,11 +29,14 @@ partial class AboutWindow
 	private void InitializeComponent()
 	{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutWindow));
+			System.Windows.Forms.LinkLabel linkLabel;
+			System.Windows.Forms.Label label1;
+			System.Windows.Forms.Label nameLabel;
 			this.closeButton = new System.Windows.Forms.Button();
-			this.linkLabel = new System.Windows.Forms.LinkLabel();
-			this.label1 = new System.Windows.Forms.Label();
-			this.nameLabel = new System.Windows.Forms.Label();
 			this.versionLabel = new System.Windows.Forms.Label();
+			linkLabel = new System.Windows.Forms.LinkLabel();
+			label1 = new System.Windows.Forms.Label();
+			nameLabel = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// closeButton
@@ -45,19 +48,19 @@ partial class AboutWindow
 			// 
 			// linkLabel
 			// 
-			resources.ApplyResources(this.linkLabel, "linkLabel");
-			this.linkLabel.Name = "linkLabel";
-			this.linkLabel.TabStop = true;
+			resources.ApplyResources(linkLabel, "linkLabel");
+			linkLabel.Name = "linkLabel";
+			linkLabel.TabStop = true;
 			// 
 			// label1
 			// 
-			resources.ApplyResources(this.label1, "label1");
-			this.label1.Name = "label1";
+			resources.ApplyResources(label1, "label1");
+			label1.Name = "label1";
 			// 
 			// nameLabel
 			// 
-			resources.ApplyResources(this.nameLabel, "nameLabel");
-			this.nameLabel.Name = "nameLabel";
+			resources.ApplyResources(nameLabel, "nameLabel");
+			nameLabel.Name = "nameLabel";
 			// 
 			// versionLabel
 			// 
@@ -69,9 +72,9 @@ partial class AboutWindow
 			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.versionLabel);
-			this.Controls.Add(this.nameLabel);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.linkLabel);
+			this.Controls.Add(nameLabel);
+			this.Controls.Add(label1);
+			this.Controls.Add(linkLabel);
 			this.Controls.Add(this.closeButton);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
 			this.MaximizeBox = false;
@@ -85,8 +88,5 @@ partial class AboutWindow
 	#endregion
 
 	private System.Windows.Forms.Button closeButton;
-	private System.Windows.Forms.LinkLabel linkLabel;
-	private System.Windows.Forms.Label label1;
-	private System.Windows.Forms.Label nameLabel;
 	private System.Windows.Forms.Label versionLabel;
 }
