@@ -13,7 +13,7 @@ public sealed class HostsFile
 	const int MIN_HOSTS_START_COLUMN = 20;
 
 	// 主机名 -> (IP，行号)
-	readonly MultiDictionary<string, (string, int)> entries = new();
+	readonly MultiDictionary<string, (string, int)> entries = [];
 
 	// 以为记录了索引，所以不能移动元素，删除的设为 null。
 	readonly List<string> lines = [];

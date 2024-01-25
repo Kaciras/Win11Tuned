@@ -90,12 +90,12 @@ public class GroupPolicyObjectSettings
 	const uint RegistryFlag = 0x00000001;
 	const uint ReadonlyFlag = 0x00000002;
 
-	public readonly bool LoadRegistryInformation;
+	public readonly bool Load;
 	public readonly bool Readonly;
 
-	public GroupPolicyObjectSettings(bool loadRegistryInfo = true, bool readOnly = false)
+	public GroupPolicyObjectSettings(bool load = true, bool readOnly = false)
 	{
-		LoadRegistryInformation = loadRegistryInfo;
+		Load = load;
 		Readonly = readOnly;
 	}
 
@@ -104,7 +104,7 @@ public class GroupPolicyObjectSettings
 		get
 		{
 			uint flag = 0x00000000;
-			if (LoadRegistryInformation)
+			if (Load)
 			{
 				flag |= RegistryFlag;
 			}

@@ -31,8 +31,6 @@ public sealed class AppxRuleSet : OptimizableSet
 		// TODO: DeprovisionPackageForAllUsersAsync 彻底删除 
 		var packageManager = new PackageManager();
 
-
-
 		return packageManager
 			.FindPackagesForUser("")
 			.Where(package => uninstall.Contains(package.Id.Name))
@@ -80,11 +78,11 @@ public sealed class UninstallAppx : Optimizable
 
 	private readonly Package package;
 
-	public UninstallAppx(Package package, string descroption = "如果你不用它就卸了吧")
+	public UninstallAppx(Package package, string description = "如果你不用它就卸了吧")
 	{
 		this.package = package;
 		Name = "卸载 - " + package.DisplayName;
-		Description = descroption;
+		Description = description;
 	}
 
 	public void Optimize()

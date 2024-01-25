@@ -24,10 +24,7 @@ public static class GroupPolicy
 		if (value == null)
 		{
 			using var subKey = root.OpenSubKey(subkey, true);
-			if (subKey != null)
-			{
-				subKey.DeleteValue(item);
-			}
+			subKey?.DeleteValue(item);
 		}
 		else
 		{

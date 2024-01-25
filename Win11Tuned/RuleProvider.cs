@@ -12,19 +12,14 @@ namespace Win11Tuned;
 /// <summary>
 /// 统一管理优化项的类，在启动时载入所有的优化规则。
 /// </summary>
-public sealed class RuleProvider
+public sealed class RuleProvider(bool adminMode)
 {
 	public ICollection<OptimizableSet> RuleSets { get; } = new List<OptimizableSet>();
 
 	/// <summary>
 	/// 是否载入只有管理员才能设置的优化项，对这些项目的优化需要管理员权限。
 	/// </summary>
-	public bool AdminMode { get; }
-
-	public RuleProvider(bool adminMode)
-	{
-		AdminMode = adminMode;
-	}
+	public bool AdminMode { get; } = adminMode;
 
 	internal void Initialize()
 	{

@@ -15,7 +15,7 @@ public sealed class StartupRuleSet : OptimizableSet
 
 	public string Name { get; }
 
-	readonly List<string> patterns = new();
+	readonly List<string> patterns = [];
 	readonly RegistryKey basekey;
 
 	public StartupRuleSet(bool isSystem)
@@ -57,12 +57,11 @@ public sealed class StartupRuleSet : OptimizableSet
 				var command = (string)run.GetValue(name);
 				var descr = GetDisplayName(command);
 
-				var Optimize = () =>
+				yield return new OptimizeAction(descr, "不用的启动项删了吧", () =>
 				{
 					using var run = basekey.OpenSubKey(@namespace, true);
 					run.DeleteValue(name);
-				};
-				yield return new OptimizeAction(descr, "不用的启动项删了吧", Optimize);
+				});
 			}
 		}
 	}
@@ -71,7 +70,7 @@ public sealed class StartupRuleSet : OptimizableSet
 	{
 		using var parser = new TextFieldParser(new StringReader(command))
 		{
-			Delimiters = new string[] { " " },
+			Delimiters = [" "],
 			HasFieldsEnclosedInQuotes = true
 		};
 
