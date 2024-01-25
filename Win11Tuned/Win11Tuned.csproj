@@ -177,6 +177,8 @@
     <EmbeddedResource Include="Resources\Registry\DontOfferMRT.reg" />
     <EmbeddedResource Include="Resources\Registry\FixDeviceSetupManager.reg" />
     <EmbeddedResource Include="Resources\Registry\ClassicContextMenu.reg" />
+    <EmbeddedResource Include="Resources\Registry\DisableAutoMaintenance.reg" />
+    <EmbeddedResource Include="Resources\Registry\AvoidCBSGarbage.reg" />
     <None Include="Resources\SendToRules.txt" />
     <None Include="Resources\ServiceRules.txt" />
     <None Include="Resources\TaskSchdulerRules.txt" />
