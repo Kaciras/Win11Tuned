@@ -1,0 +1,44 @@
+Microsoft.BingNews
+Microsoft.BingWeather
+Microsoft.GamingApp
+Microsoft.GetHelp
+Microsoft.Getstarted
+Microsoft.Messaging
+Microsoft.Microsoft3DViewer
+Microsoft.MicrosoftOfficeHub
+Microsoft.MicrosoftStickyNotes
+Microsoft.MicrosoftSolitaireCollection
+Microsoft.NetworkSpeedTest
+Microsoft.Office
+Microsoft.OneConnect
+Microsoft.People
+Microsoft.Print3D
+Microsoft.ScreenSketch
+Microsoft.SkypeApp
+Microsoft.Todos
+Microsoft.WindowsAlarms
+Microsoft.WindowsFeedbackHub
+Microsoft.WindowsMaps
+Microsoft.Xbox
+Microsoft.XboxApp
+Microsoft.XboxGameOverlay
+Microsoft.XboxGamingOverlay
+Microsoft.XboxIdentityProvider
+Microsoft.XboxSpeechToTextOverlay
+Microsoft.ZuneMusic
+Microsoft.ZuneVideo
+Microsoft.MicrosoftOfficeHub
+MicrosoftWindows.Client
+
+# Cortana
+Microsoft.549981C3F5F10
+
+# Huawei phones only
+Microsoft.YourPhone
+
+# Requires login
+Microsoft.PowerAutomateDesktop
+
+# Non Microsoft apps
+Clipchamp.Clipchamp
+AD2F1837.HPSystemInformation

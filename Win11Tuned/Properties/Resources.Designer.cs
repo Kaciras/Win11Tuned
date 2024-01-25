@@ -70,7 +70,9 @@ namespace Win11Tuned.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to shellex\ContextMenuHandlers\Compatibility
+        ///   Looks up a localized string similar to # 没有移除“用 Windows Defender 扫描”，因为禁用 Windows Defender 之后该项自然会移除。
+        ///
+        ///shellex\ContextMenuHandlers\Compatibility
         ///执行文件 - 兼容性疑难解答
         ///出了问题不去谷歌，看这解答有个卵用。
         ///exefile
@@ -80,29 +82,15 @@ namespace Win11Tuned.Properties {
         ///我不用这个系统自带的各种库文件夹，如果要用请勿删除。
         ///Folder
         ///
-        ///shellex\ContextMenuHandlers\{90AA3A4E-1CBA-4233-B8BB-535773D48449}
-        ///所有文件 - 固定到任务栏
-        ///直接往任务栏上拖即可
-        ///*
-        ///
-        ///shell\AnyCode
-        ///文件夹及其背景 - Open with Visual Studio
-        ///没啥用纯看着碍眼。
+        ///# 属性页 PropertySheetHandlers 里也有，但不是右键菜单就不管它。
+        ///shellex\ContextMenuHandlers\{596AB062-B4D2-4215-9F74-E9109B0A8153}
+        ///还原以前的版本
+        ///不用文件版本功能的可以移除，不影响属性页。
+        ///AllFilesystemObjects
+        ///CLSID\{450D8FBA-AD25-11D0-98A8-0800361B1103}
         ///Directory
-        ///Directory\background
-        ///
-        ///shell\edit
-        ///各种纯文本类文件 - 编辑
-        ///跟&quot;记事本打开&quot;的功能重复了，删之。
-        ///cmdfile
-        ///batfile
-        ///xmlfile
-        ///regfile
-        ///SystemFileAssociations\text
-        ///
-        ///Shell\setdesktopwallpaper
-        ///各种媒体文件 - 设为桌面背景
-        ///一般在 [rest of string was truncated]&quot;;.
+        ///Drive
+        ///WOW6432Node\CLSID\{450D8FBA-AD25-11D0-98A8-0800 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ContextMenuRules {
             get {
@@ -117,26 +105,25 @@ namespace Win11Tuned.Properties {
         ///关闭自动播放
         ///纯属垃圾功能还有安全风险，不是残疾人都该禁掉。
         ///
-        ///HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat
-        ///DisablePCA
-        ///1
-        ///关闭程序兼容性助手
-        ///屁用没有的玩意，兼容性怎样还用你来分析？
+        ///HKLM\SOFTWARE\Policies\Microsoft\Windows\DataCollection
+        ///AllowTelemetry
+        ///0
+        ///禁止发送诊断数据
+        ///不向 Microsoft 发送诊断数据，该策略的说明上写着教育版和企业版才能禁止。
         ///
-        ///HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat
-        ///DisableEngine
-        ///1
-        ///关闭应用程序兼容性引擎
-        ///为提升兼容性，微软给一些曾经流行的老软件做了适配，在每次启动应用时都会检查，关闭后提升性能，但老软件可能无法运行。
+        ///HKLM\SOFTWARE\Policies\Microsoft\Windows\System
+        ///UploadUserActivities
+        ///0
+        ///禁止上传用户活动数据
+        ///禁止把浏览历史、搜索记录、什么时候打开了 UWP 应用这些东西上传到 Microsoft。
         ///
-        ///HKLM\SOFTWARE\Policies\Microsoft\Windows Defender
-        ///DisableAntiSpyware
+        ///HKLM\SOFTWARE\Policies\Microsoft\Windows\Personalization
+        ///NoLockScreen
         ///1
-        ///关闭 Windows Defender
-        ///我自己是不用杀毒软件的，如果要用还是别关。
+        ///关闭锁屏界面
+        ///即使关了也可以锁定用户，此时显示登录界面，我不知道这个锁屏有什么用。
         ///
-        ///# 这个是用户配置里的，注意不要带 GUID 部分，因为底层 API 会处理。
-        ///HKCU [rest of string was truncated]&quot;;.
+        ///HKCU\Software\Policies\ [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string GroupPolicyRules {
             get {
@@ -145,9 +132,21 @@ namespace Win11Tuned.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 不播放 Windows 启动声音
+        ///   Looks up a localized string similar to 修复 DeviceMetadataServiceURL
+        ///将微软的驱动数据库从短链替换为解析后的地址，解决事件查看器里的 DeviceSetupManager 131 报错。
+        ///FixDeviceSetupManager
+        ///
+        ///禁止 TrustedInstaller 生成垃圾
+        ///在修改 Windows 功能、更新系统时，TrustedInstaller 会记录日志并备份 WinSxS 中的旧组件，占用大量空间，你用不着它们就禁了。
+        ///AvoidCBSGarbage
+        ///
+        ///不播放 Windows 启动声音
         ///看个人喜好，我是比较喜欢安静一点的
         ///DisableStartupSound
+        ///
+        ///不下载恶意软件删除工具
+        ///Windows 更新会夹带一个屁用没有的恶意软件删除工具，不需要的话可以禁止下载它。
+        ///DontOfferMRT
         ///
         ///禁止系统失败后写入调试信息
         ///不做系统相关开发的话这些调试信息鸟用没有，如果禁用了虚拟内存还会在事件日志里报错。
@@ -155,8 +154,7 @@ namespace Win11Tuned.Properties {
         ///
         ///关闭 PerfDiag 事件日志
         ///解决事件查看器中的会话“PerfDiag Logger”未能启动，存在以下错误: 0xC0000035 问题。
-        ///DisablePerfDiagLogger
-        ///.
+        ///DisablePer [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RegistryRules {
             get {
@@ -181,21 +179,23 @@ namespace Win11Tuned.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to # 多个服务依赖它，等实现了依赖检测后再说
-        ///#BFE
-        ///#Windows 安全平台的核心服务，防火墙和杀毒软件都需要，如果不用它们倒是可以关了
-        ///#Disabled
+        ///   Looks up a localized string similar to # WinHttpAutoProxySvc 禁用后【网络和 Internet/代理】显示异常
+        ///# TabletInputService 禁用墨迹服务会导致输入法无法启动，表现为无限访问 OOBE\LaunchUserOOBE 键。
+        ///
+        ///BDESVC
+        ///不使用 BitLocker 加密的话可以禁了，禁用后 设置/BitLocker 不可用，默认手动但必定会被启动。
+        ///Disabled
         ///
         ///DPS
         ///屁用没有的诊断功能，出了问题不 Google 谁看这玩意
         ///Disabled
         ///
         ///DiagTrack
-        ///给诊断服务提供数据的，如果不用诊断功能可以关了，据某些用户说会占用较多资源
+        ///收集用户信息的，如果不想分享给微软就可以关了，据某些用户说会占用较多资源
         ///Disabled
         ///
         ///hidserv
-        ///如果你没有 HID 设备就可以禁用，该服务还容易被攻击者利用
+        ///如果你没有 HID 设备就可以禁用，该服务还容易被攻击者利用。
         ///Disabled
         ///
         ///ShellHWDetection
@@ -212,15 +212,7 @@ namespace Win11Tuned.Properties {
         ///
         ///IKEEXT
         ///某些协议的 VPN 需要这个服务，不用的话可以关掉
-        ///Disabled
-        ///
-        ///# 默认手动
-        ///SecurityHealthService
-        ///如果你关闭了安全中心监视的某项，他会不停地提示你，很烦人建议关了
-        ///Disabled
-        ///
-        ///TrkWks
-        ///个人用户很少会把 NTFS 文件链接到远程计 [rest of string was truncated]&quot;;.
+        ///Di [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ServiceRules {
             get {
@@ -241,19 +233,50 @@ namespace Win11Tuned.Properties {
         ///Microsoft\Windows\Customer Experience Improvement Program
         ///全是客户体验改善计划，不参加的直接删光光
         ///
+        ///\Microsoft\Windows\Feedback\Siuf
+        ///Windows 反馈的任务，会收集用户信息，建议删了
+        ///
+        ///# TODO
         ///Microsoft\Windows\Application Experience\StartupAppTask
         ///启动项应该自己注意，而不是靠它来扫描
         ///:DISABLE
         ///
         ///Microsoft\Windows\DiskCleanup\SilentCleanup
-        ///什么傻逼任务，磁盘空间不足还用你来提示？？？
-        ///:DISABLE
-        ///
-        ///Microsoft\Windows\Windows Error Reporting\QueueRepor [rest of string was truncated]&quot;;.
+        ///什么傻逼任务，磁盘空间不足还用你来 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TaskSchdulerRules {
             get {
                 return ResourceManager.GetString("TaskSchdulerRules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Microsoft.BingNews
+        ///Microsoft.BingWeather
+        ///Microsoft.GamingApp
+        ///Microsoft.GetHelp
+        ///Microsoft.Getstarted
+        ///Microsoft.Messaging
+        ///Microsoft.Microsoft3DViewer
+        ///Microsoft.MicrosoftOfficeHub
+        ///Microsoft.MicrosoftStickyNotes
+        ///Microsoft.MicrosoftSolitaireCollection
+        ///Microsoft.NetworkSpeedTest
+        ///Microsoft.Office
+        ///Microsoft.OneConnect
+        ///Microsoft.People
+        ///Microsoft.Print3D
+        ///Microsoft.ScreenSketch
+        ///Microsoft.SkypeApp
+        ///Microsoft.Todos
+        ///Microsoft.WindowsAlarms
+        ///Microsoft.WindowsFeedbackHub
+        ///Microsoft.WindowsMaps
+        ///Microsoft.X [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string UninstallAppxRules {
+            get {
+                return ResourceManager.GetString("UninstallAppxRules", resourceCulture);
             }
         }
         
@@ -270,18 +293,25 @@ namespace Win11Tuned.Properties {
         ///不合并按钮，显示所有托盘图标等，总之不要隐藏信息，除非你会同时开十几个程序否则任务栏是用不满的。
         ///Taskbar
         ///
+        ///恢复经典右键菜单
+        ///Win11 的新菜单设计的像个傻逼，赶紧退回去！
+        ///ClassicContextMenu
+        ///
         ///禁用辅助功能
         ///就是禁用筛选键、粘滞键、鼠标键、切换键等等东西，如果不是残疾人就没用，一不小心就按出来相当烦人。
         ///DisableAccessibility
         ///
-        ///增强网络安全性
-        ///具体操作包括：禁用友好错误信息，禁用代理自动检测设置。
-        ///IESecurity
-        ///
         ///简化视觉效果
         ///除了“显示缩略图而不是显示图标”和“拖动时显示窗口内容”外全部关闭，避免各种效果浪费时间和性能。
         ///VisualEffects
-        ///.
+        ///
+        ///关闭 Windows 新增内容和建议
+        ///取消勾选设置和选项 / 系统 / 通知 最下面的两个框。
+        ///DisableSuggestNotification
+        ///
+        ///移除广告 ID
+        ///不允许使用我的广告 ID 来展示个性化广告。
+        ///RemoveAdvertisingI [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string UserRegistryRules {
             get {

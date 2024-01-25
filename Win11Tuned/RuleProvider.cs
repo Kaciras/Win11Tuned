@@ -10,7 +10,9 @@ using Win11Tuned.Rules;
 namespace Win11Tuned;
 
 /// <summary>
-/// 统一管理优化项的类，在启动时载入所有的优化规则。
+/// 统一管理优化项的类，在启动时载入所有的优化规则，大部分规则定义在 Resources 目录下，少数直接写在这里。
+/// <br/>
+/// Resources 里顶层的 *Rules.txt 是内置资源，其它是 Manifest Resource,这么区分是为了避免名字冲突。
 /// </summary>
 public sealed class RuleProvider(bool adminMode)
 {
@@ -52,46 +54,11 @@ public sealed class RuleProvider(bool adminMode)
 		};
 
 		var appx = new AppxRuleSet();
-		//appx.Add("Microsoft.WindowsCamera");
-		//appx.Add("microsoft.windowscommunicationsapps"); // Mail and Calender
-		//appx.Add("Microsoft.WindowsSoundRecorder");
-		appx.Uninstall("Microsoft.549981C3F5F10"); // Cortana
-		appx.Uninstall("Microsoft.BingNews");
-		appx.Uninstall("Microsoft.BingWeather");
-		appx.Uninstall("Microsoft.GamingApp");
-		appx.Uninstall("Microsoft.GetHelp");
-		appx.Uninstall("Microsoft.Getstarted");
-		appx.Uninstall("Microsoft.Messaging");
-		appx.Uninstall("Microsoft.Microsoft3DViewer*");
-		appx.Uninstall("Microsoft.MicrosoftOfficeHub");
-		appx.Uninstall("Microsoft.MicrosoftStickyNotes");
-		appx.Uninstall("Microsoft.MicrosoftSolitaireCollection");
-		appx.Uninstall("Microsoft.NetworkSpeedTest");
-		appx.Uninstall("Microsoft.Office.Sway");
-		appx.Uninstall("Microsoft.OneConnect");
-		appx.Uninstall("Microsoft.People");
-		appx.Uninstall("Microsoft.PowerAutomateDesktop"); // Require login
-		appx.Uninstall("Microsoft.Print3D");
-		appx.Uninstall("Microsoft.ScreenSketch");
-		appx.Uninstall("Microsoft.SkypeApp");
-		appx.Uninstall("Microsoft.Todos");
-		appx.Uninstall("Microsoft.WindowsAlarms");
-		appx.Uninstall("Microsoft.WindowsFeedbackHub");
-		appx.Uninstall("Microsoft.WindowsMaps");
-		appx.Uninstall("Microsoft.Xbox.TCUI");
-		appx.Uninstall("Microsoft.XboxApp");
-		appx.Uninstall("Microsoft.XboxGameOverlay");
-		appx.Uninstall("Microsoft.XboxGamingOverlay");
-		appx.Uninstall("Microsoft.XboxIdentityProvider");
-		appx.Uninstall("Microsoft.XboxSpeechToTextOverlay");
-		appx.Uninstall("Microsoft.YourPhone"); // Huawei phones only
-		appx.Uninstall("Microsoft.ZuneMusic");
-		appx.Uninstall("Microsoft.ZuneVideo");
-		appx.Uninstall("Microsoft.MicrosoftOfficeHub");
-		appx.Uninstall("MicrosoftWindows.Client.WebExperience");
-
-		appx.Uninstall("Clipchamp.Clipchamp");
-		appx.Uninstall("AD2F1837.HPSystemInformation");
+		var reader = new RuleFileReader(Resources.UninstallAppxRules);
+		while (reader.MoveNext())
+		{
+			appx.Uninstall(reader.Read());
+		}
 		RuleSets.Add(appx);
 
 		var startupUser = new StartupRuleSet(false);
