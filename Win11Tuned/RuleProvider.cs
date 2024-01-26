@@ -141,8 +141,7 @@ public sealed class RuleProvider(bool adminMode)
 	static string GetEmbeddedRegFile(string name)
 	{
 		name = $"Win11Tuned.Resources.Registry.{name}.reg";
-		var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(name);
-		using var reader = new StreamReader(stream);
+		using var reader = Utils.OpenEmbedded(name);
 		return reader.ReadToEnd();
 	}
 

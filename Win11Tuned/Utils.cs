@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
@@ -10,6 +11,13 @@ namespace Win11Tuned;
 
 internal static class Utils
 {
+	static readonly Assembly assembly = Assembly.GetExecutingAssembly();
+
+	public static StreamReader OpenEmbedded(string name)
+	{
+		return new StreamReader(assembly.GetManifestResourceStream(name));
+	}
+
 	/// <summary>
 	/// 这么常用的函数标准库竟然不自带。
 	/// </summary>
@@ -117,22 +125,10 @@ internal static class Utils
 	[DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
 	static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hFile, int flags);
 
-	[DllImport("user32.dll", CharSet = CharSet.Auto)]
-	static extern int LoadString(IntPtr hInstance, int ID, StringBuilder lpBuffer, int nBufferMax);
-
 	[DllImport("kernel32.dll")]
 	[return: MarshalAs(UnmanagedType.Bool)]
 	static extern bool FreeLibrary(IntPtr hModule);
 
-	public sealed class TempFileSession : IDisposable
-	{
-		public readonly string Path;
-
-		internal TempFileSession(string path)
-		{
-			Path = path;
-		}
-
-		public void Dispose() => File.Delete(Path);
-	}
+	[DllImport("user32.dll", CharSet = CharSet.Auto)]
+	static extern int LoadString(IntPtr hInstance, int ID, StringBuilder lpBuffer, int nBufferMax);
 }

@@ -28,8 +28,8 @@ partial class AboutWindow
 	/// </summary>
 	private void InitializeComponent()
 	{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutWindow));
 			System.Windows.Forms.LinkLabel linkLabel;
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutWindow));
 			System.Windows.Forms.Label label1;
 			System.Windows.Forms.Label nameLabel;
 			this.closeButton = new System.Windows.Forms.Button();
@@ -38,13 +38,6 @@ partial class AboutWindow
 			label1 = new System.Windows.Forms.Label();
 			nameLabel = new System.Windows.Forms.Label();
 			this.SuspendLayout();
-			// 
-			// closeButton
-			// 
-			resources.ApplyResources(this.closeButton, "closeButton");
-			this.closeButton.Name = "closeButton";
-			this.closeButton.UseVisualStyleBackColor = true;
-			this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
 			// linkLabel
 			// 
@@ -61,6 +54,13 @@ partial class AboutWindow
 			// 
 			resources.ApplyResources(nameLabel, "nameLabel");
 			nameLabel.Name = "nameLabel";
+			// 
+			// closeButton
+			// 
+			resources.ApplyResources(this.closeButton, "closeButton");
+			this.closeButton.Name = "closeButton";
+			this.closeButton.UseVisualStyleBackColor = true;
+			this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
 			// versionLabel
 			// 

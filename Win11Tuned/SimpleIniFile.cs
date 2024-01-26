@@ -5,7 +5,7 @@ using System.Text;
 namespace Win11Tuned;
 
 /// <summary>
-/// 使用 Windows 自带的底层 API 读取 INI 配置文件。
+/// 使用 Windows 自带的底层 API 读取 INI 配置文件，当然功能还是比较简陋。
 /// </summary>
 /// <seealso cref="https://stackoverflow.com/a/14906422/7065321"/>
 readonly struct SimpleIniFile(string path)

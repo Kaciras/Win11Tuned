@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
 
 namespace Win11Tuned.Rules;
 
@@ -36,8 +34,7 @@ sealed class HostsRule : Optimizable
 
 	public HostsRule(string asset)
 	{
-		var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(asset);
-		using var reader = new StreamReader(stream);
+		using var reader = Utils.OpenEmbedded(asset);
 
 		Name = reader.ReadLine().Substring(2);
 		Description = reader.ReadLine().Substring(2);
@@ -53,14 +50,14 @@ sealed class HostsRule : Optimizable
 	public void Optimize()
 	{
 		var file = Environment.ExpandEnvironmentVariables(HostsRuleSet.PATH);
-		var target = new HostsFile(file);
+		var hosts = new HostsFile(file);
 
-		target.AddEmptyLine();
+		hosts.AddEmptyLine();
 		foreach (var (host, ip) in document.Entries())
 		{
-			target.RemoveAll(host);
-			target.Add(host, ip);
+			hosts.RemoveAll(host);
+			hosts.Add(host, ip);
 		}
-		target.Save(file);
+		hosts.WriteTo(file);
 	}
 }

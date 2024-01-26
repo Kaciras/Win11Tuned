@@ -31,13 +31,7 @@ public sealed class HostsFile
 		var line = reader.ReadLine();
 		while (line != null)
 		{
-			var parts = SplitLine(line);
-			for (var i = 1; i < parts.Length; i++)
-			{
-				var tuple = (parts[0], lines.Count);
-				entries.Add(parts[i], tuple);
-			}
-			lines.Add(line);
+			Add(line);
 			line = reader.ReadLine();
 		}
 	}
@@ -45,6 +39,10 @@ public sealed class HostsFile
 	/// <summary>
 	/// 分割注释之前的部分，第一个是 IP，后面的是主机名。
 	/// </summary>
+	/// <example>
+	/// SplitLine("::1 example.com v6.local #Comments");
+	/// // ["::1", "example.com", "v6.local"]
+	/// </example>
 	static string[] SplitLine(string line)
 	{
 		var e = line.IndexOf('#');
@@ -57,11 +55,11 @@ public sealed class HostsFile
 
 	public bool ContainsExactly(string host, string ip)
 	{
-		if (!entries.TryGetValue(host, out var ips))
+		if (!entries.TryGetValue(host, out var list))
 		{
 			return false;
 		}
-		return ips.Count == 1 && ips[0].Item1 == ip;
+		return list.Count == 1 && list[0].Item1 == ip;
 	}
 
 	public void RemoveAll(string host)
@@ -82,6 +80,20 @@ public sealed class HostsFile
 	public void AddEmptyLine()
 	{
 		lines.Add(string.Empty);
+	}
+
+	/// <summary>
+	/// 添加一行记录，主机名和 IP 将从字符串中解析。
+	/// </summary>
+	public void Add(string line)
+	{
+		var parts = SplitLine(line);
+		for (var i = 1; i < parts.Length; i++)
+		{
+			var tuple = (parts[0], lines.Count);
+			entries.Add(parts[i], tuple);
+		}
+		lines.Add(line);
 	}
 
 	/// <summary>
@@ -111,7 +123,7 @@ public sealed class HostsFile
 
 	IEnumerable<string> ValidLines => lines.Where(x => x != null);
 
-	public void Save(string path)
+	public void WriteTo(string path)
 	{
 		File.WriteAllLines(path, ValidLines);
 	}

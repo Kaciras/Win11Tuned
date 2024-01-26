@@ -2,6 +2,9 @@
 
 namespace Win11Tuned;
 
+/// <summary>
+/// 一种最简单的 MultiDict 实现，直接继承 Dictionary 并添加列表相关的方法即可。
+/// </summary>
 sealed class MultiDictionary<TKey, TValue> : Dictionary<TKey, List<TValue>>
 {
 	public void Add(TKey key, TValue val)
