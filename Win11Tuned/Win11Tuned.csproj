@@ -76,16 +76,21 @@
     <Compile Include="AboutWindow.Designer.cs">
       <DependentUpon>AboutWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="GroupPolicy.cs" />
-    <Compile Include="GroupPolicyObject.cs" />
-    <Compile Include="HostsFile.cs" />
+    <Compile Include="Helper\GroupPolicy.cs" />
+    <Compile Include="Helper\GroupPolicyObject.cs" />
+    <Compile Include="Helper\HostsFile.cs" />
+    <Compile Include="Helper\MultiDictionary.cs" />
+    <Compile Include="Helper\RuleFileReader.cs" />
+    <Compile Include="Helper\SimpleIniFile.cs" />
+    <Compile Include="Helper\STAExecutor.cs" />
+    <Compile Include="Helper\TaskSchedulerManager.cs" />
+    <Compile Include="Helper\Utils.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainWindow.designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="MultiDictionary.cs" />
     <Compile Include="Optimizable.cs" />
     <Compile Include="OptimizableSet.cs" />
     <Compile Include="OptimizeAction.cs" />
@@ -96,7 +101,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RuleFileReader.cs" />
     <Compile Include="RuleProvider.cs" />
     <Compile Include="Rules\AppEventsRule.cs" />
     <Compile Include="Rules\AppxRuleSet.cs" />
@@ -117,10 +121,6 @@
     <Compile Include="Rules\StartupRuleSet.cs" />
     <Compile Include="Rules\TaskSchedulerSet.cs" />
     <Compile Include="Rules\HostsRuleSet.cs" />
-    <Compile Include="SimpleIniFile.cs" />
-    <Compile Include="STAExecutor.cs" />
-    <Compile Include="TaskSchedulerManager.cs" />
-    <Compile Include="Utils.cs" />
     <EmbeddedResource Include="AboutWindow.resx">
       <DependentUpon>AboutWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +219,7 @@
   <ItemGroup>
     <None Include="Resources\UninstallAppxRules.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\AspectInjector.2.8.2\build\netstandard2.0\AspectInjector.targets" Condition="Exists('..\packages\AspectInjector.2.8.2\build\netstandard2.0\AspectInjector.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
