@@ -68,9 +68,10 @@
     <Compile Include="SimpleIniFileTest.cs" />
     <Compile Include="STAExecutorTest.cs" />
     <Compile Include="TaskSchedulerManagerTest.cs" />
+    <Compile Include="TempWriteableSessionTest.cs" />
     <Compile Include="TestHelper.cs" />
     <Compile Include="UtilsTest.cs" />
-    <Compile Include="WinSvcApi.cs" />
+    <Compile Include="WinServiceApi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

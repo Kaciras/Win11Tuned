@@ -84,6 +84,7 @@
     <Compile Include="Helper\SimpleIniFile.cs" />
     <Compile Include="Helper\STAExecutor.cs" />
     <Compile Include="Helper\TaskSchedulerManager.cs" />
+    <Compile Include="Helper\TempWriteableSession.cs" />
     <Compile Include="Helper\Utils.cs" />
     <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>

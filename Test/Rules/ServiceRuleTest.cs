@@ -10,13 +10,13 @@ public sealed class ServiceRuleTest
 	[TestInitialize]
 	public void Init()
 	{
-		new WinSvcApi("Win11TunedTest", @"C:\foobar.exe").Install();
+		new WinServiceApi("Win11TunedTest", @"C:\foobar.exe").Install();
 	}
 
 	[TestCleanup]
 	public void Cleanup()
 	{
-		WinSvcApi.Uninstall("Win11TunedTest");
+		WinServiceApi.Uninstall("Win11TunedTest");
 	}
 
 	[TestMethod]

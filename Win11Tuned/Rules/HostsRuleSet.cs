@@ -58,6 +58,9 @@ sealed class HostsRule : Optimizable
 			hosts.RemoveAll(host);
 			hosts.Add(host, ip);
 		}
-		hosts.WriteTo(file);
+		using (new TempWriteableSession(file))
+		{
+			hosts.WriteTo(file);
+		}
 	}
 }

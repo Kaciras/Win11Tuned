@@ -12,19 +12,13 @@ namespace Win11Tuned.Test;
 /// 代码参考了 PowerShell：
 /// https://github.com/PowerShell/PowerShell/blob/master/src/Microsoft.PowerShell.Commands.Management/commands/management/Service.cs
 /// </summary>
-sealed class WinSvcApi
+sealed class WinServiceApi(string name, string binPath)
 {
-	public string Name { get; }
+	public string Name { get; } = name;
 
-	public string BinPath { get; }
+	public string BinPath { get; } = binPath;
 
 	public string DisplayName { get; set; }
-
-	public WinSvcApi(string name, string binPath)
-	{
-		Name = name;
-		BinPath = binPath;
-	}
 
 	public void Install()
 	{
