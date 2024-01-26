@@ -180,6 +180,7 @@
     <EmbeddedResource Include="Resources\Registry\ClassicContextMenu.reg" />
     <EmbeddedResource Include="Resources\Registry\DisableAutoMaintenance.reg" />
     <EmbeddedResource Include="Resources\Registry\AvoidCBSGarbage.reg" />
+    <EmbeddedResource Include="Resources\Registry\DisableGameOverlay.reg" />
     <None Include="Resources\SendToRules.txt" />
     <None Include="Resources\ServiceRules.txt" />
     <None Include="Resources\TaskSchdulerRules.txt" />

@@ -33,3 +33,7 @@ RemoveAdvertisingInfo
 关闭 UserAssist 日志
 资源管理器会记录在其中打开的执行文件的次数和时间，这可能泄露隐私，建议关闭。
 NoUserAssistLog
+
+禁止弹出 Gaming Overlay
+在启动某些游戏的时候会弹出一个框，需要新应用打开此 ms-gamingoverlay，不想装这东西的建议禁掉。
+DisableGameOverlay
