@@ -51,3 +51,11 @@ Edge 浏览器自动更新任务，禁止后不影响手动更新。
 MicrosoftEdgeUpdateTaskMachineUA
 Edge 浏览器自动更新任务，禁止后不影响手动更新。
 :DISABLE
+
+Microsoft\Windows\LanguageComponentsInstaller\Installation
+自动下载系统语言相关的功能，感觉没什么用，还每天跑一次。
+:DISABLE
+
+Microsoft\Windows\LanguageComponentsInstaller\ReconcileLanguageResources
+自动下载系统语言相关的功能，感觉没什么用，还每天跑一次。
+:DISABLE
