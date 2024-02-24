@@ -36,6 +36,10 @@ Microsoft\Office\Office 15 Subscription Heartbeat
 如果你没有订阅 Office 就可以禁用此任务
 :DISABLE
 
+Microsoft\Office\Office ClickToRun Service Monitor
+给微软发错误报告的垃圾任务。
+:DISABLE
+
 Microsoft\Windows\Defrag\ScheduledDefrag
 整理磁盘碎片的任务，想手动运行的可以禁用它。该任务也可以在碎片整理和优化驱动器工具里修改。
 :DISABLE
