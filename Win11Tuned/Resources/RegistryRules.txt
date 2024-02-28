@@ -1,7 +1,3 @@
-修复 DeviceMetadataServiceURL
-将微软的驱动数据库从短链替换为解析后的地址，解决事件查看器里的 DeviceSetupManager 131 报错。
-FixDeviceSetupManager
-
 禁止 TrustedInstaller 生成垃圾
 在修改 Windows 功能、更新系统时，TrustedInstaller 会记录日志并备份 WinSxS 中的旧组件，占用大量空间，你用不着它们就禁了。
 AvoidCBSGarbage
