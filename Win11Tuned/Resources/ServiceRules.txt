@@ -137,6 +137,10 @@ HPAppHelperCap
 惠普电脑的垃圾服务
 Disabled
 
+HPAudioAnalytics
+惠普电脑的垃圾服务
+Disabled
+
 HPDiagsCap
 惠普电脑的垃圾服务
 Disabled
