@@ -2,13 +2,15 @@
 
 namespace Win11Tuned.Rules;
 
-public sealed class DesktopIconRule(string clsid) : Rule
+public sealed class DesktopIconRule(string clsid, int @default = 1) : Rule
 {
 	const string KEY = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel";
 
 	public string Name { get; private set; }
 
 	public string Description => "在桌面上显示这个图标";
+
+	public void Optimize() => Registry.SetValue(KEY, clsid, 0);
 
 	public bool NeedOptimize()
 	{
@@ -22,8 +24,6 @@ public sealed class DesktopIconRule(string clsid) : Rule
 			Name = Utils.ExtractStringResource((string)key.GetValue("LocalizedString"));
 		}
 
-		return (int)Registry.GetValue(KEY, clsid, 1) != 0;
+		return (int)Registry.GetValue(KEY, clsid, @default) == 1;
 	}
-
-	public void Optimize() => Registry.SetValue(KEY, clsid, 0);
 }
