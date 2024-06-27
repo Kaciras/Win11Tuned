@@ -27,6 +27,13 @@ public sealed class TempWriteableSessionTest
 		File.Delete(TEST_FILE);
 	}
 
+	[ExpectedException(typeof(FileNotFoundException))]
+	[TestMethod]
+	public void FileNotExists()
+	{
+		new TempWriteableSession("__NOT_EXISTS_");
+	}
+
 	[TestMethod]
     public void ShouldWorks()
     {

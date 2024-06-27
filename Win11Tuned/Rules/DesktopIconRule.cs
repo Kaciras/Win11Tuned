@@ -2,7 +2,7 @@
 
 namespace Win11Tuned.Rules;
 
-public sealed class DesktopIconRule(string clsid, int @default = 1) : Rule
+public sealed class DesktopIconRule(string clsid, int @default) : Rule
 {
 	const string KEY = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\HideDesktopIcons\NewStartPanel";
 
