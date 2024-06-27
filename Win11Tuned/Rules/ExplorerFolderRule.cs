@@ -24,7 +24,7 @@ public sealed class ExplorerFolderRule : Rule
 	public bool NeedOptimize()
 	{
 		using var nameSpage = Registry.LocalMachine.OpenSubKey(KEY);
-		return clsids.Any(nameSpage.ContainsSubKey);
+		return clsids.Any(clsid => nameSpage.GetValue<int>(clsid, "HiddenByDefault") != 1);
 	}
 
 	// 注册表 32 跟 64 位存储是分开的，系统自带的注册表编辑器能同时操作两者，但 C# 的 API 不能。
