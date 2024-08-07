@@ -117,39 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>描述</value>
+  <data name="closeButton.Text" xml:space="preserve">
+    <value>关闭</value>
   </data>
-  <data name="scanButton.Text" xml:space="preserve">
-    <value>扫描</value>
+  <data name="copyButton.Text" xml:space="preserve">
+    <value>复制</value>
   </data>
-  <data name="btnOptimize.Text" xml:space="preserve">
-    <value>优化</value>
-  </data>
-  <data name="btnSelectAll.Text" xml:space="preserve">
-    <value>全选</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnReverse.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Bottom, Right</value>
-  </data>
-  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="btnReverse.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btnReverse.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>7, 6, 7, 6</value>
-  </data>
-  <data name="btnReverse.Text" xml:space="preserve">
-    <value>反选</value>
-  </data>
-  <data name="roleLabel.Text" xml:space="preserve">
-    <value>标准用户</value>
-  </data>
-  <data name="collapseButton.Text" xml:space="preserve">
-    <value>全部折叠</value>
-  </data>
-  <data name="aboutButton.Text" xml:space="preserve">
-    <value>关于</value>
+  <data name="$this.Text" xml:space="preserve">
+    <value>出错啦 Σ(*ﾟдﾟﾉ)ﾉ</value>
   </data>
 </root>

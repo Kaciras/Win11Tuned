@@ -175,18 +175,7 @@ sealed partial class MainWindow : Form
 		progressBar.Value = 0;
 		treeView.Enabled = false;
 
-#if DEBUG
 		await Task.Run(() => RunOptimize(checkedNodes));
-#else
-		try
-		{
-			await Task.Run(() => RunOptimize(checkedNodes));
-		}
-		catch (Exception ex)
-		{
-			MessageBox.Show(ex.Message, "优化时出错", MessageBoxButtons.OK, MessageBoxIcon.Error);
-		}
-#endif
 
 		treeView.Enabled = true;
 		textBox.Text = string.Empty;
@@ -207,7 +196,15 @@ sealed partial class MainWindow : Form
 	{
 		foreach (var node in nodes)
 		{
-			((Optimizable)node.Tag).Optimize();
+			try
+			{
+				((Optimizable)node.Tag).Optimize();
+			}
+			catch (Exception ex)
+			{
+				DisplayRuleError(node, ex);
+				return;
+			}
 			progressBar.Value++;
 
 			var parent = node.Parent;
@@ -219,10 +216,14 @@ sealed partial class MainWindow : Form
 			}
 			else
 			{
-				parent.Checked = parent.Nodes
-					.Cast<TreeNode>()
-					.All(n => n.Checked);
+				parent.Checked = parent.Nodes.Cast<TreeNode>().All(n => n.Checked);
 			}
 		}
+	}
+
+	void DisplayRuleError(TreeNode ruleNode, Exception ex)
+	{
+		var ruleSet = ruleNode.Parent.Text;
+		new ErrorBox(ex, $"Rule: {ruleSet} / {ruleNode.Text}\n{ex.Message}").ShowDialog(this);
 	}
 }

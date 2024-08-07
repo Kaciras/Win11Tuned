@@ -51,6 +51,8 @@
     <Reference Include="RegistryEx, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RegistryEx.1.0.0-preview.3\lib\net48\RegistryEx.dll</HintPath>
     </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Management.Automation" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -62,6 +64,7 @@
     <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Windows">
@@ -75,6 +78,12 @@
     </Compile>
     <Compile Include="AboutWindow.Designer.cs">
       <DependentUpon>AboutWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ErrorBox.Designer.cs">
+      <DependentUpon>ErrorBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Helper\GroupPolicy.cs" />
     <Compile Include="Helper\GroupPolicyObject.cs" />
@@ -127,6 +136,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AboutWindow.zh.resx">
       <DependentUpon>AboutWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorBox.resx">
+      <DependentUpon>ErrorBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ErrorBox.zh.resx">
+      <DependentUpon>ErrorBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
