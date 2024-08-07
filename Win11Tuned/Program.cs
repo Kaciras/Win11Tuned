@@ -34,7 +34,7 @@ static class Program
 	/// <summary>
 	/// 初始化 STAExecutor，直接复用 WinForm 的同步上下文。
 	/// </summary>
-	private static void CaptureSyncContext(object sender, EventArgs e)
+	static void CaptureSyncContext(object sender, EventArgs e)
 	{
 		Application.Idle -= CaptureSyncContext;
 		STAExecutor.SetSyncContext(SynchronizationContext.Current);

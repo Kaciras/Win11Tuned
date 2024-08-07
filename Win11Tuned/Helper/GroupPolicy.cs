@@ -12,8 +12,11 @@ namespace Win11Tuned;
 public static class GroupPolicy
 {
 	[ExecuteOnSTAThread]
-	public static void SetPolicySetting(string key,
-		string item, object value, RegistryValueKind kind)
+	public static void Set(
+		string key,
+		string item,
+		object value,
+		RegistryValueKind kind)
 	{
 		var gpo = new ComputerGroupPolicyObject();
 		var section = Key(key, out string subkey);
@@ -36,7 +39,7 @@ public static class GroupPolicy
 	}
 
 	[ExecuteOnSTAThread]
-	public static object GetPolicySetting(string key, string item)
+	public static object Get(string key, string item)
 	{
 		var gpo = new ComputerGroupPolicyObject();
 		var section = Key(key, out string subkey);
@@ -46,7 +49,7 @@ public static class GroupPolicy
 		return subKey?.GetValue(item);
 	}
 
-	private static GroupPolicySection Key(string path, out string subkey)
+	static GroupPolicySection Key(string path, out string subkey)
 	{
 		var i = path.IndexOf('\\');
 		var hive = path.Substring(0, i);

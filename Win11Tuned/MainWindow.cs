@@ -205,17 +205,17 @@ sealed partial class MainWindow : Form
 				DisplayRuleError(node, ex);
 				return;
 			}
+
 			progressBar.Value++;
 
 			var parent = node.Parent;
-			node.Remove();
-
-			if (parent.Nodes.Count == 0)
+			if (parent.Nodes.Count == 1)
 			{
 				parent.Remove();
 			}
 			else
 			{
+				node.Remove();
 				parent.Checked = parent.Nodes.Cast<TreeNode>().All(n => n.Checked);
 			}
 		}

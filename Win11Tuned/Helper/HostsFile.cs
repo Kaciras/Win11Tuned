@@ -15,7 +15,7 @@ public sealed class HostsFile
 	// 主机名 -> (IP，行号)
 	readonly MultiDictionary<string, (string, int)> entries = [];
 
-	// 以为记录了索引，所以不能移动元素，删除的设为 null。
+	// 因为记录了索引，所以不能移动元素，删除的设为 null。
 	readonly List<string> lines = [];
 
 	public HostsFile() { }
@@ -53,6 +53,11 @@ public sealed class HostsFile
 		return line.Split((char[])null, StringSplitOptions.RemoveEmptyEntries);
 	}
 
+	/// <summary>
+	/// 判断是否指定的主机名是否仅有一条映射，且为指定的 IP。
+	/// </summary>
+	/// <param name="host">主机名</param>
+	/// <param name="ip">IP 地址</param>
 	public bool ContainsExactly(string host, string ip)
 	{
 		if (!entries.TryGetValue(host, out var list))
@@ -62,6 +67,10 @@ public sealed class HostsFile
 		return list.Count == 1 && list[0].Item1 == ip;
 	}
 
+	/// <summary>
+	/// 从该 Hosts 文件中删除所有指定主机名的映射。
+	/// </summary>
+	/// <param name="host">主机名</param>
 	public void RemoveAll(string host)
 	{
 		if (!entries.TryGetValue(host, out var ips))

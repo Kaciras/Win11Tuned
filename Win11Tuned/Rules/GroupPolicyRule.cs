@@ -27,11 +27,11 @@ public sealed class GroupPolicyRule : Rule
 
 	public bool NeedOptimize()
 	{
-		return GroupPolicy.GetPolicySetting(key, item)?.ToString() != value;
+		return GroupPolicy.Get(key, item)?.ToString() != value;
 	}
 
 	public void Optimize()
 	{
-		GroupPolicy.SetPolicySetting(key, item, value, RegistryValueKind.DWord);
+		GroupPolicy.Set(key, item, value, RegistryValueKind.DWord);
 	}
 }

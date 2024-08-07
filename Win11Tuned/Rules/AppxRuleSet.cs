@@ -13,9 +13,9 @@ public sealed class AppxRuleSet : OptimizableSet
 {
 	public string Name => Resources.UWPApps;
 
-	private readonly HashSet<string> uninstall = [];
+	readonly HashSet<string> uninstall = [];
 
-	private readonly List<string> install = [];
+	readonly List<string> install = [];
 
 	public void Uninstall(string name)
 	{
@@ -45,7 +45,7 @@ public sealed class InstallAppx : Optimizable
 
 	public string Description { get; }
 
-	private readonly Package package;
+	readonly Package package;
 
 	public InstallAppx(Package package, string descroption = "安装这个 App")
 	{
@@ -77,7 +77,7 @@ public sealed class UninstallAppx : Optimizable
 
 	public string Description { get; }
 
-	private readonly Package package;
+	readonly Package package;
 
 	public UninstallAppx(Package package, string description = "如果你不用它就卸了吧")
 	{

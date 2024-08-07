@@ -59,7 +59,7 @@ public class TaskSchedulerSet : OptimizableSet
 
 internal sealed class FolderOptimizeItem : Optimizable
 {
-	private readonly ITaskFolder folder;
+	readonly ITaskFolder folder;
 
 	public string Name => folder.Name;
 
@@ -79,8 +79,8 @@ internal sealed class FolderOptimizeItem : Optimizable
 
 internal sealed class TaskOptimizeItem : Optimizable
 {
-	private readonly IRegisteredTask task;
-	private readonly bool keep;
+	readonly IRegisteredTask task;
+	readonly bool keep;
 
 	public string Name => task.Name;
 
