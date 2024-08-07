@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
+using Win11Tuned.Properties;
 using Windows.ApplicationModel;
 using Windows.Foundation;
 using Windows.Management.Deployment;
@@ -10,11 +11,11 @@ namespace Win11Tuned.Rules;
 
 public sealed class AppxRuleSet : OptimizableSet
 {
-	public string Name => "UWP 应用";
+	public string Name => Resources.UWPApps;
 
-	private readonly HashSet<string> uninstall = new();
+	private readonly HashSet<string> uninstall = [];
 
-	private readonly List<string> install = new();
+	private readonly List<string> install = [];
 
 	public void Uninstall(string name)
 	{
@@ -49,7 +50,7 @@ public sealed class InstallAppx : Optimizable
 	public InstallAppx(Package package, string descroption = "安装这个 App")
 	{
 		this.package = package;
-		Name = "安装 - " + package.DisplayName;
+		Name = Resources.Install + " - " + package.DisplayName;
 		Description = descroption;
 	}
 
@@ -81,7 +82,7 @@ public sealed class UninstallAppx : Optimizable
 	public UninstallAppx(Package package, string description = "如果你不用它就卸了吧")
 	{
 		this.package = package;
-		Name = "卸载 - " + package.DisplayName;
+		Name = Resources.Uninstall + " - " + package.DisplayName;
 		Description = description;
 	}
 

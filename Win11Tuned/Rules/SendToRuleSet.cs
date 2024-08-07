@@ -14,7 +14,7 @@ public class SendToRuleSet : OptimizableSet
 {
 	readonly string folder;
 
-	public string Name => "右键菜单 - 发送到";
+	public string Name => Resources.SendToClean;
 
 	public SendToRuleSet()
 	{

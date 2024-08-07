@@ -120,7 +120,55 @@
   <data name="AdminName" xml:space="preserve">
     <value>管理员</value>
   </data>
+  <data name="DesktopIcons" xml:space="preserve">
+    <value>显示桌面图标</value>
+  </data>
+  <data name="GroupPolicy" xml:space="preserve">
+    <value>组策略</value>
+  </data>
+  <data name="HostsFile" xml:space="preserve">
+    <value>Hosts 文件</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>安装</value>
+  </data>
+  <data name="OtherRules" xml:space="preserve">
+    <value>其它优化项</value>
+  </data>
+  <data name="RemoveContextMenu" xml:space="preserve">
+    <value>右键菜单清理</value>
+  </data>
+  <data name="SendToClean" xml:space="preserve">
+    <value>右键菜单 - 发送到</value>
+  </data>
+  <data name="Services" xml:space="preserve">
+    <value>服务</value>
+  </data>
+  <data name="StartupClean" xml:space="preserve">
+    <value>删除启动项</value>
+  </data>
+  <data name="SystemScope" xml:space="preserve">
+    <value>（系统）</value>
+  </data>
+  <data name="SystenSettings" xml:space="preserve">
+    <value>系统设置</value>
+  </data>
+  <data name="TaskScheduler" xml:space="preserve">
+    <value>删除任务计划</value>
+  </data>
+  <data name="Uninstall" xml:space="preserve">
+    <value>卸载</value>
+  </data>
+  <data name="UninstallApps" xml:space="preserve">
+    <value>卸载预装应用</value>
+  </data>
+  <data name="UserScope" xml:space="preserve">
+    <value>（用户）</value>
+  </data>
   <data name="UserTooltip" xml:space="preserve">
     <value>以管理员运行才能扫描系统优化项</value>
+  </data>
+  <data name="UWPApps" xml:space="preserve">
+    <value>UWP 应用</value>
   </data>
 </root>

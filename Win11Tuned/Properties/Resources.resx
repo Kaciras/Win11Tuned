@@ -124,11 +124,32 @@
   <data name="ContextMenuRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ContextMenuRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="DesktopIcons" xml:space="preserve">
+    <value>Desktop Icons</value>
+  </data>
+  <data name="GroupPolicy" xml:space="preserve">
+    <value>Group Policy</value>
+  </data>
   <data name="GroupPolicyRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\GroupPolicyRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="HostsFile" xml:space="preserve">
+    <value>Hosts File</value>
+  </data>
+  <data name="Install" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="OtherRules" xml:space="preserve">
+    <value>Others</value>
+  </data>
   <data name="RegistryRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\RegistryRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="RemoveContextMenu" xml:space="preserve">
+    <value>Context Menu Clean</value>
+  </data>
+  <data name="SendToClean" xml:space="preserve">
+    <value>SendTo Clean</value>
   </data>
   <data name="SendToRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SendToRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
@@ -136,8 +157,29 @@
   <data name="ServiceRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ServiceRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="Services" xml:space="preserve">
+    <value>Services</value>
+  </data>
+  <data name="StartupClean" xml:space="preserve">
+    <value>Startup Clean</value>
+  </data>
+  <data name="SystemScope" xml:space="preserve">
+    <value> (System)</value>
+  </data>
+  <data name="SystenSettings" xml:space="preserve">
+    <value>System Settings</value>
+  </data>
   <data name="TaskSchdulerRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TaskSchdulerRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="TaskScheduler" xml:space="preserve">
+    <value>Task Scheduler Clean</value>
+  </data>
+  <data name="Uninstall" xml:space="preserve">
+    <value>Uninstall</value>
+  </data>
+  <data name="UninstallApps" xml:space="preserve">
+    <value>Uninstall Preinstalled Apps</value>
   </data>
   <data name="UninstallAppxRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UninstallAppxRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;gb2312</value>
@@ -145,7 +187,13 @@
   <data name="UserRegistryRules" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UserRegistryRules.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
+  <data name="UserScope" xml:space="preserve">
+    <value> (User)</value>
+  </data>
   <data name="UserTooltip" xml:space="preserve">
     <value>Some optimizations require administrator privileges</value>
+  </data>
+  <data name="UWPApps" xml:space="preserve">
+    <value>UWP Apps</value>
   </data>
 </root>

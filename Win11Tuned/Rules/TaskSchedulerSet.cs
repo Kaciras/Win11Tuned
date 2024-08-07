@@ -1,9 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Security.AccessControl;
-using System.Security.Principal;
-using RegistryEx;
 using TaskScheduler;
 using Win11Tuned.Properties;
 
@@ -11,7 +9,7 @@ namespace Win11Tuned.Rules;
 
 public class TaskSchedulerSet : OptimizableSet
 {
-	public string Name => "任务计划程序";
+	public string Name => Resources.TaskScheduler;
 
 	public IEnumerable<Optimizable> Scan()
 	{

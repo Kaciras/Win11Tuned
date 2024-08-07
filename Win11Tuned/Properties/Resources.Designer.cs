@@ -99,6 +99,24 @@ namespace Win11Tuned.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Desktop Icons.
+        /// </summary>
+        internal static string DesktopIcons {
+            get {
+                return ResourceManager.GetString("DesktopIcons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group Policy.
+        /// </summary>
+        internal static string GroupPolicy {
+            get {
+                return ResourceManager.GetString("GroupPolicy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer
         ///NoDriveTypeAutoRun
         ///255
@@ -132,11 +150,34 @@ namespace Win11Tuned.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 修复 DeviceMetadataServiceURL
-        ///将微软的驱动数据库从短链替换为解析后的地址，解决事件查看器里的 DeviceSetupManager 131 报错。
-        ///FixDeviceSetupManager
-        ///
-        ///禁止 TrustedInstaller 生成垃圾
+        ///   Looks up a localized string similar to Hosts File.
+        /// </summary>
+        internal static string HostsFile {
+            get {
+                return ResourceManager.GetString("HostsFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Install.
+        /// </summary>
+        internal static string Install {
+            get {
+                return ResourceManager.GetString("Install", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Others.
+        /// </summary>
+        internal static string OtherRules {
+            get {
+                return ResourceManager.GetString("OtherRules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 禁止 TrustedInstaller 生成垃圾
         ///在修改 Windows 功能、更新系统时，TrustedInstaller 会记录日志并备份 WinSxS 中的旧组件，占用大量空间，你用不着它们就禁了。
         ///AvoidCBSGarbage
         ///
@@ -154,11 +195,36 @@ namespace Win11Tuned.Properties {
         ///
         ///关闭 PerfDiag 事件日志
         ///解决事件查看器中的会话“PerfDiag Logger”未能启动，存在以下错误: 0xC0000035 问题。
-        ///DisablePer [rest of string was truncated]&quot;;.
+        ///DisablePerfDiagLogger
+        ///
+        ///开启长路径支持
+        ///传统的 Windows 路径最多 255 个字符，从 Windows10 开始能够取消这个限制，建议开启。
+        ///EnableLongPath
+        ///
+        ///启用开发人员模式
+        ///启用设置 / 隐私和 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RegistryRules {
             get {
                 return ResourceManager.GetString("RegistryRules", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Context Menu Clean.
+        /// </summary>
+        internal static string RemoveContextMenu {
+            get {
+                return ResourceManager.GetString("RemoveContextMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SendTo Clean.
+        /// </summary>
+        internal static string SendToClean {
+            get {
+                return ResourceManager.GetString("SendToClean", resourceCulture);
             }
         }
         
@@ -221,6 +287,42 @@ namespace Win11Tuned.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Services.
+        /// </summary>
+        internal static string Services {
+            get {
+                return ResourceManager.GetString("Services", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Startup Clean.
+        /// </summary>
+        internal static string StartupClean {
+            get {
+                return ResourceManager.GetString("StartupClean", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  (System).
+        /// </summary>
+        internal static string SystemScope {
+            get {
+                return ResourceManager.GetString("SystemScope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to System Settings.
+        /// </summary>
+        internal static string SystenSettings {
+            get {
+                return ResourceManager.GetString("SystenSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Microsoft\Windows\Application Experience
         ///客户体验改善计划相关的任务，没同意的可以删了
         ///
@@ -251,6 +353,33 @@ namespace Win11Tuned.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Task Scheduler Clean.
+        /// </summary>
+        internal static string TaskScheduler {
+            get {
+                return ResourceManager.GetString("TaskScheduler", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uninstall.
+        /// </summary>
+        internal static string Uninstall {
+            get {
+                return ResourceManager.GetString("Uninstall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uninstall Preinstalled Apps.
+        /// </summary>
+        internal static string UninstallApps {
+            get {
+                return ResourceManager.GetString("UninstallApps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Microsoft.BingNews
         ///Microsoft.BingWeather
         ///Microsoft.GamingApp
@@ -272,7 +401,8 @@ namespace Win11Tuned.Properties {
         ///Microsoft.WindowsAlarms
         ///Microsoft.WindowsFeedbackHub
         ///Microsoft.WindowsMaps
-        ///Microsoft.X [rest of string was truncated]&quot;;.
+        ///Microsoft.Xbox
+        ///Microsoft.XboxApp [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string UninstallAppxRules {
             get {
@@ -320,11 +450,29 @@ namespace Win11Tuned.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to  (User).
+        /// </summary>
+        internal static string UserScope {
+            get {
+                return ResourceManager.GetString("UserScope", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Some optimizations require administrator privileges.
         /// </summary>
         internal static string UserTooltip {
             get {
                 return ResourceManager.GetString("UserTooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UWP Apps.
+        /// </summary>
+        internal static string UWPApps {
+            get {
+                return ResourceManager.GetString("UWPApps", resourceCulture);
             }
         }
     }

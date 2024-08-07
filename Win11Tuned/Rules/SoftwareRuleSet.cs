@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
+using Win11Tuned.Properties;
 
 namespace Win11Tuned.Rules;
 
@@ -14,13 +15,13 @@ public sealed class SoftwareRuleSet : OptimizableSet
 
 	public string Name { get; }
 
-	readonly List<string> keys = new();
+	readonly List<string> keys = [];
 	readonly RegistryKey @namespace;
 
 	public SoftwareRuleSet(bool system)
 	{
 		@namespace = system ? Registry.LocalMachine : Registry.CurrentUser;
-		Name = system ? "卸载应用（系统）" : $"卸载应用（用户）";
+		Name = Resources.UninstallApps + (system ? Resources.SystemScope : Resources.UserScope);
 	}
 
 	public void Add(string key) => keys.Add(key);

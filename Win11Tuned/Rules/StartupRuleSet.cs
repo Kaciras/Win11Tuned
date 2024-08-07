@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Microsoft.VisualBasic.FileIO;
 using Microsoft.Win32;
+using Win11Tuned.Properties;
 
 namespace Win11Tuned.Rules;
 
@@ -22,12 +23,12 @@ public sealed class StartupRuleSet : OptimizableSet
 	{
 		if (isSystem)
 		{
-			Name = "删除启动项（系统）";
+			Name = Resources.StartupClean + Resources.SystemScope;
 			basekey = Registry.LocalMachine;
 		}
 		else
 		{
-			Name = "删除启动项（用户）";
+			Name = Resources.StartupClean + Resources.UserScope;
 			basekey = Registry.CurrentUser;
 		}
 	}

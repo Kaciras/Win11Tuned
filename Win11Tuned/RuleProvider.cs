@@ -16,7 +16,7 @@ namespace Win11Tuned;
 /// </summary>
 public sealed class RuleProvider(bool adminMode)
 {
-	public ICollection<OptimizableSet> RuleSets { get; } = new List<OptimizableSet>();
+	public ICollection<OptimizableSet> RuleSets { get; } = [];
 
 	/// <summary>
 	/// 是否载入只有管理员才能设置的优化项，对这些项目的优化需要管理员权限。
@@ -25,10 +25,10 @@ public sealed class RuleProvider(bool adminMode)
 
 	internal void Initialize()
 	{
-		LoadRuleFile("系统设置（用户）", Resources.UserRegistryRules, ReadRegistry);
+		LoadRuleFile(Resources.SystenSettings + Resources.UserScope, Resources.UserRegistryRules, ReadRegistry);
 		RuleSets.Add(new SendToRuleSet());
 
-		RuleSets.Add(new RuleList("显示桌面图标", [
+		RuleSets.Add(new RuleList(Resources.DesktopIcons, [
 			// {018D5C66-4533-4307-9B53-224DE2ED1FE6} - OneDrive
 			new DesktopIconRule("{20D04FE0-3AEA-1069-A2D8-08002B30309D}", 1),	// Computer
 			new DesktopIconRule("{5399E694-6CE5-4D6C-8FCE-1D8870FDCBA0}", 1),	// Control Panel
@@ -116,13 +116,13 @@ public sealed class RuleProvider(bool adminMode)
 
 			RuleSets.Add(new TaskSchedulerSet());
 
-			LoadRuleFile("组策略", Resources.GroupPolicyRules, ReadGroupPolicy);
-			LoadRuleFile("右键菜单清理", Resources.ContextMenuRules, ReadContextMenu);
-			LoadRuleFile("服务", Resources.ServiceRules, ReadService);
-			LoadRuleFile("系统设置", Resources.RegistryRules, ReadRegistry);
+			LoadRuleFile(Resources.GroupPolicy, Resources.GroupPolicyRules, ReadGroupPolicy);
+			LoadRuleFile(Resources.RemoveContextMenu, Resources.ContextMenuRules, ReadContextMenu);
+			LoadRuleFile(Resources.Services, Resources.ServiceRules, ReadService);
+			LoadRuleFile(Resources.SystenSettings, Resources.RegistryRules, ReadRegistry);
 		}
 
-		RuleSets.Add(new RuleList("其它优化项", others));
+		RuleSets.Add(new RuleList(Resources.OtherRules, others));
 	}
 
 	void LoadRuleFile(string name, string content, Func<RuleFileReader, Rule> func)

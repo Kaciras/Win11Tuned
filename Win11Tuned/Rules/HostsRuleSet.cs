@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Win11Tuned.Properties;
 
 namespace Win11Tuned.Rules;
 
@@ -8,7 +9,7 @@ public class HostsRuleSet : OptimizableSet
 {
 	public const string PATH = @"%SystemRoot%\System32\drivers\etc\hosts";
 
-	public string Name => "Hosts 文件";
+	public string Name => Resources.HostsFile;
 
 	readonly List<HostsRule> rules = [];
 
