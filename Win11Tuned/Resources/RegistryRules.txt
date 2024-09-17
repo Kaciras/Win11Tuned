@@ -14,6 +14,10 @@ DontOfferMRT
 不做系统相关开发的话这些调试信息鸟用没有，如果禁用了虚拟内存还会在事件日志里报错。
 DisableCrashDump
 
+禁止程序崩溃后创建转储文件
+Windows 默认在程序崩溃后会自动创建一个转储文件到 %LOCALAPPDATA%\CrashDumps 目录，你不调试它的话就没用，可以关闭该功能。
+DisableLocalDumps
+
 关闭 PerfDiag 事件日志
 解决事件查看器中的会话“PerfDiag Logger”未能启动，存在以下错误: 0xC0000035 问题。
 DisablePerfDiagLogger
