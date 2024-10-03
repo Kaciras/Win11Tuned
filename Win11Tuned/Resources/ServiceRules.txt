@@ -88,6 +88,10 @@ CDPSvc
 通过微软账户同步历史和一些配置，禁用后【活动历史记录】和【Windows备份】无法使用。
 Disabled
 
+PushToInstall
+如果登录了同一个微软账户，则可以从远端设备上给该设备装 App Store 里的软件，可以看出是个没什么用的服务，默认手动但经常会运行。
+Disabled
+
 CDPUserSvc
 跟上面连接设备平台服务配套的，要禁就一起。
 Disabled
