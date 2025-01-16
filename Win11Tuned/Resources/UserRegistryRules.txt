@@ -37,3 +37,7 @@ NoUserAssistLog
 禁止弹出 Gaming Overlay
 在启动某些游戏的时候会弹出一个框，需要新应用打开此 ms-gamingoverlay，不想装这东西的建议禁掉。
 DisableGameOverlay
+
+从右键菜单移除 Share 选项
+注意新版菜单里仅有顶上一栏的会消失，中间的可能还留着。
+RemoveShareContextMenu
