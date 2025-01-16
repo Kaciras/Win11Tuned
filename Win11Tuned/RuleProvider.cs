@@ -53,13 +53,17 @@ public sealed class RuleProvider(bool adminMode)
 			),
 		};
 
-		var appx = new AppxRuleSet();
-		var reader = new RuleFileReader(Resources.UninstallAppxRules);
-		while (reader.MoveNext())
+		if (Utils.CheckIsNotSafeMode())
 		{
-			appx.Uninstall(reader.Read());
+			var appx = new AppxRuleSet();
+            RuleSets.Add(appx);
+
+            var reader = new RuleFileReader(Resources.UninstallAppxRules);
+			while (reader.MoveNext())
+			{
+				appx.Uninstall(reader.Read());
+			}
 		}
-		RuleSets.Add(appx);
 
 		var startupUser = new StartupRuleSet(false);
 		startupUser.Add("^MicrosoftEdgeAutoLaunch");

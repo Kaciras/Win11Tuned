@@ -26,11 +26,20 @@ internal static class Utils
 		foreach (var item in ienum) action(item);
 	}
 
-	/// <summary>
-	/// 获取当前运行程序的用户，并检测其是否具有管理员权限。
-	/// </summary>
-	/// <seealso cref="https://stackoverflow.com/a/5953294/7065321"/>
-	public static bool CheckIsAdministrator()
+    /// <summary>
+    /// 检测系统是否处于正常启动，即非安全模式。
+    /// </summary>
+    /// <see href="https://stackoverflow.com/a/55662336/7065321"/>
+    public static bool CheckIsNotSafeMode()
+	{
+		return GetSystemMetrics(SM_CLEANBOOT) == 0;
+	}
+
+    /// <summary>
+    /// 获取当前运行程序的用户，并检测其是否具有管理员权限。
+    /// </summary>
+    /// <seealso cref="https://stackoverflow.com/a/5953294/7065321"/>
+    public static bool CheckIsAdministrator()
 	{
 		using var identity = WindowsIdentity.GetCurrent();
 		var principal = new WindowsPrincipal(identity);
@@ -122,7 +131,13 @@ internal static class Utils
 		throw new SystemException($"无法加载 {file}，错误代码:{code}");
 	}
 
-	[DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
+    // https://learn.microsoft.com/en-au/windows/win32/api/winuser/nf-winuser-getsystemmetrics
+    const int SM_CLEANBOOT = 67;
+
+    [DllImport("user32.dll")]
+    internal static extern int GetSystemMetrics(int smIndex);
+
+    [DllImport("kernel32.dll", SetLastError = true, CharSet = CharSet.Auto)]
 	static extern IntPtr LoadLibraryEx(string lpFileName, IntPtr hFile, int flags);
 
 	[DllImport("kernel32.dll")]
