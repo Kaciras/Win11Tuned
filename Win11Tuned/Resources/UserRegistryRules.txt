@@ -23,7 +23,7 @@ DisableAccessibility
 VisualEffects
 
 关闭 Windows 新增内容和建议
-取消勾选设置和选项 / 系统 / 通知 最下面的两个框。
+取消勾选设置和选项 / 系统 / 通知 最下面的三个框。
 DisableSuggestNotification
 
 移除广告 ID
