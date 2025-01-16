@@ -202,8 +202,13 @@ sealed partial class MainWindow : Form
 			}
 			catch (Exception ex)
 			{
+#if DEBUG
+				throw ex;
+
+#else
 				DisplayRuleError(node, ex);
 				return;
+#endif
 			}
 
 			progressBar.Value++;
