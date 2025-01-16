@@ -39,5 +39,5 @@ NoUserAssistLog
 DisableGameOverlay
 
 从右键菜单移除 Share 选项
-注意新版菜单里仅有顶上一栏的会消失，中间的可能还留着。
+注意新版菜单里仅有顶上一栏的会消失，中间的可能还留着。更改后重启 Explorer 生效。
 RemoveShareContextMenu

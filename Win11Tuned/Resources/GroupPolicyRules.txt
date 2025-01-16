@@ -63,7 +63,7 @@ HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\Attachments
 SaveZoneInformation
 1
 附件不保留区域信息
-禁止提醒下载的文件来自其他计算机有风险，这东西还会造成 Office 提醒内存不足的错误。
+禁止提醒下载的文件来自其他计算机有风险，这东西还会造成 Office 提醒内存不足的错误，对更改后下载的文件生效。
 
 HKLM\SOFTWARE\Policies\Microsoft\Windows\System
 EnableSmartScreen

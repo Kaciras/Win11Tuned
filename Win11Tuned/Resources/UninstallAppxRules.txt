@@ -29,6 +29,7 @@ Microsoft.ZuneMusic
 Microsoft.ZuneVideo
 Microsoft.MicrosoftOfficeHub
 MicrosoftWindows.Client
+MicrosoftWindows.Client.WebExperience
 
 # Cortana
 Microsoft.549981C3F5F10
