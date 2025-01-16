@@ -46,24 +46,6 @@ DisableEngine
 关闭应用程序兼容性引擎
 为提升兼容性，微软给一些曾经流行的老软件做了适配，在每次启动应用时都会检查，关闭后提升性能，但老软件可能无法运行。
 
-HKLM\SOFTWARE\Policies\Microsoft\Windows Defender
-DisableAntiSpyware
-1
-禁用 Windows Defender
-我自己是不用杀毒软件的，如果要用还是别关。
-
-HKLM\SOFTWARE\Policies\Microsoft\Windows Defender
-ServiceKeepAlive
-0
-关闭 Windows Defender 服务
-我自己是不用杀毒软件的，如果要用还是别关。
-
-HKLM\SOFTWARE\Policies\Microsoft\Windows Defender\Real-Time Protection
-DisableRealtimeMonitoring
-1
-关闭 Windows Defender 实时保护
-我自己是不用杀毒软件的，如果要用还是别关。
-
 HKLM\SOFTWARE\Policies\Microsoft\WindowsFirewall\StandardProfile
 EnableFirewall
 0
