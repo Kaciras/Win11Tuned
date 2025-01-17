@@ -195,6 +195,7 @@
     <EmbeddedResource Include="Resources\Registry\DisableGameOverlay.reg" />
     <EmbeddedResource Include="Resources\Registry\DisableLocalDumps.reg" />
     <EmbeddedResource Include="Resources\Registry\RemoveShareContextMenu.reg" />
+    <EmbeddedResource Include="Resources\Registry\ExplorerPrivacy.reg" />
     <None Include="Resources\SendToRules.txt" />
     <None Include="Resources\ServiceRules.txt" />
     <None Include="Resources\TaskSchdulerRules.txt" />
