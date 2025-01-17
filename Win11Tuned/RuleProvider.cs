@@ -40,6 +40,12 @@ public sealed class RuleProvider(bool adminMode)
 		var others = new List<Rule> {
 			new AppEventsRule(".None"),
 			new FileAttributeRule(
+				Environment.ExpandEnvironmentVariables("%ProgramFiles%/WindowsApps"),
+				FileAttributes.Directory,
+				"取消 WindowsApps 的隐藏属性",
+				"Microsoft Store 安装的程序都在这里。"
+			),
+			new FileAttributeRule(
 				Environment.ExpandEnvironmentVariables("%USERPROFILE%/AppData"),
 				FileAttributes.Directory,
 				"取消 AppData 的隐藏属性",
