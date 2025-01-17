@@ -1,4 +1,5 @@
-﻿using RegistryEx;
+﻿using System;
+using RegistryEx;
 
 namespace Win11Tuned.Rules;
 
@@ -16,20 +17,32 @@ public class RegFileRule : Rule
 	public string Description { get; }
 
 	readonly RegDocument document;
+	readonly string[] elevate;
 
-	public RegFileRule(string name, string description, string content)
-	{
+	public RegFileRule(
+		string name,
+		string description,
+		string content,
+		string[] elevate
+    ) {
 		document = new RegDocument();
 		document.Load(content);
 
 		Name = name;
 		Description = description;
+		this.elevate = elevate;
 	}
+
+	public RegFileRule(string name, string description, string content) 
+		: this(name, description, content, []) {}
 
 	public bool NeedOptimize()
 	{
 		return !document.IsSuitable;
 	}
 
-	public void Optimize() => document.Execute();
+	public void Optimize()
+	{
+		document.Execute();
+	}
 }
