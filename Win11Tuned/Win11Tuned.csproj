@@ -113,7 +113,6 @@
     </Compile>
     <Compile Include="RuleProvider.cs" />
     <Compile Include="Rules\AppEventsRule.cs" />
-    <Compile Include="Rules\AppxFolderPermissionRule.cs" />
     <Compile Include="Rules\AppxRuleSet.cs" />
     <Compile Include="Rules\ContextMenuRule.cs" />
     <Compile Include="Rules\DesktopIconRule.cs" />

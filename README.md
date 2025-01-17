@@ -23,4 +23,6 @@
 
 部分功能及其测试用例需要管理员权限，建议以管理员权限运行 IDE。
 
+如果编译报错无法找到`Windows.*`命名空间，请将`C:\Program Files (x86)\Windows Kits\10\UnionMetadata\<version>\Windows.winmd`加入到项目引用。
+
 优化规则写由 RuleProvider.cs 载入，大部分定义在 Resources 目录下，少数直接写在代码里。
