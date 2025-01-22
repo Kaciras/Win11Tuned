@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+using Microsoft.Win32;
 using RegistryEx;
+using Win11Tuned.Helper;
 
 namespace Win11Tuned.Rules;
 
@@ -17,20 +21,20 @@ public class RegFileRule : Rule
 	public string Description { get; }
 
 	readonly RegDocument document;
-	readonly string[] elevate;
+	readonly List<string> elevates;
 
 	public RegFileRule(
 		string name,
 		string description,
 		string content,
-		string[] elevate
-    ) {
+		List<string> elevates
+	) {
 		document = new RegDocument();
 		document.Load(content);
 
 		Name = name;
 		Description = description;
-		this.elevate = elevate;
+		this.elevates = elevates;
 	}
 
 	public RegFileRule(string name, string description, string content) 
@@ -43,6 +47,27 @@ public class RegFileRule : Rule
 
 	public void Optimize()
 	{
+		using var _ = new MultiDisposable<string>(elevates, key =>
+		{
+			var (baseKey, path) = SplitForKey(key);
+			return RegistryHelper.Elevate(baseKey, path);
+		});
+
 		document.Execute();
+	}
+
+	// TODO: Expose it in RegistryHelper
+	private static (RegistryKey, string) SplitForKey(string path)
+	{
+		string item = "";
+		string name = path;
+		int num = path.IndexOf('\\');
+		if (num != -1)
+		{
+			item = path.Substring(num + 1);
+			name = path.Substring(0, num);
+		}
+
+		return (RegistryHelper.GetBaseKey(name), item);
 	}
 }

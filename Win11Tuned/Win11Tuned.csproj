@@ -120,6 +120,7 @@
     <Compile Include="Helper\GroupPolicyObject.cs" />
     <Compile Include="Helper\HostsFile.cs" />
     <Compile Include="Helper\MultiDictionary.cs" />
+    <Compile Include="Helper\MultiDisposable.cs" />
     <Compile Include="Helper\RuleFileReader.cs" />
     <Compile Include="Helper\SimpleIniFile.cs" />
     <Compile Include="Helper\STAExecutor.cs" />

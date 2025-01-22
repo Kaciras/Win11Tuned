@@ -1,6 +1,7 @@
 禁止 TrustedInstaller 生成垃圾
 在修改 Windows 功能、更新系统时，TrustedInstaller 会记录日志并备份 WinSxS 中的旧组件，占用大量空间，你用不着它们就禁了。
 AvoidCBSGarbage
+HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing
 
 不播放 Windows 启动声音
 看个人喜好，我是比较喜欢安静一点的

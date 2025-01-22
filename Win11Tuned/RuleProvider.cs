@@ -139,9 +139,19 @@ public sealed class RuleProvider(bool adminMode)
 
 	// 下面是各种规则的加载逻辑，为了省点字把 Rule 后缀去掉了（ReadTaskRule -> ReadTask）
 
-	static Rule ReadRegistry(RuleFileReader reader)
+	static RegFileRule ReadRegistry(RuleFileReader reader)
 	{
-		return new RegFileRule(reader.Read(), reader.Read(), GetEmbeddedRegFile(reader.Read()));
+		var elevates = new List<string>();
+		var name = reader.Read();
+		var description = reader.Read();
+		var content = GetEmbeddedRegFile(reader.Read());
+
+		string moreLine;
+		while ((moreLine = reader.Read()).Length != 0)
+		{
+			elevates.Add(moreLine);
+		}
+		return new(name, description, content, elevates);
 	}
 
 	static string GetEmbeddedRegFile(string name)
