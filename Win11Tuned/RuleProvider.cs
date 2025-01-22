@@ -39,6 +39,7 @@ public sealed class RuleProvider(bool adminMode)
 
 		var others = new List<Rule> {
 			new AppEventsRule(".None"),
+			new TaskmgrSettingsRule(),
 			new FileAttributeRule(
 				Environment.ExpandEnvironmentVariables("%ProgramFiles%/WindowsApps"),
 				FileAttributes.Directory,
