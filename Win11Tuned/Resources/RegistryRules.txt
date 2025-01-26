@@ -19,6 +19,10 @@ DisableCrashDump
 Windows 默认在程序崩溃后会自动创建一个转储文件到 %LOCALAPPDATA%\CrashDumps 目录，你不调试它的话就没用，可以关闭该功能。
 DisableLocalDumps
 
+禁用一些诊断日志
+关闭账户登录日志、错误报告日志，如果你不准备靠它们来排查问题的话就可以关了。
+DisableDiagnosticLogs
+
 关闭 PerfDiag 事件日志
 解决事件查看器中的会话“PerfDiag Logger”未能启动，存在以下错误: 0xC0000035 问题。
 DisablePerfDiagLogger

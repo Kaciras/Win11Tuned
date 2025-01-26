@@ -231,6 +231,7 @@
     <EmbeddedResource Include="Resources\Registry\ExplorerPrivacy.reg" />
     <EmbeddedResource Include="Resources\Registry\VirtualizationBasedSecurity.reg" />
     <EmbeddedResource Include="Resources\Registry\ShowNotificationBell.reg" />
+    <EmbeddedResource Include="Resources\Registry\DisableDiagnosticLogs.reg" />
     <None Include="Resources\SendToRules.txt" />
     <None Include="Resources\ServiceRules.txt" />
     <None Include="Resources\TaskSchdulerRules.txt" />
