@@ -16,92 +16,113 @@ public class TaskSchedulerSet : OptimizableSet
 		return RuleFileReader
 			.Iter(Resources.TaskSchdulerRules)
 			.Select(CheckOptimizable)
-			.Where(item => item != null);
+			.Where(item => item.NeedOptimize());
 	}
 
-	Optimizable CheckOptimizable(RuleFileReader reader)
+	TaskOptimizable CheckOptimizable(RuleFileReader reader)
 	{
 		var path = reader.Read();
 		var description = reader.Read();
-		var keep = reader.Read() == ":DISABLE";
+		var keep = false;
+		var getTasks = FindSingle;
 
-		try
+		foreach (var str in reader.Read().Split(':'))
 		{
-			var folder = TaskSchedulerManager.Root.GetFolder(path);
-			if (folder.GetTasks((int)_TASK_ENUM_FLAGS.TASK_ENUM_HIDDEN).Count == 0)
+			switch (str)
 			{
-				return null;
+				case "PREFIX":
+					getTasks = PrefixSearch;
+					break;
+				case "DIRECTORY": 
+					getTasks = ListFolder;
+					break;
+				case "DISABLE": 
+					keep = true; 
+					break;
+				case "":
+					break; // Split 不自动移除空白。
+				default:
+					throw new InvalidDataException();
 			}
-			return new FolderOptimizeItem(folder, description);
-		}
-		catch (IOException e)
-		when (e is DirectoryNotFoundException || e is FileNotFoundException)
-		{
-			// Ignore, maybe the path is a task.
 		}
 
-		try
-		{
-			var task = TaskSchedulerManager.Root.GetTask(path);
-			if (keep && !task.Enabled)
-			{
-				return null;
-			}
-			return new TaskOptimizeItem(task, keep, description);
-		}
-		catch (IOException e)
-		when (e is DirectoryNotFoundException || e is FileNotFoundException)
-		{
-			return null; // Task not found, cannot optimize
-		}
+		return new TaskOptimizable(path, description, keep, getTasks);
+	}
+
+	static IEnumerable<IRegisteredTask> ListFolder(string path)
+	{
+		var folder = TaskSchedulerManager.Root.GetFolder(path);
+		return folder.GetTasks((int)_TASK_ENUM_FLAGS.TASK_ENUM_HIDDEN).Cast<IRegisteredTask>();
+	}
+
+	static IEnumerable<IRegisteredTask> FindSingle(string path)
+	{
+		return Enumerable.Repeat(TaskSchedulerManager.Root.GetTask(path), 1);
+	}
+
+	static IEnumerable<IRegisteredTask> PrefixSearch(string path)
+	{
+		var dir = Path.GetDirectoryName(path);
+		var prefix = Path.GetFileName(path);
+		return ListFolder(dir).Where(task => task.Name.StartsWith(prefix));
 	}
 }
 
-internal sealed class FolderOptimizeItem : Optimizable
+internal sealed class TaskOptimizable : Rule
 {
-	readonly ITaskFolder folder;
-
-	public string Name => folder.Name;
-
-	public string Description { get; }
-
-	public FolderOptimizeItem(ITaskFolder folder, string description)
-	{
-		this.folder = folder;
-		Description = description;
-	}
-
-	public void Optimize()
-	{
-		TaskSchedulerManager.ClearFolder(folder.Path);
-	}
-}
-
-internal sealed class TaskOptimizeItem : Optimizable
-{
-	readonly IRegisteredTask task;
+	readonly string path;
 	readonly bool keep;
+	readonly Func<string, IEnumerable<IRegisteredTask>> getTasks;
 
-	public string Name => task.Name;
+	public string Name { get; }
 
 	public string Description { get; }
 
-	public TaskOptimizeItem(IRegisteredTask task, bool keep, string description)
+	IEnumerable<IRegisteredTask> tasks;
+
+	public TaskOptimizable(
+		string path, 
+		string description, 
+		bool keep, 
+		Func<string, IEnumerable<IRegisteredTask>> getTasks)
 	{
-		this.task = task;
+		this.path = path;
 		this.keep = keep;
+		this.getTasks = getTasks;
+		Name = Path.GetFileName(path);
 		Description = description;
+	}
+
+	public bool NeedOptimize()
+	{
+		try
+		{
+			tasks = getTasks(path);
+			if (keep)
+			{
+				tasks = tasks.Where(task => task.Enabled);
+			}
+			return tasks.Any();
+		}
+		catch (IOException e)
+		when (e is DirectoryNotFoundException || e is FileNotFoundException)
+		{
+			return false; // Task not found, no need to optimize.
+		}
 	}
 
 	public void Optimize()
 	{
-		if (keep)
+		foreach (var task in tasks)
 		{
-			task.Enabled = false;
-		}
-		else
-		{
-			TaskSchedulerManager.DeleteTask(task.Path);
+			if (keep)
+			{
+				task.Enabled = false;
+			}
+			else
+			{
+				TaskSchedulerManager.DeleteTask(task.Path);
+			}
 		}
 	}
 }

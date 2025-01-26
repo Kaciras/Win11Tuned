@@ -44,7 +44,7 @@ public static class TaskSchedulerManager
 	}
 
 	/// <summary>
-	/// 清空目录中的所有任务，考虑到有些目录无法删除所有把文件夹留下了。
+	/// 清空目录中的所有任务，考虑到有些目录无法删除所以把文件夹留着。
 	/// </summary>
 	/// <param name="path">目录路径</param>
 	public static void ClearFolder(string path)
@@ -55,8 +55,6 @@ public static class TaskSchedulerManager
 			.Cast<IRegisteredTask>()
 			.ForEach(t => folder.DeleteTask(t.Name, 0));
 
-		folder.GetFolders(0)
-			.Cast<ITaskFolder>()
-			.ForEach(f => ClearFolder(f.Path));
+		folder.GetFolders(0).Cast<ITaskFolder>().ForEach(f => ClearFolder(f.Path));
 	}
 }

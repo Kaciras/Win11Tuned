@@ -1,22 +1,21 @@
 Microsoft\Windows\Application Experience
 客户体验改善计划相关的任务，没同意的可以删了
+:DIRECTORY
 
 Microsoft\Windows\Autochk
 客户体验改善计划相关的任务，没同意的可以删了
+:DIRECTORY
 
 Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector
 客户体验改善计划相关的任务，没同意的可以删了
 
 Microsoft\Windows\Customer Experience Improvement Program
 全是客户体验改善计划，不参加的直接删光光
+:DIRECTORY
 
-\Microsoft\Windows\Feedback\Siuf
+Microsoft\Windows\Feedback\Siuf
 Windows 反馈的任务，会收集用户信息，建议删了
-
-# TODO
-Microsoft\Windows\Application Experience\StartupAppTask
-启动项应该自己注意，而不是靠它来扫描
-:DISABLE
+:DIRECTORY
 
 Microsoft\Windows\DiskCleanup\SilentCleanup
 什么傻逼任务，磁盘空间不足还用你来提示？？？
@@ -27,6 +26,7 @@ Microsoft\Windows\Windows Error Reporting\QueueReporting
 
 Microsoft\Windows\SkyDrive
 SkyDrive 目录里两个同步任务是万恶之源，老在日志里报错，不用就删掉
+:DIRECTORY
 
 Microsoft\Windows\UPnP\UPnPHostConfig
 用不用 UPnp 服务不是你说了算，还敢在后台偷偷改
@@ -48,13 +48,9 @@ HP\Consent Manager Launcher
 如果禁用了 HP Analytics Service 服务则应该把它也禁了
 :DISABLE
 
-MicrosoftEdgeUpdateTaskMachineCore
+MicrosoftEdgeUpdateTask
 Edge 浏览器自动更新任务，禁止后不影响手动更新。
-:DISABLE
-
-MicrosoftEdgeUpdateTaskMachineUA
-Edge 浏览器自动更新任务，禁止后不影响手动更新。
-:DISABLE
+PREFIX:DISABLE
 
 Microsoft\Windows\LanguageComponentsInstaller\Installation
 自动下载系统语言相关的功能，感觉没什么用，还每天跑一次。
