@@ -60,12 +60,16 @@ public sealed class RuleProvider(bool adminMode)
 			),
 		};
 
-		if (Utils.CheckIsNotSafeMode())
+		if (Utils.CheckIsSafeMode())
+		{
+			RuleSets.Add(new RuleList("Microsoft Defender 专杀", [new NoDefenderRule()]));
+		}
+		else
 		{
 			var appx = new AppxRuleSet();
-            RuleSets.Add(appx);
+			RuleSets.Add(appx);
 
-            var reader = new RuleFileReader(Resources.UninstallAppxRules);
+			var reader = new RuleFileReader(Resources.UninstallAppxRules);
 			while (reader.MoveNext())
 			{
 				appx.Uninstall(reader.Read());

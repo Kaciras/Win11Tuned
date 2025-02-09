@@ -151,6 +151,7 @@
     <Compile Include="Rules\ExplorerFolderRule.cs" />
     <Compile Include="Rules\FileAttributeRule.cs" />
     <Compile Include="Rules\GroupPolicyRule.cs" />
+    <Compile Include="Rules\NoDefenderRule.cs" />
     <Compile Include="Rules\PowerShellPolicyRule.cs" />
     <Compile Include="Rules\RegFileRule.cs" />
     <Compile Include="Rules\Rule.cs" />

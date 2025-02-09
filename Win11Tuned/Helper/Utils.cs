@@ -30,9 +30,9 @@ internal static class Utils
     /// 检测系统是否处于正常启动，即非安全模式。
     /// </summary>
     /// <see href="https://stackoverflow.com/a/55662336/7065321"/>
-    public static bool CheckIsNotSafeMode()
+    public static bool CheckIsSafeMode()
 	{
-		return GetSystemMetrics(SM_CLEANBOOT) == 0;
+		return GetSystemMetrics(SM_CLEANBOOT) != 0;
 	}
 
     /// <summary>
