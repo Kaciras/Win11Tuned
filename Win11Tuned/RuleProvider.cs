@@ -60,9 +60,10 @@ public sealed class RuleProvider(bool adminMode)
 			),
 		};
 
-		if (Utils.CheckIsSafeMode())
+		var microsoftDefenderSet = new Rule[] { new DisableDefenderStep1() };
+        if (Utils.CheckIsSafeMode())
 		{
-			RuleSets.Add(new RuleList("Microsoft Defender 专杀", [new NoDefenderRule()]));
+			microsoftDefenderSet[0] = new DisableDefenderStep2();
 		}
 		else
 		{
@@ -86,6 +87,8 @@ public sealed class RuleProvider(bool adminMode)
 
 		if (AdminMode)
 		{
+            RuleSets.Add(new RuleList("Kill Microsoft Defender", microsoftDefenderSet));
+
             var startup = new StartupRuleSet(true);
             startup.Add("^RtkAudUService$");
             startup.Add("^SecurityHealth$");

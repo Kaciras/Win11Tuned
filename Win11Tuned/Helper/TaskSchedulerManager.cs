@@ -24,12 +24,25 @@ public static class TaskSchedulerManager
 
 	public static ITaskFolder Root { get; }
 
-	/// <summary>
-	/// 从任务计划程序中删除指定的任务。
-	/// </summary>
-	/// <param name="path">任务路径</param>
-	/// <returns>是否成功删除</returns>
-	public static bool DeleteTask(string path)
+	public static IRegisteredTask? Find(string path)
+	{
+        try
+        {
+            return Root.GetTask(path);
+        }
+        catch (IOException e)
+        when (e is DirectoryNotFoundException || e is FileNotFoundException)
+        {
+            return null; // Task not found.
+        }
+    }
+
+    /// <summary>
+    /// 从任务计划程序中删除指定的任务。
+    /// </summary>
+    /// <param name="path">任务路径</param>
+    /// <returns>是否成功删除</returns>
+    public static bool DeleteTask(string path)
 	{
 		try
 		{
