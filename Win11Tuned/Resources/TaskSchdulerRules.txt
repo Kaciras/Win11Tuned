@@ -32,6 +32,10 @@ Microsoft\Windows\SkyDrive
 SkyDrive 目录里两个同步任务是万恶之源，老在日志里报错，不用就删掉
 :DIRECTORY
 
+OneDrive
+不用 OneDrive 的可以清理。
+PREFIX:DISABLE
+
 Microsoft\Windows\UPnP\UPnPHostConfig
 用不用 UPnp 服务不是你说了算，还敢在后台偷偷改
 :DISABLE
