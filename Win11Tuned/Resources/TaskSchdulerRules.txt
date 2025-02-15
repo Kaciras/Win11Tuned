@@ -1,69 +1,62 @@
 Microsoft\Windows\Application Experience
 客户体验改善计划相关的任务，没同意的可以删了
-:DIRECTORY
+DELETE:DIRECTORY
 
 Microsoft\Windows\Autochk
 客户体验改善计划相关的任务，没同意的可以删了
-:DIRECTORY
+DELETE:DIRECTORY
 
 Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector
 客户体验改善计划相关的任务，没同意的可以删了
+DELETE
 
 Microsoft\Windows\Customer Experience Improvement Program
 全是客户体验改善计划，不参加的直接删光光
-:DIRECTORY
+DELETE:DIRECTORY
 
 Microsoft\Windows\Feedback\Siuf
 Windows 反馈的任务，会收集用户信息，建议删了
-:DIRECTORY
+DELETE:DIRECTORY
 
 Microsoft\Windows\DiskCleanup\SilentCleanup
 什么傻逼任务，磁盘空间不足还用你来提示？？？
-:DISABLE
 
 Microsoft\Windows\Windows Error Reporting\QueueReporting
 定期向 Microsoft 发送错误报告，不想发的可以删了
+DELETE
 
 Microsoft\Windows\Speech\SpeechModelDownloadTask
 下载个破语言模型也要天天运行？不使用语音识别的话可以禁了。
-:DISABLE
 
 Microsoft\Windows\SkyDrive
 SkyDrive 目录里两个同步任务是万恶之源，老在日志里报错，不用就删掉
-:DIRECTORY
+DELETE:DIRECTORY
 
 OneDrive
 不用 OneDrive 的可以清理。
-PREFIX:DISABLE
+PREFIX
 
 Microsoft\Windows\UPnP\UPnPHostConfig
 用不用 UPnp 服务不是你说了算，还敢在后台偷偷改
-:DISABLE
 
 Microsoft\Office\Office 15 Subscription Heartbeat
 如果你没有订阅 Office 就可以禁用此任务
-:DISABLE
 
 Microsoft\Office\Office ClickToRun Service Monitor
 给微软发错误报告的垃圾任务。
-:DISABLE
 
 Microsoft\Windows\Defrag\ScheduledDefrag
 整理磁盘碎片的任务，想手动运行的可以禁用它。该任务也可以在碎片整理和优化驱动器工具里修改。
-:DISABLE
 
 HP\Consent Manager Launcher
 如果禁用了 HP Analytics Service 服务则应该把它也禁了
-:DISABLE
 
 MicrosoftEdgeUpdateTask
 Edge 浏览器自动更新任务，禁止后不影响手动更新。
-PREFIX:DISABLE
+PREFIX
 
 Microsoft\Windows\LanguageComponentsInstaller\Installation
 自动下载系统语言相关的功能，感觉没什么用，还每天跑一次。
-:DISABLE
 
 Microsoft\Windows\LanguageComponentsInstaller\ReconcileLanguageResources
 自动下载系统语言相关的功能，感觉没什么用，还每天跑一次。
-:DISABLE

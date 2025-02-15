@@ -76,3 +76,9 @@ EnabledV9
 0
 关闭 Edge 浏览器的 SmartScreen
 SmartScreen 是什么自己搜，没啥用的东西关了吧。
+
+HKLM\SOFTWARE\Policies\Microsoft\Edge
+SmartScreenEnabled
+0
+关闭 Edge 浏览器的 SmartScreen
+SmartScreen 是什么自己搜，没啥用的东西关了吧。

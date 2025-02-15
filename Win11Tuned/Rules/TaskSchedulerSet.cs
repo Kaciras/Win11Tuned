@@ -23,7 +23,7 @@ public class TaskSchedulerSet : OptimizableSet
 	{
 		var path = reader.Read();
 		var description = reader.Read();
-		var keep = false;
+		var keep = true;
 		var getTasks = FindSingle;
 
 		foreach (var str in reader.Read().Split(':'))
@@ -36,8 +36,8 @@ public class TaskSchedulerSet : OptimizableSet
 				case "DIRECTORY": 
 					getTasks = ListFolder;
 					break;
-				case "DISABLE": 
-					keep = true; 
+				case "DELETE": 
+					keep = false; 
 					break;
 				case "":
 					break; // Split 不自动移除空白。

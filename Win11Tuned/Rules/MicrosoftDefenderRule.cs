@@ -59,7 +59,7 @@ class DisableDefenderStep1 : Rule
 
 	public bool NeedOptimize()
 	{
-		return (toDisable = [.. TASKS.Select(TaskSchedulerManager.Find).Where(x => x != null)]).Count != 0;
+		return (toDisable = [.. TASKS.Select(TaskSchedulerManager.Find).Where(x => x?.Enabled == true)]).Count != 0;
 	}
 
 	public void Optimize()
