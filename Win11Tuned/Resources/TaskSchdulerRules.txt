@@ -24,6 +24,10 @@ Microsoft\Windows\DiskCleanup\SilentCleanup
 Microsoft\Windows\Windows Error Reporting\QueueReporting
 定期向 Microsoft 发送错误报告，不想发的可以删了
 
+Microsoft\Windows\Speech\SpeechModelDownloadTask
+下载个破语言模型也要天天运行？不使用语音识别的话可以禁了。
+:DISABLE
+
 Microsoft\Windows\SkyDrive
 SkyDrive 目录里两个同步任务是万恶之源，老在日志里报错，不用就删掉
 :DIRECTORY
