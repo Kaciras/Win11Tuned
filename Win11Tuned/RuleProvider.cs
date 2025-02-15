@@ -80,17 +80,17 @@ public sealed class RuleProvider(bool adminMode)
 		startupUser.Add("^MicrosoftEdgeAutoLaunch");
 		RuleSets.Add(startupUser);
 
-		var startup = new StartupRuleSet(true);
-		startup.Add("^RtkAudUService$");
-		startup.Add("^SecurityHealth$");
-		RuleSets.Add(startup);
-
 		var userSoftware = new SoftwareRuleSet(false);
 		userSoftware.Add("OneDriveSetup.exe");
 		RuleSets.Add(userSoftware);
 
 		if (AdminMode)
 		{
+            var startup = new StartupRuleSet(true);
+            startup.Add("^RtkAudUService$");
+            startup.Add("^SecurityHealth$");
+            RuleSets.Add(startup);
+            
 			var systemSoftware = new SoftwareRuleSet(true);
 			// 这个 ID 还会变，上一版是 6A2A8076-135F-4F55-BB02-DED67C8C6934
 			systemSoftware.Add("{AF47B488-9780-4AB5-A97E-762E28013CA6}"); // Microsoft Update Health Tools
