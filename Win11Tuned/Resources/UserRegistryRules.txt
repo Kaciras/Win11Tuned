@@ -6,6 +6,10 @@ ShowNotificationBell
 这年头谁还用这功能，而且自动行为容易有安全问题。
 DisableAutoPlay
 
+禁用系统截屏快捷键
+如果安装了第三方截屏工具，且使用 PrintScreen 作为快捷键则需要关闭系统的。
+DisableSinppingKey
+
 优化资源管理器选项
 显示文件扩展名、自动扩展到当前目录、不显示库等，优化后需要在资源管理器里刷新一下。
 ExplorerOptions
