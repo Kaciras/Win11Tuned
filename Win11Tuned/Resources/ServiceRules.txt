@@ -203,6 +203,11 @@ AMD Crash Defender Service
 看名字好像能防系统崩溃，但实际上它只是上传日志，对你没有任何价值。
 Disabled
 
+# 还有个 amdfendr 即使禁止了还是能启动。
+amdfendrmgr
+AMD Crash Defender 的驱动。
+Disabled
+
 AMD External Events Utility
 禁用后无法运行 AMD Software 控制面板，未发现其它副作用。
 Disabled
