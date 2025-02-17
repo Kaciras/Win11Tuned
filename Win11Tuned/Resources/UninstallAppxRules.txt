@@ -19,6 +19,7 @@ Microsoft.Todos
 Microsoft.WindowsAlarms
 Microsoft.WindowsFeedbackHub
 Microsoft.WindowsMaps
+Microsoft.WidgetsPlatformRuntime
 Microsoft.Xbox
 Microsoft.XboxApp
 Microsoft.XboxGameOverlay
@@ -30,6 +31,7 @@ Microsoft.ZuneVideo
 Microsoft.MicrosoftOfficeHub
 MicrosoftWindows.Client
 MicrosoftWindows.Client.WebExperience
+MicrosoftWindows.CrossDevice
 
 # Cortana
 Microsoft.549981C3F5F10
