@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Win11Tuned.Properties;
 
@@ -20,8 +21,20 @@ public class HostsRuleSet : OptimizableSet
 
 	public IEnumerable<Optimizable> Scan()
 	{
-		var target = new HostsFile(Environment.ExpandEnvironmentVariables(PATH));
-		return rules.Where(rule => rule.Check(target));
+		var sys = Environment.ExpandEnvironmentVariables(PATH);
+        var target = new HostsFile();
+
+        try
+		{
+            using var reader = new StreamReader(sys);
+			target.Load(reader);
+		}
+		catch (FileNotFoundException) 
+		{
+			// In rare cases, the hosts file can be missing.
+		}
+
+        return rules.Where(rule => rule.Check(target));
 	}
 }
 
@@ -51,7 +64,18 @@ sealed class HostsRule : Optimizable
 	public void Optimize()
 	{
 		var file = Environment.ExpandEnvironmentVariables(HostsRuleSet.PATH);
-		var hosts = new HostsFile(file);
+		var hosts = new HostsFile();
+		var fileMissing = false;
+
+		try
+		{
+			using var reader = new StreamReader(file);
+			hosts.Load(reader);
+		}
+		catch (FileNotFoundException)
+		{
+			fileMissing = true;
+		}
 
 		hosts.AddEmptyLine();
 		foreach (var (host, ip) in document.Entries())
@@ -59,9 +83,17 @@ sealed class HostsRule : Optimizable
 			hosts.RemoveAll(host);
 			hosts.Add(host, ip);
 		}
-		using (new TempWriteableSession(file))
+
+		if (fileMissing)
 		{
 			hosts.WriteTo(file);
+		}
+		else
+		{
+			using (new TempWriteableSession(file))
+			{
+				hosts.WriteTo(file);
+			}
 		}
 	}
 }
