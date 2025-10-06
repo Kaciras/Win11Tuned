@@ -26,6 +26,10 @@ Taskbar
 Win11 的新菜单设计的像个傻逼，赶紧退回去！
 ClassicContextMenu
 
+命令行默认使用 CMD
+Windows11 默认使用新版 Windows Terminal 运行命令，这会导致一些兼容问题比如窗口不退出，可换回旧版。
+DefaultTerminal
+
 禁用辅助功能
 就是禁用筛选键、粘滞键、鼠标键、切换键等等东西，如果不是残疾人就没用，一不小心就按出来相当烦人。
 DisableAccessibility
