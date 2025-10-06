@@ -23,7 +23,6 @@ class DisableDefenderStep2 : Rule
 
 	public void Optimize()
 	{
-		DisableService("SgrmBroker");
 		DisableService("SecurityHealthService");
 		DisableService("MDCoreSvc");
 		DisableService("WdFilter");
