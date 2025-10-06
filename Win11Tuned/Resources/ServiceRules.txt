@@ -1,5 +1,7 @@
 # WinHttpAutoProxySvc 禁用后【网络和 Internet/代理】显示异常
 # TabletInputService 禁用墨迹服务会导致输入法无法启动，表现为无限访问 OOBE\LaunchUserOOBE 键。
+# SensorService 禁用后控制面板的 Power & Battery 会崩溃。
+# DisplayEnhancementService 禁用后无法调节屏幕亮度。
 # SecurityHealthService 整合到 Microsoft Defender 规则里了。
 
 BDESVC
@@ -141,16 +143,8 @@ icssvc
 跟其它设备共享移动数据网络的功能，默认是手动但开机会启动。
 Disabled
 
-DisplayEnhancementService
-不知道有什么用，先禁了。默认是手动但总是会运行。
-Disabled
-
 DispBrokerDesktopSvc
 不知道有什么用，先禁了。
-Disabled
-
-SensorService
-一些传感器的服务，比如横屏自动旋转等等，没这些传感器的可以禁了。默认是手动但总是会运行。
 Disabled
 
 # =============== 驱动型服务 ================
