@@ -229,6 +229,10 @@ RtkAudioUniversalService
 螃蟹声卡附带的服务，支持各种声音处理功能，禁用后 HP Audio Control 无法运行。
 Manual
 
+SNAPOService
+部分品牌的电脑会带这个服务，据说跟高清音频有关，但我完全没感觉。
+Manual
+
 SECOMNService
 部分品牌的电脑会带这个服务，据说跟高清音频有关，但我完全没感觉。
 Manual
