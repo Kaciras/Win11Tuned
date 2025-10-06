@@ -188,13 +188,11 @@ public sealed class RuleProvider(bool adminMode)
 			var folder = reader.Read();
 			var root = Path.Combine("HKEY_CLASSES_ROOT", folder);
 
-			folders = Search(root, item)
-				.Select(name => Path.Combine(folder, name))
-				.ToList();
+			folders = [..Search(root, item).Select(name => Path.Combine(folder, name))];
 		}
 		else
 		{
-			folders = reader.Drain().ToList();
+			folders = [.. reader.Drain()];
 			folders.Add(directive);
 		}
 

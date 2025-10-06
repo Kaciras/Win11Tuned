@@ -32,7 +32,7 @@ public sealed class AppxRuleSet : OptimizableSet
 		// TODO: DeprovisionPackageForAllUsersAsync 彻底删除 
 		var packageManager = new PackageManager();
 
-		return packageManager
+        return packageManager
 			.FindPackagesForUser("")
 			.Where(package => uninstall.Contains(package.Id.Name))
 			.Select(package => new UninstallAppx(package));

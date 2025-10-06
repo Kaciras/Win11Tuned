@@ -68,7 +68,7 @@ public class TaskSchedulerSet : OptimizableSet
 	}
 }
 
-internal sealed class TaskOptimizable : Rule
+sealed class TaskOptimizable : Rule
 {
 	readonly string path;
 	readonly bool keep;

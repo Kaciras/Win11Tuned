@@ -231,6 +231,8 @@
     <EmbeddedResource Include="Resources\Registry\ShowNotificationBell.reg" />
     <EmbeddedResource Include="Resources\Registry\DisableDiagnosticLogs.reg" />
     <EmbeddedResource Include="Resources\Registry\DisableSinppingKey.reg" />
+    <EmbeddedResource Include="Resources\Registry\SpaciousTaskbar.reg" />
+    <EmbeddedResource Include="Resources\Registry\DefaultTerminal.reg" />
     <None Include="Resources\SendToRules.txt" />
     <None Include="Resources\ServiceRules.txt" />
     <None Include="Resources\TaskSchdulerRules.txt" />
