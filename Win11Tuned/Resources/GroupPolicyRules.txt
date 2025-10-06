@@ -34,6 +34,12 @@ NoAutoUpdate
 关闭 Windows 自动更新
 使用组策略可彻底关闭 Windows 自动更新，想更新的话仍然可以手动检查。
 
+HKLM\SOFTWARE\Policies\Microsoft\WindowsStore
+AutoDownload
+2
+关闭 Windows Store 自动更新
+彻底关闭应用商店的自动更新，无时间限制，想更新的话仍然可以手动检查。
+
 HKLM\SOFTWARE\Policies\Microsoft\Windows\AppCompat
 DisablePCA
 1
