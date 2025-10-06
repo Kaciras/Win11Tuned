@@ -1,3 +1,4 @@
+Microsoft.BingSearch
 Microsoft.BingNews
 Microsoft.BingWeather
 Microsoft.GamingApp
@@ -11,6 +12,7 @@ Microsoft.MicrosoftSolitaireCollection
 Microsoft.NetworkSpeedTest
 Microsoft.Office
 Microsoft.OneConnect
+Microsoft.OutlookForWindows
 Microsoft.People
 Microsoft.Print3D
 Microsoft.ScreenSketch
@@ -21,6 +23,7 @@ Microsoft.WindowsFeedbackHub
 Microsoft.WindowsMaps
 Microsoft.WidgetsPlatformRuntime
 Microsoft.Xbox
+Microsoft.Xbox.TCUI
 Microsoft.XboxApp
 Microsoft.XboxGameOverlay
 Microsoft.XboxGamingOverlay
@@ -29,9 +32,14 @@ Microsoft.XboxSpeechToTextOverlay
 Microsoft.ZuneMusic
 Microsoft.ZuneVideo
 Microsoft.MicrosoftOfficeHub
+
 MicrosoftWindows.Client
 MicrosoftWindows.Client.WebExperience
 MicrosoftWindows.CrossDevice
+
+MSTeams
+
+MicrosoftCorporationII.QuickAssist
 
 # Cortana
 Microsoft.549981C3F5F10
