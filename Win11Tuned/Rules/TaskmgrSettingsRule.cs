@@ -7,7 +7,7 @@ namespace Win11Tuned.Rules;
 public class TaskmgrSettingsRule : Rule
 {
 	const string PATH = @"%LOCALAPPDATA%\Microsoft\Windows\TaskManager\settings.json";
-	const long COLUMNS = 0b1000000000100000000010000010000101;
+	const long COLUMNS = 17196662917;
 
 	readonly FileInfo settingsFile = new(Environment.ExpandEnvironmentVariables(PATH));
 
@@ -21,8 +21,8 @@ public class TaskmgrSettingsRule : Rule
 
 	public bool NeedOptimize()
 	{
-		// 因为不关心其它项，我也懒得自己带一份初始的，一般装了系统总会开一次任务管理器吧。
-		if (!settingsFile.Exists)
+        // 因为不关心其它项，我也懒得自己带一份初始的，一般装了系统总会开一次任务管理器吧。
+        if (!settingsFile.Exists)
 		{
 			return false;
 		}
