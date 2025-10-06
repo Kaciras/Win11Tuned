@@ -1,5 +1,6 @@
 # WinHttpAutoProxySvc 禁用后【网络和 Internet/代理】显示异常
 # TabletInputService 禁用墨迹服务会导致输入法无法启动，表现为无限访问 OOBE\LaunchUserOOBE 键。
+# SecurityHealthService 整合到 Microsoft Defender 规则里了。
 
 BDESVC
 不使用 BitLocker 加密的话可以禁了，禁用后 设置/BitLocker 不可用，默认手动但必定会被启动。
@@ -35,11 +36,6 @@ Disabled
 
 IKEEXT
 某些协议的 VPN 需要这个服务，不用的话可以关掉
-Disabled
-
-# 默认手动 TODO
-SecurityHealthService
-如果你关闭了安全中心监视的某项，他会不停地提示你，很烦人建议关了
 Disabled
 
 TrkWks
