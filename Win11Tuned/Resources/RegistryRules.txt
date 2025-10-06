@@ -23,6 +23,10 @@ DisableLocalDumps
 关闭账户登录日志、错误报告日志，如果你不准备靠它们来排查问题的话就可以关了。
 DisableDiagnosticLogs
 
+禁止 SearchHost.exe 启动 WebView2 进程
+不使用系统搜索框进行网络搜索的可以关掉这个功能。
+SearchHostWebView
+
 关闭 PerfDiag 事件日志
 解决事件查看器中的会话“PerfDiag Logger”未能启动，存在以下错误: 0xC0000035 问题。
 DisablePerfDiagLogger

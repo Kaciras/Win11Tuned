@@ -233,6 +233,7 @@
     <EmbeddedResource Include="Resources\Registry\DisableSinppingKey.reg" />
     <EmbeddedResource Include="Resources\Registry\SpaciousTaskbar.reg" />
     <EmbeddedResource Include="Resources\Registry\DefaultTerminal.reg" />
+    <EmbeddedResource Include="Resources\Registry\SearchHostWebView.reg" />
     <None Include="Resources\SendToRules.txt" />
     <None Include="Resources\ServiceRules.txt" />
     <None Include="Resources\TaskSchdulerRules.txt" />
