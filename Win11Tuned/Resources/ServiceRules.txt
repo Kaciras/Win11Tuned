@@ -24,6 +24,10 @@ hidserv
 如果你没有 HID 设备就可以禁用，该服务还容易被攻击者利用。
 Disabled
 
+whesvc
+25H2 推出的定时优化功能，但它真的能优化系统吗？我是不信的。
+Disabled
+
 ShellHWDetection
 这年头谁还玩自动播放，该服务也容易被攻击者利用，建议禁了
 Disabled
