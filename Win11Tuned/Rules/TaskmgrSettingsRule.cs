@@ -1,15 +1,18 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Text.Json.Nodes;
 
 namespace Win11Tuned.Rules;
 
+// 考虑过用合并 JSON 的设计，但新版任务管理器出得也不久，而且数组不好合并，所以还是手动改放心些。
 public class TaskmgrSettingsRule : Rule
 {
 	const string PATH = @"%LOCALAPPDATA%\Microsoft\Windows\TaskManager\settings.json";
 	const long COLUMNS = 17196662917;
+    const long FLAG_VISIBLE = 17957377;
 
-	readonly FileInfo settingsFile = new(Environment.ExpandEnvironmentVariables(PATH));
+    readonly FileInfo settingsFile = new(Environment.ExpandEnvironmentVariables(PATH));
 
 	public string Name => "调整任务管理器的视图";
 
@@ -18,30 +21,37 @@ public class TaskmgrSettingsRule : Rule
 	JsonNode document;
 	JsonNode tableSetting;
 	JsonNode detailsTable;
+	JsonNode processes;
 
-	public bool NeedOptimize()
+    public bool NeedOptimize()
 	{
         // 因为不关心其它项，我也懒得自己带一份初始的，一般装了系统总会开一次任务管理器吧。
         if (!settingsFile.Exists)
 		{
 			return false;
 		}
-
 		using var stream = settingsFile.OpenRead();
 		document = JsonNode.Parse(stream);
-		tableSetting = document.Root["TableSetting"];
-		detailsTable = tableSetting["Tables"][0];
 
-		return tableSetting["AutoAdjustColumns"].GetValue<bool>() 
+		tableSetting = document.Root["TableSetting"];
+        detailsTable = tableSetting["Tables"][0];
+		processes = document.Root["ListSettings"]["Lists"][0];
+
+		return processes["Columns"][2]["Flags"].GetValue<long>() != FLAG_VISIBLE
+            || document.Root["CpuMode"].GetValue<int?>() != 1
+            || tableSetting["AutoAdjustColumns"].GetValue<bool>()
 			|| detailsTable["SelectedColumns"].GetValue<long>() != COLUMNS;
-	}
+    }
 
 	public void Optimize()
 	{
 		tableSetting["AutoAdjustColumns"] = false;
 		detailsTable["SelectedColumns"] = COLUMNS;
+        processes["Columns"][2]["Flags"] = 17957377;
 
-		var columnWidths = detailsTable["ColumnWidths"];
+        document.Root["CpuMode"] = 1;
+
+        var columnWidths = detailsTable["ColumnWidths"];
 		columnWidths[0] = 160;		// Name
 		columnWidths[2] = 48;		// PID
 		columnWidths[7] = 40;		// CPU
