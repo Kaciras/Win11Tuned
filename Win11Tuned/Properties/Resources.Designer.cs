@@ -19,7 +19,7 @@ namespace Win11Tuned.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -180,6 +180,7 @@ namespace Win11Tuned.Properties {
         ///   Looks up a localized string similar to 禁止 TrustedInstaller 生成垃圾
         ///在修改 Windows 功能、更新系统时，TrustedInstaller 会记录日志并备份 WinSxS 中的旧组件，占用大量空间，你用不着它们就禁了。
         ///AvoidCBSGarbage
+        ///HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing
         ///
         ///不播放 Windows 启动声音
         ///看个人喜好，我是比较喜欢安静一点的
@@ -193,16 +194,9 @@ namespace Win11Tuned.Properties {
         ///不做系统相关开发的话这些调试信息鸟用没有，如果禁用了虚拟内存还会在事件日志里报错。
         ///DisableCrashDump
         ///
-        ///关闭 PerfDiag 事件日志
-        ///解决事件查看器中的会话“PerfDiag Logger”未能启动，存在以下错误: 0xC0000035 问题。
-        ///DisablePerfDiagLogger
-        ///
-        ///开启长路径支持
-        ///传统的 Windows 路径最多 255 个字符，从 Windows10 开始能够取消这个限制，建议开启。
-        ///EnableLongPath
-        ///
-        ///启用开发人员模式
-        ///启用设置 / 隐私和 [rest of string was truncated]&quot;;.
+        ///禁止程序崩溃后创建转储文件
+        ///Windows 默认在程序崩溃后会自动创建一个转储文件到 %LOCALAPPDATA%\CrashDumps 目录，你不调试它的话就没用，可以关闭该功能。
+        ///DisableLocalDu [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RegistryRules {
             get {
@@ -247,6 +241,9 @@ namespace Win11Tuned.Properties {
         /// <summary>
         ///   Looks up a localized string similar to # WinHttpAutoProxySvc 禁用后【网络和 Internet/代理】显示异常
         ///# TabletInputService 禁用墨迹服务会导致输入法无法启动，表现为无限访问 OOBE\LaunchUserOOBE 键。
+        ///# SensorService 禁用后控制面板的 Power &amp; Battery 会崩溃。
+        ///# DisplayEnhancementService 禁用后无法调节屏幕亮度。
+        ///# SecurityHealthService 整合到 Microsoft Defender 规则里了。
         ///
         ///BDESVC
         ///不使用 BitLocker 加密的话可以禁了，禁用后 设置/BitLocker 不可用，默认手动但必定会被启动。
@@ -260,25 +257,8 @@ namespace Win11Tuned.Properties {
         ///收集用户信息的，如果不想分享给微软就可以关了，据某些用户说会占用较多资源
         ///Disabled
         ///
-        ///hidserv
-        ///如果你没有 HID 设备就可以禁用，该服务还容易被攻击者利用。
-        ///Disabled
-        ///
-        ///ShellHWDetection
-        ///这年头谁还玩自动播放，该服务也容易被攻击者利用，建议禁了
-        ///Disabled
-        ///
-        ///WSearch
-        ///系统自带的搜索功能，挺占磁盘的，如果不需要高级搜索功能就关了吧
-        ///Disabled
-        ///
-        ///PcaSvc
-        ///啥卵用都没有的兼容性助手
-        ///Disabled
-        ///
-        ///IKEEXT
-        ///某些协议的 VPN 需要这个服务，不用的话可以关掉
-        ///Di [rest of string was truncated]&quot;;.
+        ///DusmSvc
+        ///统计以及限制网络流量的服务，如果没使用计费的网络就可以关掉，注意关闭后 Network &amp; internet 控制面板上面的 大图标、Proper [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ServiceRules {
             get {
@@ -325,26 +305,28 @@ namespace Win11Tuned.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Microsoft\Windows\Application Experience
         ///客户体验改善计划相关的任务，没同意的可以删了
+        ///DELETE:DIRECTORY
         ///
         ///Microsoft\Windows\Autochk
         ///客户体验改善计划相关的任务，没同意的可以删了
+        ///DELETE:DIRECTORY
         ///
         ///Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector
         ///客户体验改善计划相关的任务，没同意的可以删了
+        ///DELETE
         ///
         ///Microsoft\Windows\Customer Experience Improvement Program
         ///全是客户体验改善计划，不参加的直接删光光
+        ///DELETE:DIRECTORY
         ///
-        ///\Microsoft\Windows\Feedback\Siuf
+        ///Microsoft\Windows\Feedback\Siuf
         ///Windows 反馈的任务，会收集用户信息，建议删了
-        ///
-        ///# TODO
-        ///Microsoft\Windows\Application Experience\StartupAppTask
-        ///启动项应该自己注意，而不是靠它来扫描
-        ///:DISABLE
+        ///DELETE:DIRECTORY
         ///
         ///Microsoft\Windows\DiskCleanup\SilentCleanup
-        ///什么傻逼任务，磁盘空间不足还用你来 [rest of string was truncated]&quot;;.
+        ///什么傻逼任务，磁盘空间不足还用你来提示？？？
+        ///
+        ///Microsoft\W [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TaskSchdulerRules {
             get {
@@ -380,7 +362,8 @@ namespace Win11Tuned.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Microsoft.BingNews
+        ///   Looks up a localized string similar to Microsoft.BingSearch
+        ///Microsoft.BingNews
         ///Microsoft.BingWeather
         ///Microsoft.GamingApp
         ///Microsoft.GetHelp
@@ -393,6 +376,7 @@ namespace Win11Tuned.Properties {
         ///Microsoft.NetworkSpeedTest
         ///Microsoft.Office
         ///Microsoft.OneConnect
+        ///Microsoft.OutlookForWindows
         ///Microsoft.People
         ///Microsoft.Print3D
         ///Microsoft.ScreenSketch
@@ -400,9 +384,7 @@ namespace Win11Tuned.Properties {
         ///Microsoft.Todos
         ///Microsoft.WindowsAlarms
         ///Microsoft.WindowsFeedbackHub
-        ///Microsoft.WindowsMaps
-        ///Microsoft.Xbox
-        ///Microsoft.XboxApp [rest of string was truncated]&quot;;.
+        ///Micro [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string UninstallAppxRules {
             get {
@@ -411,13 +393,25 @@ namespace Win11Tuned.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 禁用自动播放
+        ///   Looks up a localized string similar to 显示任务栏右侧的通知铃铛
+        ///如果通知出现的时候人不在，可能就会错过，显示这个铃铛可以通过颜色判断有无未读消息，建议开启。
+        ///ShowNotificationBell
+        ///
+        ///禁用自动播放
         ///这年头谁还用这功能，而且自动行为容易有安全问题。
         ///DisableAutoPlay
+        ///
+        ///禁用系统截屏快捷键
+        ///如果安装了第三方截屏工具，且使用 PrintScreen 作为快捷键则需要关闭系统的。
+        ///DisableSinppingKey
         ///
         ///优化资源管理器选项
         ///显示文件扩展名、自动扩展到当前目录、不显示库等，优化后需要在资源管理器里刷新一下。
         ///ExplorerOptions
+        ///
+        ///不显示最近使用的文件
+        ///禁止资源管理器在快速访问栏里自动记录最近使用的文件。
+        ///ExplorerPrivacy
         ///
         ///优化任务栏设置
         ///不合并按钮，显示所有托盘图标等，总之不要隐藏信息，除非你会同时开十几个程序否则任务栏是用不满的。
@@ -427,21 +421,8 @@ namespace Win11Tuned.Properties {
         ///Win11 的新菜单设计的像个傻逼，赶紧退回去！
         ///ClassicContextMenu
         ///
-        ///禁用辅助功能
-        ///就是禁用筛选键、粘滞键、鼠标键、切换键等等东西，如果不是残疾人就没用，一不小心就按出来相当烦人。
-        ///DisableAccessibility
-        ///
-        ///简化视觉效果
-        ///除了“显示缩略图而不是显示图标”和“拖动时显示窗口内容”外全部关闭，避免各种效果浪费时间和性能。
-        ///VisualEffects
-        ///
-        ///关闭 Windows 新增内容和建议
-        ///取消勾选设置和选项 / 系统 / 通知 最下面的两个框。
-        ///DisableSuggestNotification
-        ///
-        ///移除广告 ID
-        ///不允许使用我的广告 ID 来展示个性化广告。
-        ///RemoveAdvertisingI [rest of string was truncated]&quot;;.
+        ///命令行默认使用 CMD
+        ///Windows11 默认使用新版 Windows Terminal 运行命令，这会导致一些兼容问题比如 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string UserRegistryRules {
             get {

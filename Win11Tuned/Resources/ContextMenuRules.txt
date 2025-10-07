@@ -40,6 +40,7 @@ shell\AnyCode
 Directory
 Directory\background
 
+# 跟系统的 Edit in Notepad 冲了？
 shell\edit
 各种纯文本类文件 - 编辑
 跟"记事本打开"的功能重复了，删之。
