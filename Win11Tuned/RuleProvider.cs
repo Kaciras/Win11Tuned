@@ -87,7 +87,7 @@ public sealed class RuleProvider(bool adminMode)
 
 		if (AdminMode)
 		{
-            RuleSets.Add(new RuleList("Kill Microsoft Defender", microsoftDefenderSet));
+            RuleSets.Add(new RuleList("禁用 Microsoft Defender", microsoftDefenderSet));
 
             var startup = new StartupRuleSet(true);
             startup.Add("^RtkAudUService$");
