@@ -9,8 +9,8 @@ namespace Win11Tuned.Rules;
 public class TaskmgrSettingsRule : Rule
 {
 	const string PATH = @"%LOCALAPPDATA%\Microsoft\Windows\TaskManager\settings.json";
-	const long COLUMNS = 17196662917;
-    const long FLAG_VISIBLE = 17957377;
+    const long COL_HIDDEN = 17957377;
+	const long TABLE_COLUMNS = 17196662917;
 
     readonly FileInfo settingsFile = new(Environment.ExpandEnvironmentVariables(PATH));
 
@@ -37,17 +37,17 @@ public class TaskmgrSettingsRule : Rule
         detailsTable = tableSetting["Tables"][0];
 		processes = document.Root["ListSettings"]["Lists"][0];
 
-		return processes["Columns"][2]["Flags"].GetValue<long>() != FLAG_VISIBLE
-            || document.Root["CpuMode"].GetValue<int?>() != 1
+		return processes["Columns"][2]["Flags"].GetValue<long>() != COL_HIDDEN
+            || document.Root["CpuMode"]?.GetValue<int>() != 1
             || tableSetting["AutoAdjustColumns"].GetValue<bool>()
-			|| detailsTable["SelectedColumns"].GetValue<long>() != COLUMNS;
+			|| detailsTable["SelectedColumns"].GetValue<long>() != TABLE_COLUMNS;
     }
 
 	public void Optimize()
 	{
 		tableSetting["AutoAdjustColumns"] = false;
-		detailsTable["SelectedColumns"] = COLUMNS;
-        processes["Columns"][2]["Flags"] = 17957377;
+		detailsTable["SelectedColumns"] = TABLE_COLUMNS;
+        processes["Columns"][2]["Flags"] = COL_HIDDEN;
 
         document.Root["CpuMode"] = 1;
 
@@ -57,8 +57,16 @@ public class TaskmgrSettingsRule : Rule
 		columnWidths[7] = 40;		// CPU
 		columnWidths[13] = 80;		// Memory (active)
 		columnWidths[23] = 50;		// Threads
-		columnWidths[33] = 1600;    // Command Line
+		columnWidths[34] = 1600;    // Command Line
 
-		File.WriteAllText(settingsFile.FullName, document.ToString());
+        columnWidths = detailsTable["ColumnWidths_TwoCpuMetrics"];
+        columnWidths[0] = 160;      // Name
+        columnWidths[2] = 48;       // PID
+        columnWidths[7] = 40;       // CPU
+        columnWidths[13] = 80;      // Memory (active)
+        columnWidths[23] = 50;      // Threads
+        columnWidths[34] = 1600;    // Command Line
+
+        File.WriteAllText(settingsFile.FullName, document.ToString());
 	}
 }
