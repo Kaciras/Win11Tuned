@@ -17,6 +17,7 @@ Microsoft.People
 Microsoft.Print3D
 Microsoft.ScreenSketch
 Microsoft.SkypeApp
+Microsoft.StartExperiencesApp
 Microsoft.Todos
 Microsoft.WindowsAlarms
 Microsoft.WindowsFeedbackHub
