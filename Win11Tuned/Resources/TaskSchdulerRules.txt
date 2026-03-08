@@ -18,6 +18,10 @@ Microsoft\Windows\Feedback\Siuf
 Windows 反馈的任务，会收集用户信息，建议删了
 DELETE:DIRECTORY
 
+# https://github.com/fkie-cad/windowsScripts/blob/c7e29bb740d3c2604c07750fe7b42ed8cbf9defb/disableTasks.bat#L244
+Microsoft\Windows\AccountHealth
+不知道一个账号有什么需要修复的，且据称该任务会收集信息发给微软。
+
 Microsoft\Windows\DiskCleanup\SilentCleanup
 什么傻逼任务，磁盘空间不足还用你来提示？？？
 
