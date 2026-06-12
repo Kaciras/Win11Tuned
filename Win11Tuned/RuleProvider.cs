@@ -65,7 +65,7 @@ public sealed class RuleProvider(bool adminMode)
 		{
 			microsoftDefenderSet[0] = new DisableDefenderStep2();
 		}
-		else
+		else if (AdminMode)
 		{
 			var appx = new AppxRuleSet();
 			RuleSets.Add(appx);
