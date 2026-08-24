@@ -68,3 +68,6 @@ Microsoft\Windows\LanguageComponentsInstaller\Installation
 
 Microsoft\Windows\LanguageComponentsInstaller\ReconcileLanguageResources
 自动下载系统语言相关的功能，感觉没什么用，还每天跑一次。
+
+Microsoft\Windows\AppxDeploymentClient\UCPD velocity
+跟 UCPD 服务配套的东西，需要一起禁了。

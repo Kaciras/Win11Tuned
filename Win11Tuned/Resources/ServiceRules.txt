@@ -9,11 +9,15 @@ BDESVC
 Disabled
 
 DPS
-屁用没有的诊断功能，出了问题不 Google 谁看这玩意
+屁用没有的诊断功能，出了问题不 Google 谁看这玩意。
 Disabled
 
 DiagTrack
-收集用户信息的，如果不想分享给微软就可以关了，据某些用户说会占用较多资源
+收集用户信息的，如果不想分享给微软就可以关了，据某些用户说会占用较多资源。
+Disabled
+
+wuqisvc
+TODO，默认手动但总是运行。
 Disabled
 
 DusmSvc
@@ -151,6 +155,10 @@ DispBrokerDesktopSvc
 不知道有什么用，先禁了。
 Disabled
 
+WSAIFabricSvc
+TODO：看起来像提供 AI 功能的服务，但真的有人用微软的弱智 AI 吗？
+Disabled
+
 # =============== 驱动型服务 ================
 
 bam
@@ -159,6 +167,10 @@ Disabled
 
 dam
 驱动类服务，不显示在服务管理器中。该服务在屏幕关闭时会暂停一些程序来省电，它可能导致某些程序卡死，而且也省不了多少电，建议关了。
+Disabled
+
+UCPD
+User Choice Protection Driver，阻止用户修改一些系统配置的监控程序，微软犯贱的产物。某些报道称还会偷偷上传数据。
 Disabled
 
 # ================ HP 服务 ================
